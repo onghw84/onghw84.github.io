@@ -1,0 +1,114 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "KaiTi", "楷体", "Times New Roman", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-left: 10px;
+  height: 10px;
+  width: 100px; 
+}
+
+.but {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistics{
+  width: 300px;
+  height: 20px;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#total{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+}
+
+#learn{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: pink;
+  text-align: center;
+}
+
+
+#card {
+  margin: auto;
+  background-color: #FFE5B4;
+  width: 300px;
+  height: 300px;
+  font-size: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 10pt solid pink;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: lightblue;
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#error-btn {
+  background-color: yellowgreen;
+  border: 1pt solid green;
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .form-container {
+    align-self: flex-end;
+  }
+
+  #output-container {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+  #solution-container {
+    width: 75%;
+    margin-top: 0;
+  }
+}
