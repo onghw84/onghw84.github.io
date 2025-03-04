@@ -4,11 +4,41 @@
 }
 
 body {
+  font-family: "KaiTi", "楷体", "Times New Roman", Helvetica, Arial, sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-left: 10px;
+  height: 10px;
+  width: 100px; 
+}
+
+.but {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#total{
+  width: 300px;
+  height: 20px;
+  margin: auto;
+  margin-top: 10px;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
 }
 
 #card {
@@ -27,15 +57,19 @@ body {
 }
 
 button {
-  display: block;
-  width: 300px;
-  height: 30px;
+  width: 150px;
+  height: 50px;
   background-color: lightblue;
   margin: auto;
   margin-top: 20px;
   border: 1pt solid blue;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 20px;
+}
+
+#error-btn {
+  background-color: yellowgreen;
+  border: 1pt solid green;
 }
 
 @media (min-width: 800px) {
