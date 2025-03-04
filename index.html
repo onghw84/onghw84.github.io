@@ -14,12 +14,22 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <div class="container">
-    <div id="card">
-      <p id="character">测</p>      
+    <div class="radio">
+      <input type="radio" id="charset1" name="char_set" value="1" checked >
+      <label for="charset1">SET1</label><br>
+      <input type="radio" id="charset2" name="char_set" value="2">
+      <label for="charset2">SET2</label><br>
     </div>
-      <button id="next-btn">NEXT</button>
-  </div>
+    <div class="container">
+      <div id="card">
+        <p id="character">中</p>      
+      </div>
+      <div class="but">
+        <button id="next-btn">NEXT</button>
+        <button id="error-btn">ERROR</button>
+      </div>
+      <div id="total">0</div>
+    </div>
   </body>
   <script src="../public/index.js"></script>
 </html>
