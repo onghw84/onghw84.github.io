@@ -31,15 +31,35 @@ label {
   align-items: center;
 }
 
-#total{
+.statistics{
   width: 300px;
   height: 20px;
   margin: auto;
   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#total{
+  width: 120px;
+  height: 20px;
+  margin: auto;
   border: 1pt solid black;
   background-color: #FFE5B4;
   text-align: center;
 }
+
+#learn{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: pink;
+  text-align: center;
+}
+
 
 #card {
   margin: auto;
