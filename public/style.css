@@ -72,7 +72,7 @@ label {
   align-items: center;
   border-radius: 20px;
   border: 10pt solid pink;
-  font-weight: bold;
+  /*font-weight: bold;*/
   flex-direction: column;
 }
 
