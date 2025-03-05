@@ -97,22 +97,6 @@ function nextHandler() {
   if (total >= 450){
     document.getElementById("song").style.visibility = "visible";
   }       
-  /*const data = await fetch("/api/character", {
-    method: "get",
-    headers: {
-      "Accept": "application/json",
-      "Content-type": "application/json"
-    },
-    body: JSON.stringify({"text": textArea.value, "locale": localeArea.value})
-  });
-
-  const parsed = await data.json();
-  if (parsed.error) {
-    errorArea.innerText = JSON.stringify(parsed);
-    return;
-  }
-
-  translatedArea.innerHTML = parsed.translation;*/
   return;
 };
 
@@ -122,6 +106,3 @@ function errorHandler() {
   nextHandler();
   return;
 };
-
-
-//document.getElementById('input[name="char_set"]').addEventListener("change", console.log("charset1"));
