@@ -77,6 +77,23 @@ label {
   flex-direction: column;
 }
 
+#pinyin {
+  margin-top: -40px;
+  margin-right: 20px;
+  font-family: Cambria;
+  font-size: 35px;
+  text-align: right;
+}
+
+#count {
+  margin-top: -35px;
+  margin-left: 20px;
+  height: 20px;
+  font-family: Cambria;
+  font-size: 20px;
+  text-align: left;
+}
+
 button {
   width: 150px;
   height: 50px;
