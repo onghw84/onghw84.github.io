@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: "KaiTi", "楷体", "Noto Sans CJK JP", "Times New Roman", Helvetica, Arial, sans-serif;
+  font-family: "KaiTi", "楷体", 'Noto Sans', "Noto Sans CJK JP", "Times New Roman", Helvetica, Arial, sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,7 @@ body {
 }
 
 .radio {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
@@ -21,7 +22,7 @@ body {
 label {
   margin-left: 10px;
   height: 10px;
-  width: 100px; 
+  width: 60px; 
 }
 
 .but {
@@ -90,6 +91,26 @@ button {
 #error-btn {
   background-color: yellowgreen;
   border: 1pt solid green;
+}
+
+img{
+  visibility: hidden;
+  width: 80px;
+}
+
+#song{
+  visibility: hidden;
+}
+
+#catImage{
+  width: 100vw;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 800px) {
