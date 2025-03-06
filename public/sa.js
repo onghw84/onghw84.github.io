@@ -1,7 +1,7 @@
 var correct = 0;
 var error = 0;
-const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-star","fa fa-tree","fa fa-subway","fa fa-train","fa fa-plane","fa fa-bicycle","fa fa-bell","fa fa-coffee","fa fa-heart","fa fa-gift","fa fa-umbrella","fa fa-circle"]
-const colorArray = ["orange","orangered","blue","pink","green","red","peru","purple","indigo"]
+const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-star","fa fa-tree","fa fa-subway","fa fa-train","fa fa-plane","fa fa-bell","fa fa-coffee","fa fa-heart","fa fa-gift","fa fa-umbrella","fa fa-circle"]
+const colorArray = ["orange","orangered","blue","pink","green","red","peru","purple"]
 document.getElementById("A").addEventListener("click", answerHandler)
 document.getElementById("B").addEventListener("click", answerHandler)
 document.getElementById("C").addEventListener("click", answerHandler)
@@ -106,8 +106,8 @@ function genQues(){
   document.getElementById("C").style.backgroundColor = "greenyellow";
   document.getElementById("D").style.backgroundColor = "greenyellow";
 
-  const num1 = Math.floor(Math.random()*20);
-  const num2 = Math.floor(Math.random()*(20-num1));
+  const num1 = Math.ceil(Math.random()*10);
+  const num2 = Math.ceil(Math.random()*10);
   number1.innerHTML = num1;
   number2.innerHTML = num2;
   if (Math.random() <= 0.5){
@@ -158,17 +158,31 @@ function genQues(){
   //generate icon
   const color = colorArray[Math.floor(Math.random()*colorArray.length)];
   const icon = iconArray[Math.floor(Math.random()*iconArray.length)];
-
   var text = ""
-  for (var i = 0; i < number1.innerHTML; i++){
-    text += `<i class="${icon}"></i>`
+  
+  if (arithmetic.innerHTML == "+"){
+    for (var i = 0; i < number1.innerHTML; i++){
+      text += `<i class="${icon}"></i>`
+    }
+    illus1.innerHTML = text;
+    illus1.style.color = color;
+    text = ""
+    for (var i = 0; i < number2.innerHTML; i++){
+      text += `<i class="${icon}"></i>`
+    }
+    illus2.innerHTML = text;
+    illus2.style.color = color;
   }
-  illus1.innerHTML = text;
-  illus1.style.color = color;
-  text = ""
-  for (var i = 0; i < number2.innerHTML; i++){
-    text += `<i class="${icon}"></i>`
+  else {
+    for (var i = 0; i < number1.innerHTML; i++){
+      if (i < number2.innerHTML){
+        text += `<i class="${icon}" style="color:black;"></i>`
+      }
+      else {
+        text += `<i class="${icon}" style="color:${color};"></i>`
+      }
+    }
+    illus1.innerHTML = text;
+    illus2.innerHTML = "";
   }
-  illus2.innerHTML = text;
-  illus2.style.color = color;
 }
