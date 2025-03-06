@@ -106,8 +106,8 @@ function genQues(){
   document.getElementById("C").style.backgroundColor = "greenyellow";
   document.getElementById("D").style.backgroundColor = "greenyellow";
 
-  const num1 = Math.ceil(Math.random()*10);
-  const num2 = Math.ceil(Math.random()*10);
+  const num1 = Math.ceil(Math.random()*12);
+  const num2 = Math.ceil(Math.random()*12);
   number1.innerHTML = num1;
   number2.innerHTML = num2;
   if (Math.random() <= 0.5){
