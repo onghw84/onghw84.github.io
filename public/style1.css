@@ -136,6 +136,11 @@ img{
   height: auto;
 }
 
+#happy, #sad{
+  width: 120px;
+  height: 120px;
+}
+
 #sad{
   display: none;
 }
