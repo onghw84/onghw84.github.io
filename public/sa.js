@@ -107,7 +107,7 @@ function genQues(){
   document.getElementById("D").style.backgroundColor = "greenyellow";
 
   const num1 = Math.floor(Math.random()*20);
-  const num2 = Math.floor(Math.random()*20);
+  const num2 = Math.floor(Math.random()*(20-num1));
   number1.innerHTML = num1;
   number2.innerHTML = num2;
   if (Math.random() <= 0.5){
