@@ -5,39 +5,40 @@ const audio_dir = './public/audio/';
 Mchars.push(['猫','狗','兔子','老鼠','大象']);
 Mchars.push(['鱼','狮子','老虎','蛇','龙']);
 Mchars.push(['母鸡','小鸡','马','山羊','公鸡']);
-Mchars.push(['猴子','绵羊','火鸡','鸟','牛']);
-Mchars.push(['鳄鱼','鸭子','松鼠','熊猫','鹿']);
-Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
+Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
+Mchars.push(['云','花','叶子','石头','水']);
+Mchars.push(['沙子','树','草','山','河']);
 Mchars.push(['红','橙','黄','绿','蓝']);
 Mchars.push(['紫','黑','白','褐','粉色']);
+Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
+Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
+
 Echars.push(['Cat','Dog','Rabbit','Mouse','Elephant']);
 Echars.push(['Fish','Lion','Tiger','Snake','Dragon']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster']);
-Echars.push(['Monkey','Sheep','Turkey','Bird','Cow']);
-Echars.push(['Crocodile','Duck','Squirrel','Panda','Deer']);
-Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
+Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
+Echars.push(['Cloud','Flower','Leaf','Stone','Water']);
+Echars.push(['Sand','Tree','Grass','Mountain','River']);
 Echars.push(['Red','Orange','Yellow','Green','Blue']);
 Echars.push(['Purple','Black','White','Brown','Pink']);
+Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
+Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 
-Mchars.push(['云','花','叶子','石头','水']);
-Mchars.push(['沙子','树','草','山','河']);
 Mchars.push(['一','二','三','四','五']);
 Mchars.push(['六','七','八','九','十']);
 Mchars.push(['十一','十二','十三','十四','十五']);
 Mchars.push(['十六','十七','十八','十九','二十']);
+Mchars.push(['屋子','车子','风扇','电脑','手机']);
 /*Mchars.push(['三十','四十','五十','六十','七十']);
 Mchars.push(['八十','九十','百','千','百万']);*/
-Mchars.push(['屋子','车子','风扇','电脑','手机']);
-Echars.push(['Cloud','Flower','Leaf','Stone','Water']);
-Echars.push(['Sand','Tree','Grass','Mountain','River']);
+
 Echars.push(['One','Two','Three','Four','Five']);
 Echars.push(['Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
+Echars.push(['House','Car','Fan','Computer','Handphone']);
 /*Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
 Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);*/
-Echars.push(['House','Car','Fan','Computer','Handphone']);
-
 
 let reward = new Reward();
 
@@ -60,9 +61,10 @@ function answerHandler(){
   }
   else {
 		var index = Echars_array.indexOf(this.value);
-		playSound(index);		  
+		playSound(index);		
 	  if (answer != this.value){
 		this.style.backgroundColor = "orange";
+		this.value = this.value + '-'+Mchars_array[index];
 		var errCount = 0; var corA = 'A';
 		if (document.getElementById("A").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'A';}
 		if (document.getElementById("B").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'B';}

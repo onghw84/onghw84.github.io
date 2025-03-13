@@ -64,7 +64,7 @@ function nextHandler() {
   total += 1;
   totalD.innerHTML = total;
 
-  reward.showReward(total, 30);
+  reward.showReward(total, 1);
   return;
 };
 
@@ -78,5 +78,5 @@ function errorHandler() {
 document.getElementById("song").addEventListener("click", function (){
   total = 0;  
   totalD.innerHTML = total;
-  reward.showReward(total, 30);
+  reward.showReward(total, 1);
 });
