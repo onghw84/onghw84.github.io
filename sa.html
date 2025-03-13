@@ -7,15 +7,28 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
-	<link rel="stylesheet" href="../public/style1.css" type="text/css" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+	<link rel="stylesheet" href="./public/style1.css" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <!DOCTYPE html>
 <html>
   <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a class="active" href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+    </ul>    
     <h1>Simple Arithmetic</h1>
+    <div class = slider>
+      <input id="num1Range" type="range" min="5" max="50" value="15">
+      <input type="checkbox" id="showIllus" checked>
+      <input id="num2Range" type="range" min="5" max="50" value="15">
+    </div>
     <div class="container">
       <div class="container1" id="ques">
         <div class = "card">
@@ -63,18 +76,9 @@
         <div id="correct">0</div><div id="error">0</div>
       </div>
     </div>
-    <div id="catImage">
-      <img id="cat1" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0146.gif" alt="cat1" >
-      <img id="cat2" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0024.gif" alt="cat2" >
-      <img id="cat3" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0058.gif" alt="cat3" >
-      <img id="cat4" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0150.gif" alt="cat4" >
-      <img id="cat5" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0149.gif" alt="cat5" >
-      <img id="cat6" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0061.gif" alt="cat6" >
-      <img id="cat7" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0139.gif" alt="cat7" >
-      <img id="cat8" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0154.gif" alt="cat8" >
-      <a id="song" href="https://youtu.be/EGHQecqF4V0?si=o2nUdqdg2SFGQiPJ">Hello Kitty Song!</a>
+    <div id="reward">
     </div>    
-    <a href="/">Chinese Character Game</a>
   </body>
-  <script src="../public/sa.js"></script>
+  <script src="./public/reward.js"></script>
+  <script src="./public/sa.js"></script>
 </html>

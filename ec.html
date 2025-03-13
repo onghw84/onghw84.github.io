@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>English/Chinese</title>
+	<meta name="description" content="English/Chinese" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/common.css" type="text/css" />
+	<link rel="stylesheet" href="./public/style3.css" type="text/css" />
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html" class="active" >EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+    </ul>
+    <div class="radio">
+      <input type="radio" id="charset1" name="char_set" value="1" checked>
+      <label for="charset1">SET1</label>
+      <input type="radio" id="charset2" name="char_set" value="2" >
+      <label for="charset2">SET2</label>
+      <input type="radio" id="charset3" name="char_set" value="3">
+      <label for="charset3">SET3</label>
+      <input type="radio" id="charset4" name="char_set" value="4">
+      <label for="charset4">SET4</label>
+      <input type="radio" id="charset5" name="char_set" value="5">
+      <label for="charset5">SET5</label>
+      <input type="radio" id="charset6" name="char_set" value="6">
+      <label for="charset6">SET6</label>
+      <input type="radio" id="charset7" name="char_set" value="7">
+      <label for="charset7">SET7</label>
+      <input type="radio" id="charset8" name="char_set" value="8">
+      <label for="charset8">SET8</label>	  
+      <input type="radio" id="charset9" name="char_set" value="MIX">
+      <label for="charset9">MIX</label>		  
+    </div>
+    <div class="radio" style="margin-top: 5px;" id="check">
+      <input type="checkbox" id="check1" name="check_set" value="1" checked>
+      <label for="check1">SET1</label>
+      <input type="checkbox" id="check2" name="check_set" value="2" >
+      <label for="check2">SET2</label>
+      <input type="checkbox" id="check3" name="check_set" value="3">
+      <label for="check3">SET3</label>
+      <input type="checkbox" id="check4" name="check_set" value="4">
+      <label for="check4">SET4</label>
+      <input type="checkbox" id="check5" name="check_set" value="5">
+      <label for="check5">SET5</label>
+      <input type="checkbox" id="check6" name="check_set" value="6">
+      <label for="check6">SET6</label>
+      <input type="checkbox" id="check7" name="check_set" value="7">
+      <label for="check7">SET7</label>
+      <input type="checkbox" id="check8" name="check_set" value="8">
+      <label for="check8">SET8</label>	  
+    </div>	
+    <div class="radio" style="margin-top: 10px; width: auto;">
+      <input type="radio" id="learnSel" name="learn_play" value="1" checked>
+      <label for="learnSel">Learn</label>
+      <input type="radio" id="playSel" name="learn_play" value="2" >
+      <label for="playSel">Play</label>
+    </div>	
+    <div class="container">
+		<div id="learn">
+		  <div class="butvertical" id="learnC"></div>	  
+		  <div class="butvertical" id="limage">
+		  </div>
+		  <div class="butvertical" id="learnE"></div>
+		</div>	
+		<div id="play">
+		  <div class="butvertical">
+			  <div id="card">
+				<p id="character">猫</p>
+			  </div>
+			  <div id="pimage"><img src="./public/image/cat.jpg"></img></div>
+		  </div>
+		  <div id="cat">
+			<img id="happy" alt="happy" src="https://img.freepik.com/premium-vector/excitement-cat-vector-icon-illustration-clipart-design_574412-1145.jpg"></img>
+			<img id="sad" alt="sad" src="https://img.freepik.com/premium-vector/cat-vector-style-illustration_362642-6377.jpg"></img>
+		  </div>	  
+		  <div class="butvertical">
+			<input type="button" id="A" value="Cat">
+			<input type="button" id="B" value="Dog">
+			<input type="button" id="C" value="Mouse">
+			<input type="button" id="D" value="Elephant">
+		  </div>		  
+		</div>
+		<div class="statistics">
+			<div id="correct">0</div><div id="error">0</div>
+		</div>		
+    </div>
+    <div id="reward">
+    </div>    
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/ec.js"></script>
+</html>

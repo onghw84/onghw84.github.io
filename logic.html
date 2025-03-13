@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Logic Game</title>
+	<meta name="description" content="Logic Game" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+  <link rel="stylesheet" href="./public/style2.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a class="active" href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+    </ul>        
+    <h1>Logic Game</h1>
+    <div class="radio">
+      <input type="radio" id="level0" name="level" value="0" checked>
+      <label for="level0">0</label>
+      <input type="radio" id="level1" name="level" value="1" >
+      <label for="level1">1</label>
+      <input type="radio" id="level2" name="level" value="2">
+      <label for="level2">2</label>
+      <input type="radio" id="level3" name="level" value="3">
+      <label for="level3">3</label>
+      <input type="radio" id="level4" name="level" value="4">
+      <label for="level4">4</label>
+    </div>    
+    <div class="container">
+      <div class="container1">
+        <div class = "card">
+          <!-- <p id="number1">0 1 0 1 0 _ 0 1 0 1</p> -->
+          <p id="question">1 2 3  _  5  6  7  8  9  10</p>
+        </div>      
+      </div>
+      <div class="but">
+        <input type="button" id="A" value=4>
+        <input type="button" id="B" value=3>
+        <input type="button" id="C" value=0>
+        <input type="button" id="D" value=5>
+      </div>
+      <div id="cat">
+        <img id="happy" alt="happy" src="https://img.freepik.com/premium-vector/excitement-cat-vector-icon-illustration-clipart-design_574412-1145.jpg"></img>
+        <img id="sad" alt="sad" src="https://img.freepik.com/premium-vector/cat-vector-style-illustration_362642-6377.jpg"></img>
+      </div>
+      <div class="statistics">
+        <div id="correct">0</div><div id="error">0</div>
+      </div>
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/logic.js"></script>
+</html>

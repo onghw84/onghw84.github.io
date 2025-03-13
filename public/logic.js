@@ -9,34 +9,31 @@ document.getElementById("D").addEventListener("click", answerHandler)
 
 document.getElementById("correct").innerHTML = correct;
 document.getElementById("error").innerHTML = error;
-const number1 = document.getElementById("number1");
-const number2 = document.getElementById("number2");
-const arithmetic = document.getElementById("arithmetic");
-const illus1 = document.getElementById("illus1");
-const illus2 = document.getElementById("illus2");
+const question = document.getElementById("question");
 var answer = 0;
 let reward = new Reward();
+let level = 0;
 genQues();
 
+let diffSelect = document.querySelectorAll('input[name="level"]');
+for (let i = 0; i < diffSelect.length; i++) {
+  diffSelect[i].addEventListener("change", function() {
+    level = this.value;
+    genQues();
+  });
+}
+
 function answerHandler(){
-  if (this.value == "Next"){
-	genQues();  
-  }
   if (answer != this.value){
     this.style.backgroundColor = "orange";
-	var errCount = 0; var corA = 'A';
-	if (document.getElementById("A").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'A';}
-	if (document.getElementById("B").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'B';}
-	if (document.getElementById("C").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'C';}
-	if (document.getElementById("D").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'D';}
-	if (errCount == 3){
-		document.getElementById("A").value = "Next";
-		document.getElementById("B").value = "Next";
-		document.getElementById("C").value = "Next";
-		document.getElementById("D").value = "Next";
-		document.getElementById(corA).value = answer;
-		document.getElementById(corA).disabled = true;
-	}			
+    var errCount = 0;
+    if (document.getElementById("A").style.backgroundColor == "orange"){errCount += 1};
+    if (document.getElementById("B").style.backgroundColor == "orange"){errCount += 1};
+    if (document.getElementById("C").style.backgroundColor == "orange"){errCount += 1};
+    if (document.getElementById("D").style.backgroundColor == "orange"){errCount += 1};
+    if (errCount == 3){
+      genQues();
+    }
     document.getElementById("sad").style.display = "block";
     document.getElementById("sad").style.visibility = "visible";
     document.getElementById("happy").style.visibility = "hidden";
@@ -61,34 +58,66 @@ function answerHandler(){
 
 function genQues(){
   //reset view
+  //document.getElementById("happy").style.visibility = "hidden";
+  //document.getElementById("sad").style.visibility = "hidden";
   document.getElementById("A").style.backgroundColor = "greenyellow";
   document.getElementById("B").style.backgroundColor = "greenyellow";
   document.getElementById("C").style.backgroundColor = "greenyellow";
   document.getElementById("D").style.backgroundColor = "greenyellow";
-  document.getElementById("A").disabled = false;
-  document.getElementById("B").disabled = false;
-  document.getElementById("C").disabled = false;
-  document.getElementById("D").disabled = false;
 
-  const num1 = Math.ceil(Math.random()*document.getElementById("num1Range").value);
-  const num2 = Math.ceil(Math.random()*document.getElementById("num2Range").value);
-  number1.innerHTML = num1;
-  number2.innerHTML = num2;
-  if (Math.random() <= 0.5){
-    arithmetic.innerHTML = "+"
-    answer = num1 + num2;
+  //set difficulty level
+
+  var rep = Math.floor(Math.random()*3);
+  var repArith = Math.floor((Math.random()-0.5)*2);
+  var repStart = Math.floor(Math.random()*2);
+  const repNum = Math.floor((Math.random()-0.5)*4);
+  var numNum = Math.floor((Math.random()-0.5)*4);
+  var numArith = Math.floor((Math.random()-0.5)*2);
+  var iniNum = Math.floor(Math.random()*10);  
+  var repIniNum = Math.floor(Math.random()*2);
+  var ques = [];
+  if (rep == 0){
+    repStart = 0;
+    if (numNum == 0){
+      numNum = Math.ceil(Math.random()*4);
+    }
+    if (numArith == 0){
+      numArith = 1;
+    }        
   }
-  else {
-    arithmetic.innerHTML = "-"
-    if (num1 > num2){
-      answer = num1 - num2;
+
+  if (level == 0){
+    repArith = 0; numArith = 0;
+  }  
+  if (level == 1){
+    numArith = 0;
+  }    
+  if (level == 2){
+    rep = 0;
+  }
+
+//  console.log(`rep:${rep}, repArith:${repArith}, repStart:${repStart}, repNum:${repNum}, iniNum:${iniNum}, repIniNum:${repIniNum}, numNum:${numNum}, numArith:${numArith}`)
+  for (var i = 0; i < 10; i++){
+    if (i < repStart){
+      ques.push(iniNum);
+      iniNum += numArith*numNum;
     }
     else {
-      answer = num2 - num1;
-      number1.innerHTML = num2;
-      number2.innerHTML = num1;
+      if (((i-repStart)%(rep+1) == 0) && rep != 0){
+        ques.push(repIniNum);
+        repIniNum += repArith*repNum;
+      }
+      else {
+        ques.push(iniNum);
+        iniNum += numArith*numNum;
+      }
     }
   }
+  //const ques = [1,2,3,4,5,6,7,8,9,10];
+  index = Math.floor(Math.random()*10);
+  answer = ques[index];
+  ques[index] = "_";
+  question.innerHTML = ques.toString().replaceAll(',',' ');
 
   //generate answer
   var rand_answer = answer + Math.floor((Math.random()-0.5)*6);
@@ -117,37 +146,6 @@ function genQues(){
   }
   if (ca == 3){
     document.getElementById("D").value = answer;
-  }      
-
-  //generate icon
-  const color = colorArray[Math.floor(Math.random()*colorArray.length)];
-  const icon = iconArray[Math.floor(Math.random()*iconArray.length)];
-  var text = ""
-  
-  if (arithmetic.innerHTML == "+"){
-    for (var i = 0; i < number1.innerHTML; i++){
-      text += `<i class="${icon}"></i>`
-    }
-    illus1.innerHTML = text;
-    illus1.style.color = color;
-    text = ""
-    for (var i = 0; i < number2.innerHTML; i++){
-      text += `<i class="${icon}"></i>`
-    }
-    illus2.innerHTML = text;
-    illus2.style.color = color;
-  }
-  else {
-    for (var i = 0; i < number1.innerHTML; i++){
-      if (i < number2.innerHTML){
-        text += `<i class="${icon}" style="color:black;"></i>`
-      }
-      else {
-        text += `<i class="${icon}" style="color:${color};"></i>`
-      }
-    }
-    illus1.innerHTML = text;
-    illus2.innerHTML = "";
   }
 }
 
@@ -156,17 +154,4 @@ document.getElementById("song").addEventListener("click", function (){
   document.getElementById("correct").innerHTML = correct;
   document.getElementById("error").innerHTML = error;
   reward.showReward(correct-error, 5);
-});
-
-document.getElementById("showIllus").addEventListener("click", function (){
-  if (this.checked){
-    //document.getElementById("illus").style.visibility="visible";
-    document.getElementById("illus1").style.display="block";
-    document.getElementById("illus2").style.display="block";
-  }
-  else {
-    //document.getElementById("illus").style.visibility="hidden";
-    document.getElementById("illus1").style.display="none";
-    document.getElementById("illus2").style.display="none";    
-  }
 });

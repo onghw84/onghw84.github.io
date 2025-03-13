@@ -1,0 +1,153 @@
+body {
+  font-family: "Times New Roman", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  width: 500px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+input[type=radio], input[type=checkbox]  {
+  height: 20px;
+}
+
+label {
+  margin-left: 10px;
+  height: 10px;
+  width: 60px; 
+}
+
+#card {
+  margin: auto;
+  background-color: #FFE5B4;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 10pt solid pink;
+  /*font-weight: bold;*/
+  flex-direction: column;
+}
+
+#card p {
+	font-size: 40px;
+}
+
+#cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#A, #B, #C, #D {
+    width: 150px;
+}
+
+.butvertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.butvertical p{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-top: 5px;
+}
+
+#limage img{
+	height: 50px;
+	width: 50px;
+	visibility: visible;
+	margin-top: 5px;
+}
+
+#pimage img{
+	height: 100px;
+	width: 100px;
+	visibility: visible;
+}
+
+#learnC p{
+    background-color: #FFE5B4;
+    border: 2pt solid pink;
+}
+
+#learnE p{
+    background-color: greenyellow;
+    border: 2pt solid blue;
+	cursor: pointer;
+}
+
+#correct{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+}
+
+#error{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: red;
+  text-align: center;
+  color: white;
+}
+
+#play, #learn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#play{
+	display: none;
+}
+
+i{
+  margin: 2px;
+}
+
+input[type=button] {
+  width: 70px;
+  height: 50px;
+  background-color: greenyellow;
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#happy, #sad{
+  width: 120px;
+  height: 120px;
+}
+
+#sad{
+  display: none;
+}

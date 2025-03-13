@@ -7,22 +7,30 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
-	<link rel="stylesheet" href="../public/style.css" type="text/css" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+	<link rel="stylesheet" href="./public/style.css" type="text/css" />
 </head>
 
 <!DOCTYPE html>
 <html>
   <body>
+    <ul>
+      <li><a class="active" href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+    </ul>
     <div class="radio">
       <input type="radio" id="charsetnew" name="char_set" value="0">
-      <label for="charsetnew">NEW</label><br>
+      <label for="charsetnew">NEW</label>
       <input type="radio" id="charset1" name="char_set" value="1" checked>
-      <label for="charset1">SET1</label><br>
+      <label for="charset1">SET1</label>
       <input type="radio" id="charset2" name="char_set" value="2">
-      <label for="charset2">SET2</label><br>
+      <label for="charset2">SET2</label>
       <input type="radio" id="charset3" name="char_set" value="3">
-      <label for="charset3">SET3</label><br>            
+      <label for="charset3">SET3</label>            
     </div>
     <div class="container">
       <div id="card">
@@ -38,18 +46,9 @@
         <div id="total">0</div><div id="learn">0</div>
       </div>
     </div>
-    <div id="catImage">
-      <img id="cat1" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0146.gif" alt="cat1" >
-      <img id="cat2" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0024.gif" alt="cat2" >
-      <img id="cat3" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0058.gif" alt="cat3" >
-      <img id="cat4" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0150.gif" alt="cat4" >
-      <img id="cat5" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0149.gif" alt="cat5" >
-      <img id="cat6" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0061.gif" alt="cat6" >
-      <img id="cat7" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0139.gif" alt="cat7" >
-      <img id="cat8" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0154.gif" alt="cat8" >
-      <a id="song" href="https://www.youtube.com/watch?v=Ywgpv1pYvb4">Hello Kitty Song!</a>
+    <div id="reward">
     </div>    
-    <a href = "sa.html">Simple Arithmetic</a>
   </body>
-  <script src="../public/index.js"></script>
+  <script src="./public/reward.js"></script>
+  <script src="./public/index.js"></script>
 </html>

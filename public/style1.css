@@ -1,38 +1,31 @@
-*{
-  padding: 0;
-  margin: 0;
-}
-
 body {
   font-family: "Times New Roman", Helvetica, Arial, sans-serif;
-  height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-h1{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
-.but {
+
+.slider {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  height: 40px;
 }
 
-.statistics{
-  width: 300px;
+#num1Range, #num2Range{
+  width: 40%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+#showIllus{
+  width: 20px;
   height: 20px;
-  margin: auto;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 #correct{
@@ -93,21 +86,13 @@ h1{
   background-color: white;
   border: 2pt solid pink;
   color: indigo;
-  justify-content: space-evenly;
+  justify-content: center;
   /*margin: 10px 20px;*/
   padding: 10px;
 }
 
 i{
   margin: 2px;
-}
-
-#pinyin {
-  margin-top: -40px;
-  margin-right: 20px;
-  font-family: Cambria;
-  font-size: 35px;
-  text-align: right;
 }
 
 #count {
@@ -130,12 +115,6 @@ input {
   font-size: 20px;
 }
 
-img{
-  visibility: hidden;
-  width: 80px;
-  height: auto;
-}
-
 #happy, #sad{
   width: 120px;
   height: 120px;
@@ -145,38 +124,5 @@ img{
   display: none;
 }
 
-#song{
-  visibility: hidden;
-}
 
-#catImage{
-  width: 100vw;
-  margin: auto;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
-@media (min-width: 800px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .form-container {
-    align-self: flex-end;
-  }
-
-  #output-container {
-    flex-direction: row;
-    margin-top: 0;
-    margin-left: 20px;
-  }
-
-  #solution-container {
-    width: 75%;
-    margin-top: 0;
-  }
-}
