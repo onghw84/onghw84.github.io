@@ -1,6 +1,6 @@
 var Mchars = [];
 var Echars = [];
-var pronounce = [];
+const audio_dir = './public/audio/';
 
 Mchars.push(['猫','狗','兔子','老鼠','大象']);
 Mchars.push(['鱼','狮子','老虎','蛇','龙']);
@@ -10,7 +10,6 @@ Mchars.push(['鳄鱼','鸭子','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
 Mchars.push(['红','橙','黄','绿','蓝']);
 Mchars.push(['紫','黑','白','褐','粉色']);
-
 Echars.push(['Cat','Dog','Rabbit','Mouse','Elephant']);
 Echars.push(['Fish','Lion','Tiger','Snake','Dragon']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster']);
@@ -20,26 +19,30 @@ Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 Echars.push(['Red','Orange','Yellow','Green','Blue']);
 Echars.push(['Purple','Black','White','Brown','Pink']);
 
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/C/9JZLN1GNLJHU.mp3','http://img2.tfd.com/pron/mp3/en/US/ds/dsdfskdohs.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/R/1N7XX1YSSDARO.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/M/1JIIP3SRWPNVO.mp3','http://www.onelook.com/pronounce/macmillan/US/elephant-American-English-pronunciation.mp3']);
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/F/UF46V9JKI1C3.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/L/943VLU0XEKCP.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/T/1SLO2UK0O4O8Q.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/S/13JX7SANV2MOS.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/D/FYDZB79UCYN4.mp3']);
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/H/1RKFJH8ZH39UR.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/C/1ALA5LI3HI4AD.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/H/17M07F58Y2LP2.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/G/J9E330JIT905.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/R/1XV7XHW847GK3.mp3']);
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/M/99MVMD8QHNOJ.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/S/1DAU4H9CLEYGQ.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/T/1DBWITM6M3YBR.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/B/BSE1NMD3GLO8.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/C/1DOYMH2J63BLI.mp3']);
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/C/IC14MF6AG0DJ.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/D/38JNNZV8K51Q.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/S/NQNSAJJNF7FZ.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/P/I3O1CNG3N9GE.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/D/B0ECUHATMLOV.mp3']);
-pronounce.push(['http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/R/17ETNP6IFDATS.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/Z/Y382RNYJRXCB.mp3',
-'http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/G/1PAY2K13X09TD.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/F/51VR130BTD8Q.mp3','http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/L/1NNEP2R1NPPIQ.mp3']);
-pronounce.push(['','','','','']);
-pronounce.push(['','','','','']);
+Mchars.push(['云','花','叶子','石头','水']);
+Mchars.push(['沙子','树','草','山','河']);
+Mchars.push(['一','二','三','四','五']);
+Mchars.push(['六','七','八','九','十']);
+Mchars.push(['十一','十二','十三','十四','十五']);
+Mchars.push(['十六','十七','十八','十九','二十']);
+/*Mchars.push(['三十','四十','五十','六十','七十']);
+Mchars.push(['八十','九十','百','千','百万']);*/
+Mchars.push(['屋子','车子','风扇','电脑','手机']);
+Echars.push(['Cloud','Flower','Leaf','Stone','Water']);
+Echars.push(['Sand','Tree','Grass','Mountain','River']);
+Echars.push(['One','Two','Three','Four','Five']);
+Echars.push(['Six','Seven','Eight','Nine','Ten']);
+Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
+Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
+/*Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
+Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);*/
+Echars.push(['House','Car','Fan','Computer','Handphone']);
+
 
 let reward = new Reward();
 
 var Mchars_array = [...Mchars[0]];
 var Echars_array = [...Echars[0]];
-var pronounce_array = [...pronounce[0]];
 var tested = Array(Mchars_array.length).fill(0);
 var correct = 0; var error = 0; var answer = 0;
 genQues(); genLearn();
@@ -52,13 +55,12 @@ document.getElementById("D").addEventListener("click", answerHandler)
 
 function answerHandler(){
 
-	var index = Echars_array.indexOf(this.value);
-	playSound(index);	
-
   if (this.value == "Next"){
 	genQues();
   }
   else {
+		var index = Echars_array.indexOf(this.value);
+		playSound(index);		  
 	  if (answer != this.value){
 		this.style.backgroundColor = "orange";
 		var errCount = 0; var corA = 'A';
@@ -118,7 +120,6 @@ for (let i = 0; i < setSelect.length; i++) {
 	else{			
       Mchars_array = [...Mchars[this.value-1]];
 	  Echars_array = [...Echars[this.value-1]];
-	  pronounce_array = [...pronounce[this.value-1]];
     }
 	tested = Array(Mchars_array.length).fill(0);	
 	genQues(); genLearn();
@@ -131,13 +132,11 @@ for (let i = 0; i < checkSelect.length; i++) {
     if (this.checked){
 		Mchars_array = [...Mchars_array, ...Mchars[this.value-1]];
 		Echars_array = [...Echars_array, ...Echars[this.value-1]];
-		pronounce_array = [...pronounce_array, ...pronounce[this.value-1]];
 	}
 	else {
 		var index = Mchars_array.indexOf(Mchars[this.value-1][0]);
 		Mchars_array.splice(index, Mchars[this.value-1].length);
 		Echars_array.splice(index, Mchars[this.value-1].length);
-		pronounce_array.splice(index, Mchars[this.value-1].length);
 	}
 	tested = Array(Mchars_array.length).fill(0);	
   });
@@ -164,7 +163,7 @@ function genLearn(){
 	for (var i=0; i<Mchars_array.length; i++){
 		tmpStrM += `<p>${Mchars_array[i]}</p>`;
 		tmpStrE += `<p  onclick="playSound(${i})">${Echars_array[i]}<i class="fa fa-play-circle"></i></p>`;
-		imgStr +=  `<img src="./public/image/${Echars_array[i]}.jpg"></img>`
+		imgStr +=  `<img src="./public/image/${Echars_array[i].toLowerCase()}.jpg"></img>`
 	}
 	document.getElementById("learnC").innerHTML = tmpStrM;
 	document.getElementById("learnE").innerHTML = tmpStrE;
@@ -195,7 +194,7 @@ function genQues(){
   tested[index] += 1;
   answer = Echars_array[index];
   document.getElementById("character").innerHTML = Mchars_array[index];
-  document.getElementById("pimage").innerHTML = `<img src="./public/image/${answer}.jpg"></img>`
+  document.getElementById("pimage").innerHTML = `<img src="./public/image/${answer.toLowerCase()}.jpg"></img>`
   //generate answer
   var rand_answer_index = Math.floor(Math.random()*Echars_array.length);
   if (rand_answer_index == index){rand_answer_index = index + 1 > Echars_array.length-1? index-1:index+1;}
@@ -228,7 +227,8 @@ function genQues(){
 }
 
 function playSound(index){	
-  var music = new Audio(pronounce_array[index]);
+  const path = audio_dir+Echars_array[index].toLowerCase()+'.mp3';
+  var music = new Audio(path);
   music.play();
  }
   
