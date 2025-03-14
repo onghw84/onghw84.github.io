@@ -3,6 +3,9 @@ var error = 0;
 const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-star","fa fa-tree","fa fa-subway","fa fa-train","fa fa-plane","fa fa-bell","fa fa-coffee","fa fa-heart","fa fa-gift","fa fa-umbrella","fa fa-circle"]
 const colorArray = ["orange","orangered","blue","black","green","red","peru","purple"]
 const MCQ = ["A","B","C","D"];
+
+const reward_dir = './public/reward/';
+const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 document.getElementById("A").addEventListener("click", answerHandler)
 document.getElementById("B").addEventListener("click", answerHandler)
 document.getElementById("C").addEventListener("click", answerHandler)
@@ -44,6 +47,7 @@ function answerHandler(){
     document.getElementById("error").innerHTML = error;      
   }
   else {
+	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];		  
     document.getElementById("happy").style.display = "block";
     document.getElementById("happy").style.visibility = "visible";
     document.getElementById("sad").style.visibility = "hidden";

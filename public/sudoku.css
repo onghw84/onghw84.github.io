@@ -1,0 +1,125 @@
+body {
+  font-family: "Times New Roman", Helvetica, Arial, sans-serif;
+  /*height: 100vh;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  width: 400px;
+  justify-content: center;
+}
+
+label {
+  margin-left: 10px;
+  height: 10px;
+  width: 50px; 
+}
+
+#cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#total{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+}
+
+#container1, #container0 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 380px;
+  height: 380px;
+  font-size: 35px;
+  margin: auto;
+  border: 2pt solid blue;
+  justify-content: space-evenly;
+}
+
+#container0{
+  width: 200px;
+  height: 200px;	
+}
+
+.region, .region0{
+  width: 122px;
+  height: 122px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;	
+  margin: 1px;
+  padding: 0px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.region0{
+  width: 95px;
+  height: 95px;
+}
+
+.grid, .grid0 {  
+  background-color: white;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  border: 1pt solid blue;
+  margin: 1px;
+  font-weight: bold;
+}
+
+.but p {
+  width: 30px;
+  height: 30px;
+  background-color: #FFE5B4;
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#newGame, #diff{
+	width: 150px;
+	background-color: white;
+}
+
+#kids, #easy, #medium, #hard {
+	background-color: white;
+	margin-top: 5px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+}

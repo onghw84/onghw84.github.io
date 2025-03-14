@@ -1,6 +1,8 @@
 var Mchars = [];
 var Echars = [];
 const audio_dir = './public/audio/';
+const reward_dir = './public/reward/';
+const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 
 Mchars.push(['猫','狗','兔子','老鼠','大象']);
 Mchars.push(['鱼','狮子','老虎','蛇','龙']);
@@ -65,19 +67,6 @@ function answerHandler(){
 	  if (answer != this.value){
 		this.style.backgroundColor = "orange";
 		this.value = this.value + '-'+Mchars_array[index];
-		var errCount = 0; var corA = 'A';
-		if (document.getElementById("A").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'A';}
-		if (document.getElementById("B").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'B';}
-		if (document.getElementById("C").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'C';}
-		if (document.getElementById("D").style.backgroundColor == "orange"){errCount += 1;} else {corA = 'D';}
-		if (errCount == 3){
-			document.getElementById("A").value = "Next";
-			document.getElementById("B").value = "Next";
-			document.getElementById("C").value = "Next";
-			document.getElementById("D").value = "Next";
-			document.getElementById(corA).value = answer;
-			document.getElementById(corA).disabled = true;
-		}
 		document.getElementById("sad").style.display = "block";
 		document.getElementById("sad").style.visibility = "visible";
 		document.getElementById("happy").style.visibility = "hidden";
@@ -87,6 +76,7 @@ function answerHandler(){
 		document.getElementById("error").innerHTML = error;      
 	  }
 	  else {
+		document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];		  
 		document.getElementById("happy").style.display = "block";
 		document.getElementById("happy").style.visibility = "visible";
 		document.getElementById("sad").style.visibility = "hidden";
@@ -99,8 +89,18 @@ function answerHandler(){
 		this.disabled = true;
 		
 		//update correct/error value		
-		correct += 1;      
-		document.getElementById("correct").innerHTML = correct;
+		var errCount = 0;
+		if (document.getElementById("A").style.backgroundColor == "orange"){errCount += 1;}
+		if (document.getElementById("B").style.backgroundColor == "orange"){errCount += 1;}
+		if (document.getElementById("C").style.backgroundColor == "orange"){errCount += 1;}
+		if (document.getElementById("D").style.backgroundColor == "orange"){errCount += 1;}
+		if (errCount == 3){
+			document.getElementById("happy").style.visibility = "hidden";
+		}
+		else {
+			correct += 1;      
+			document.getElementById("correct").innerHTML = correct;
+		}
 	  }
   }
   reward.showReward(correct-error, 5);

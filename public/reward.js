@@ -17,20 +17,20 @@ song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
 ];
 
 rewardDiv.innerHTML =  `
-      <img id="cat1" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0146.gif" alt="cat1" >
-	  <img id="bee1" src="https://www.animatedimages.org/data/media/185/animated-bee-image-0130.gif" alt="bee1" >
-      <img id="cat2" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0024.gif" alt="cat2" >
-	  <img id="bee2" src="https://www.animatedimages.org/data/media/185/animated-bee-image-0153.gif" alt="bee2" >	  
-      <img id="cat3" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0058.gif" alt="cat3" >
-	  <img id="bee3" src="https://www.animatedimages.org/data/media/185/animated-bee-image-0167.gif" alt="bee3" >
-      <img id="cat4" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0150.gif" alt="cat4" >
-	  <img id="bee4" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGZod29ubGN0cjBqczhpZzFxaWljdjQ3dXg5YTZ1eWc4aHR3MWp3biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QXJa2uAa44fYRSats0/giphy.gif" alt="bee4" >
-      <img id="cat5" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0149.gif" alt="cat5" >
-	  <img id="bee5" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdThrc3B0cTJsc3JpczV4ZTJzeDZ1cmhramZncnh3amw2cGtxM3kweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SVa1GVyrxRkyxsknr9/giphy.gif" alt="bee5" >
-      <img id="cat6" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0061.gif" alt="cat6" >
-	  <img id="bee6" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGM4NmZ5MHcyNXNhcHFkdnFpdnQzZHNkanB5ZjU5eHBrdGVrZGh1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8shyTgbZKKLzW/giphy.gif" alt="bee6">
-      <img id="cat7" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0139.gif" alt="cat7" >
-      <img id="cat8" src="https://www.animatedimages.org/data/media/1250/animated-hello-kitty-image-0154.gif" alt="cat8" >
+      <img id="cat1" src="./public/reward/kitty1.gif" alt="cat1" >
+	  <img id="bee1" src="./public/reward/bee1.gif" alt="bee1" >
+      <img id="cat2" src="./public/reward/kitty2.gif" alt="cat2" >
+	  <img id="bee2" src="./public/reward/bee2.gif" alt="bee2" >	  
+      <img id="cat3" src="./public/reward/kitty3.gif" alt="cat3" >
+	  <img id="bee3" src="./public/reward/bee3.gif" alt="bee3" >
+      <img id="cat4" src="./public/reward/kitty4.gif" alt="cat4" >
+	  <img id="bee4" src="./public/reward/bee4.gif" alt="bee4" >
+      <img id="cat5" src="./public/reward/kitty5.gif" alt="cat5" >
+	  <img id="bee5" src="./public/reward/bee5.gif" alt="bee5" >
+      <img id="cat6" src="./public/reward/kitty6.gif" alt="cat6" >
+	  <img id="bee6" src="./public/reward/bee6.gif" alt="bee6">
+      <img id="cat7" src="./public/reward/kitty7.gif" alt="cat7" >
+      <img id="cat8" src="./public/reward/kitty8.gif" alt="cat8" >
 	  
       <a id="song" class="button" href="https://www.youtube.com/watch?v=Ywgpv1pYvb4" target="_blank">REWARD!</a>
 `

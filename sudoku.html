@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sudoku</title>
+	<meta name="description" content="Sudoku" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+  <link rel="stylesheet" href="./public/sudoku.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a class="active" href="sudoku.html">Sudoku</a></li>
+    </ul>
+    <h1>Sudoku Game</h1>  
+    <div class="container">
+      <div id="container0">
+		<div class = "region0"> 
+			<div class = "grid0" id="A_1"></div>
+			<div class = "grid0" id="A_2"></div>
+			<div class = "grid0" id="B_1"></div>
+			<div class = "grid0" id="B_2"></div>
+		</div>
+		<div class = "region0"> 
+			<div class = "grid0" id="A_3"></div>
+			<div class = "grid0" id="A_4"></div>
+			<div class = "grid0" id="B_3"></div>
+			<div class = "grid0" id="B_4"></div>
+		</div>
+		<div class = "region0"> 
+			<div class = "grid0" id="C_1"></div>
+			<div class = "grid0" id="C_2"></div>
+			<div class = "grid0" id="D_1"></div>		
+			<div class = "grid0" id="D_2"></div>
+		</div>
+		<div class = "region0"> 
+			<div class = "grid0" id="C_3"></div>
+			<div class = "grid0" id="C_4"></div>
+			<div class = "grid0" id="D_3"></div>
+			<div class = "grid0" id="D_4"></div>
+		</div>
+      </div>	
+      <div id="container1">
+		<div class = "region"> 
+			<div class = "grid" id="A1"></div>
+			<div class = "grid" id="A2"></div>
+			<div class = "grid" id="A3"></div>
+			<div class = "grid" id="B1"></div>
+			<div class = "grid" id="B2"></div>
+			<div class = "grid" id="B3"></div>
+			<div class = "grid" id="C1"></div>
+			<div class = "grid" id="C2"></div>
+			<div class = "grid" id="C3"></div>			
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="A4"></div>
+			<div class = "grid" id="A5"></div>
+			<div class = "grid" id="A6"></div>
+			<div class = "grid" id="B4"></div>
+			<div class = "grid" id="B5"></div>
+			<div class = "grid" id="B6"></div>
+			<div class = "grid" id="C4"></div>
+			<div class = "grid" id="C5"></div>
+			<div class = "grid" id="C6"></div>
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="A7"></div>
+			<div class = "grid" id="A8"></div>
+			<div class = "grid" id="A9"></div>		
+			<div class = "grid" id="B7"></div>
+			<div class = "grid" id="B8"></div>
+			<div class = "grid" id="B9"></div>
+			<div class = "grid" id="C7"></div>
+			<div class = "grid" id="C8"></div>
+			<div class = "grid" id="C9"></div>		
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="D1"></div>
+			<div class = "grid" id="D2"></div>
+			<div class = "grid" id="D3"></div>
+			<div class = "grid" id="E1"></div>
+			<div class = "grid" id="E2"></div>
+			<div class = "grid" id="E3"></div>
+			<div class = "grid" id="F1"></div>
+			<div class = "grid" id="F2"></div>
+			<div class = "grid" id="F3"></div>			
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="D4"></div>
+			<div class = "grid" id="D5"></div>
+			<div class = "grid" id="D6"></div>
+			<div class = "grid" id="E4"></div>
+			<div class = "grid" id="E5"></div>
+			<div class = "grid" id="E6"></div>
+			<div class = "grid" id="F4"></div>
+			<div class = "grid" id="F5"></div>
+			<div class = "grid" id="F6"></div>
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="D7"></div>
+			<div class = "grid" id="D8"></div>
+			<div class = "grid" id="D9"></div>		
+			<div class = "grid" id="E7"></div>
+			<div class = "grid" id="E8"></div>
+			<div class = "grid" id="E9"></div>
+			<div class = "grid" id="F7"></div>
+			<div class = "grid" id="F8"></div>
+			<div class = "grid" id="F9"></div>		
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="G1"></div>
+			<div class = "grid" id="G2"></div>
+			<div class = "grid" id="G3"></div>
+			<div class = "grid" id="H1"></div>
+			<div class = "grid" id="H2"></div>
+			<div class = "grid" id="H3"></div>
+			<div class = "grid" id="I1"></div>
+			<div class = "grid" id="I2"></div>
+			<div class = "grid" id="I3"></div>			
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="G4"></div>
+			<div class = "grid" id="G5"></div>
+			<div class = "grid" id="G6"></div>
+			<div class = "grid" id="H4"></div>
+			<div class = "grid" id="H5"></div>
+			<div class = "grid" id="H6"></div>
+			<div class = "grid" id="I4"></div>
+			<div class = "grid" id="I5"></div>
+			<div class = "grid" id="I6"></div>
+		</div>
+		<div class = "region"> 
+			<div class = "grid" id="G7"></div>
+			<div class = "grid" id="G8"></div>
+			<div class = "grid" id="G9"></div>		
+			<div class = "grid" id="H7"></div>
+			<div class = "grid" id="H8"></div>
+			<div class = "grid" id="H9"></div>
+			<div class = "grid" id="I7"></div>
+			<div class = "grid" id="I8"></div>
+			<div class = "grid" id="I9"></div>		
+		</div>		
+      </div>
+      <div class="but" id="digit">
+        <p id="one">1</p>
+        <p id="two">2</p>
+        <p id="three">3</p>
+        <p id="four">4</p>
+        <p id="five">5</p>
+        <p id="six">6</p>
+        <p id="seven">7</p>
+        <p id="eight">8</p>
+		<p id="nine">9</p>
+      </div>
+      <div class="but">
+        <div><p id="newGame">New Game</p></div> <div></div>
+		<div class="dropdown">
+			<p id="diff">Difficulty<i class="fa fa-caret-down"></i></p>
+			<div class="dropdown-content">
+			  <p id="kids" style="background-color:pink">0</p>
+			  <p id="easy">1</p>
+			  <p id="medium">2</p>
+			  <p id="hard">3</p>
+			</div>
+		</div>
+      </div>	  
+      <div class="statistics">
+        <div id="total">0</div>
+      </div>
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/sudoku_solver.js"></script>
+  <script src="./public/reward.js"></script>
+  <script src="./public/sudoku.js"></script>
+</html>

@@ -7,6 +7,7 @@ const pinyin1 = ['cháng','hòu','xìng','dōu/dū','jí','shuí','zhuàng','yá
 const pinyin2 = ['xiǎo','pá','zǐ','wá','chóng','sēn','pàng','páng','cān','kāi','ná','zhòng','wǒ','yuè','bù','mèi','fǎ','měi','shǎn','cǎi','lì','chǐ','guān','bǐ','shì','tián','yǎn','xué','mén','huā','bā','hēi','tóng','lù','qù','gōng','zhàn','chuān','nín','pí','xǔ','wā','tā','nǐ','dāo','kuài','xiāng','kǒu','cháng','zuì','cái','hěn','yè','wén','lán','diǎn','bàn','běn','yǐ','mén','guǒ','píng','yá','fàng','zì','hóng','sè','yī','jiān','wèn','zǎo','chǎo','wǎn','dēng','tā','yā','huà','de','guó','tái','shén','xǐ','huán','shù','hǎi','fā','wú','fǎn','jiě','zhōng','jué','jiǔ','chén','shuāng','guò','tián','yuàn','duō','dòng','lái','lǜ','huì','guà','lì','máo','shū','chuàn','zuǒ','jīn','shī','péng','biān','shí','zhù','yǒu','wán','yīn','nán','wān','jiā','shù','jiā','zhǐ','yòng','shuì','yā','bǐ','biàn','zhǎo','xīng','mǎ','dōng','yī','èr','sān','sì','wǔ','liù','qī','bā','jiǔ','shí'];
 const pinyin3 = ['qīn','qiū','shū','zú','me','yá','shān','dāng','xuě','zuò','yī','qí','xià','chē','qīng','má','xià','bā','zhēn','gē','bǎ','zài','yā','yuǎn','liǎng','lián','xiě','huí','xiàng','shàng','mā','gē','hé','fēng','dà','kě','huǒ','niǎo','lè','qì','zài','mù','chuán','yú','tiáo','nǚ','xīn','bèi','bāo','gěi','ěr','rì','tù','tǔ','jī','yè','duì','hái','tīng','zhèng','huó','jǐ','liàng','bí','zuò','niú','dì','nián','tā','gǒu','mù','jī','huáng','nǎi','qián','gāo','qiáo','yǐng','jīn','chéng','yě','liǎo','duǎn','dé','shuǐ','xī','fēi','zhī','shǎo','yào','māo','bù','fēn','qǐ','zhuō','gè','hǎo','sǎn','cǎo','wǔ','wéi','chū','cóng','dì','kōng','yún','zǒu','rén','yòu','cūn','gù','qiān','hòu','shēng','bà','měi','zhuó','nà','lín','míng','lǐ','chūn','yòu','piàn','tǔ','dǎ','zì','quán','cǎi','bái','gōng','jiàn','wū','méi','hé','kàn','yǒu','lì','shēng','běi','mǐ','lǎo','dōng','nán','yé','táo','tiān','tóu','dào','shí','wěi','shǒu'];
 const pinyin_unfamiliar = ['jīng','wù','ràng','yāo','chàng','wǎng','tuǐ','jié','hé','tíng','shé','shí','zhuàn']
+
 let reward = new Reward();
 
 var chars_array = chars1.split("");
@@ -64,7 +65,7 @@ function nextHandler() {
   total += 1;
   totalD.innerHTML = total;
 
-  reward.showReward(total, 1);
+  reward.showReward(total, 30);
   return;
 };
 
@@ -78,5 +79,5 @@ function errorHandler() {
 document.getElementById("song").addEventListener("click", function (){
   total = 0;  
   totalD.innerHTML = total;
-  reward.showReward(total, 1);
+  reward.showReward(total, 30);
 });

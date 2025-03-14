@@ -22,7 +22,7 @@ genQues();
 
 function answerHandler(){
   if (this.value == "Next"){
-	genQues();  
+	genQues(); return;
   }
   if (answer != this.value){
     this.style.backgroundColor = "orange";
@@ -49,7 +49,6 @@ function answerHandler(){
   }
   else {
 	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];
-	//document.getElementById("happy").src = happyImg[0];
     document.getElementById("happy").style.display = "block";
     document.getElementById("happy").style.visibility = "visible";
     document.getElementById("sad").style.visibility = "hidden";
