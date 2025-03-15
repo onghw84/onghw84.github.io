@@ -11,7 +11,7 @@ body {
   margin-top: 80px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 }
 
 label {
@@ -19,7 +19,6 @@ label {
   height: 10px;
   width: 60px; 
 }
-
 
 #total{
   width: 120px;
@@ -52,6 +51,10 @@ label {
   border: 10pt solid pink;
   /*font-weight: bold;*/
   flex-direction: column;
+}
+
+.but {
+	width: auto;
 }
 
 #pinyin {

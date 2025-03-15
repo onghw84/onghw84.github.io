@@ -164,12 +164,12 @@ document.getElementById("song").addEventListener("click", function (){
 document.getElementById("showIllus").addEventListener("click", function (){
   if (this.checked){
     //document.getElementById("illus").style.visibility="visible";
-    document.getElementById("illus1").style.display="block";
-    document.getElementById("illus2").style.display="block";
+    document.getElementById("illus1").style.visibility="visible";
+    document.getElementById("illus2").style.visibility="visible";
   }
   else {
     //document.getElementById("illus").style.visibility="hidden";
-    document.getElementById("illus1").style.display="none";
-    document.getElementById("illus2").style.display="none";    
+    document.getElementById("illus1").style.visibility="hidden";
+    document.getElementById("illus2").style.visibility="hidden";    
   }
 });
