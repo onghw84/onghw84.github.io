@@ -135,7 +135,7 @@ async function genGame(){
 		let ctx = canvas.getContext("2d");
 		let sourceX = document.getElementById(emptyGrid[i]).offsetLeft - img.offsetLeft;
 		let sourceY = document.getElementById(emptyGrid[i]).offsetTop - img.offsetTop;		
-		ctx.drawImage(img, (sourceX+offsetX)*resize, (sourceY+offsetY)*resize, 61*resize, 61*resize, 0, 0, canvas.width, canvas.height); 
+		ctx.drawImage(img, (sourceX+offsetX)*resize, (sourceY+offsetY)*resize, 60*resize, 60*resize, 0, 0, canvas.width, canvas.height); 
 		canvas.style.display = "flex";
 	}
 }

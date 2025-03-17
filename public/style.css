@@ -1,6 +1,5 @@
 body {
   font-family: "KaiTi", "楷体", 'Noto Sans', "Noto Sans CJK JP", "Times New Roman", Helvetica, Arial, sans-serif;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
