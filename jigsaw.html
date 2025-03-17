@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Jigsaw</title>
+	<meta name="description" content="Jigsaw" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+  <link rel="stylesheet" href="./public/jigsaw.css" type="text/css" />
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+	  <li><a href="spotdiff.html">SpotDiff</a></li>
+	  <li><a class="active" href="jigsaw.html">Jigsaw</a></li>
+    </ul>
+    <div class="container" style="margin-top: 40px">
+      <div id="container1">
+		<img id="main"></img>
+		<div class = "grid" id="A1"></div>
+		<div class = "grid" id="A2"></div>
+		<div class = "grid" id="A3"></div>
+		<div class = "grid" id="A4"></div>
+		<div class = "grid" id="A5"></div>
+		<div class = "grid" id="A6"></div>
+		<div class = "grid" id="B1"></div>
+		<div class = "grid" id="B2"></div>
+		<div class = "grid" id="B3"></div>
+		<div class = "grid" id="B4"></div>
+		<div class = "grid" id="B5"></div>
+		<div class = "grid" id="B6"></div>
+		<div class = "grid" id="C1"></div>
+		<div class = "grid" id="C2"></div>
+		<div class = "grid" id="C3"></div>			
+		<div class = "grid" id="C4"></div>
+		<div class = "grid" id="C5"></div>
+		<div class = "grid" id="C6"></div>
+		<div class = "grid" id="D1"></div>
+		<div class = "grid" id="D2"></div>
+		<div class = "grid" id="D3"></div>
+		<div class = "grid" id="D4"></div>
+		<div class = "grid" id="D5"></div>
+		<div class = "grid" id="D6"></div>
+		<div class = "grid" id="E1"></div>
+		<div class = "grid" id="E2"></div>
+		<div class = "grid" id="E3"></div>
+		<div class = "grid" id="E4"></div>
+		<div class = "grid" id="E5"></div>
+		<div class = "grid" id="E6"></div>
+		<div class = "grid" id="F1"></div>
+		<div class = "grid" id="F2"></div>
+		<div class = "grid" id="F3"></div>			
+		<div class = "grid" id="F4"></div>
+		<div class = "grid" id="F5"></div>
+		<div class = "grid" id="F6"></div>		
+      </div>
+      <div class="but" id="choice">
+        <canvas id="A" width="93px" height="93px"></canvas>
+		<canvas id="B" width="93px" height="93px"></canvas>
+		<canvas id="C" width="93px" height="93px"></canvas>
+		<canvas id="D" width="93px" height="93px"></canvas>
+      </div>	  
+      <div id="cat">
+        <img id="happy" alt="happy" style="visibility: visible; width:120px; height:120px"></img>
+      </div>	 	  
+      <div class="but">
+        <div><p id="newGame">New Game</p></div> <div></div>
+      </div>	  	  
+      <div class="statistics">
+        <div id="correct">0</div>
+		<div id="error">0</div>
+      </div>
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/jigsaw.js"></script>
+</html>

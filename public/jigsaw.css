@@ -29,13 +29,28 @@ label {
   align-items: center;
 }
 
-#total{
+#correct, #error{
   width: 120px;
   height: 20px;
   margin: auto;
   border: 1pt solid black;
   background-color: #FFE5B4;
   text-align: center;
+}
+
+#error{
+  background-color: red;
+  color: white;
+}
+
+#main{
+  visibility: visible;
+  width: 380px; 
+  height: 380px;
+  object-fit: cover;	/*none, -fill, cover, -contain, -scale-down*/
+  border-radius: 8px;
+  position: fixed;
+  z-index = 0;
 }
 
 #container1 {
@@ -52,15 +67,13 @@ label {
 
 .grid {  
   background-color: white;
-  width: 38px;
-  height: 38px;
-  font-size: 20px;
+  width: 61px;
+  height: 61px;
   display: flex;
   justify-content: center;
   align-items: center;  
-  /*border: 1pt solid blue;*/
-  margin: 1px;
-  font-weight: bold;
+  z-index: 1;
+  border: 1pt solid blue;
 }
 
 .but p {
@@ -78,10 +91,23 @@ label {
   cursor: pointer;
 }
 
-#newGame{
+#choice {
+  width: 390px;
+  flex-flow: wrap;
+}
+
+#newGame {
 	width: 150px;
 	background-color: white;
 }
+
+#A, #B, #C, #D {
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 3px;
+}
+
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -95,15 +121,6 @@ label {
   background-color: white;
   min-width: 160px;
   z-index: 1;
-}
-
-#happy, #sad{
-  width: 120px;
-  height: 120px;
-}
-
-#sad{
-  display: none;
 }
 
 .stop {

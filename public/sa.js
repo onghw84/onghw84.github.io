@@ -47,16 +47,18 @@ function answerHandler(){
     error += 1;
     document.getElementById("error").innerHTML = error;      
   }
-  else {
-	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];
+  else {	
     document.getElementById("happy").style.display = "block";
     document.getElementById("happy").style.visibility = "visible";
     document.getElementById("sad").style.visibility = "hidden";
     document.getElementById("sad").style.display = "none";      
     //update correct/error value
     correct += 1;      
+	document.getElementById("A").value = "Next";
+	document.getElementById("B").value = "Next";
+	document.getElementById("C").value = "Next";
+	document.getElementById("D").value = "Next";	
     document.getElementById("correct").innerHTML = correct;
-    genQues();
   }
   reward.showReward(correct-error, 5);
   return;
@@ -64,10 +66,13 @@ function answerHandler(){
 
 function genQues(){
   //reset view
+  document.getElementById("sad").style.visibility = "hidden";
+  document.getElementById("happy").style.visibility = "hidden";
+  document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];
   document.getElementById("A").style.backgroundColor = "greenyellow";
   document.getElementById("B").style.backgroundColor = "greenyellow";
   document.getElementById("C").style.backgroundColor = "greenyellow";
-  document.getElementById("D").style.backgroundColor = "greenyellow";
+  document.getElementById("D").style.backgroundColor = "greenyellow";  
   document.getElementById("A").disabled = false;
   document.getElementById("B").disabled = false;
   document.getElementById("C").disabled = false;

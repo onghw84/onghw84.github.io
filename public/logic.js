@@ -46,8 +46,7 @@ function answerHandler(){
     error += 1;
     document.getElementById("error").innerHTML = error;      
   }
-  else {
-	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];		  
+  else {		  
     document.getElementById("happy").style.display = "block";
     document.getElementById("happy").style.visibility = "visible";
     document.getElementById("sad").style.visibility = "hidden";
@@ -65,6 +64,7 @@ function genQues(){
   //reset view
   //document.getElementById("happy").style.visibility = "hidden";
   //document.getElementById("sad").style.visibility = "hidden";
+  document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
   document.getElementById("A").style.backgroundColor = "greenyellow";
   document.getElementById("B").style.backgroundColor = "greenyellow";
   document.getElementById("C").style.backgroundColor = "greenyellow";

@@ -4,6 +4,10 @@ const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-
 const colorArray = ["orange","orangered","blue","black","green","red","peru","purple"]
 const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
+const wordPair = [["找","我"],["水","永"],["刀","力"],["十","土"],["厂","广"],["九","几"],["月","明"],["笑","哭"],["是","足"],["品","晶"],["好","女"]];
+const ABCArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlklmnopqrstuvwxyz";
+const fontArray1 = ["Lucida Handwriting","Brush Script MT","Copperplate","Papyrus"];
+const fontArray2 = ["Courier New","Times New Roman","Georgia","Arial","Verdana","Helvetica"];
 	  
 const grid = ['A1','A2','A3','A4','A5','A6','A7','A8','A9',
 			  'B1','B2','B3','B4','B5','B6','B7','B8','B9',
@@ -40,8 +44,7 @@ function answerHandler(){
   
   if (answer == value){
 	document.getElementById("container1").style.backgroundColor = "pink";
-	document.getElementById("container1").classList.add("stop");
-	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];		  
+	document.getElementById("container1").classList.add("stop");		 
     document.getElementById("happy").style.display = "block";
     document.getElementById("happy").style.visibility = "visible";
     document.getElementById("sad").style.visibility = "hidden";
@@ -60,37 +63,52 @@ function answerHandler(){
 }
 
 function genGame(){	
+	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
 	document.getElementById("container1").classList.remove("stop");
 	document.getElementById("sad").style.display = "none";
 	document.getElementById("happy").style.display = "none";
 	document.getElementById("container1").style.backgroundColor = "white";
-	correct = 0;
 	
 	//generate new game
 	var index = Math.floor(Math.random()*grid.length);
+	var wordIndex = Math.floor(Math.random()*wordPair.length);
 	var same = Math.floor(Math.random()*iconArray.length);
 	var diff = Math.floor(Math.random()*iconArray.length);
 	while (diff == same){
 		diff = Math.floor(Math.random()*iconArray.length);
 	}
 	var color = colorArray[Math.floor(Math.random()*colorArray.length)];
-	
+	var ABC = ABCArray[Math.floor(Math.random()*ABCArray.length)] + ABCArray[Math.floor(Math.random()*ABCArray.length)];
+	var font1 = fontArray1[Math.floor(Math.random()*fontArray1.length)];
+	var font2 = fontArray2[Math.floor(Math.random()*fontArray2.length)];
 	answer = grid[index];
 
 	//fill in grid
 	for (var i = 0; i < grid.length; i++) {
 		document.getElementById(grid[i]).style.backgroundColor = "white";
-		if (i == index){			
-			document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[diff]}" style="color:${color};"></i>`;	//different image
+		if (i == index){
+			if (total%3 == 2){
+				document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[diff]}" style="color:${color};"></i>`;	//different image
+			}
+			else if (total%3 == 1){
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][1]}</p>`;	//different word
+			}
+			else {
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font1}">${ABC}</p>`;	//different word
+			}
 		}
 		else {
-			document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[same]}" style="color:${color};"></i>`;	//same image
+			if (total%3 == 2){
+				document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[same]}" style="color:${color};"></i>`;	//same image
+			}
+			else if (total%3 == 1){
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][0]}</p>`;	//same word
+			}
+			else {
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font2}">${ABC}</p>`;	//different word
+			}
 		}
 	}
-}
-
-function reset(){
-	genGame();
 }
 
 document.getElementById("song").addEventListener("click", function (){

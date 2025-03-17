@@ -179,9 +179,8 @@ function genGame(){
 		grid = grid1;
 	}
 	else {grid = grid2;}
-	
-	//generate new game (answer)
-	answer = genBoard();
+		
+	answer = genBoard();	//generate new game (answer)
 	while (answer.length == 1){
 		console.log("test");
 		answer = genBoard();
