@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Memory Game</title>
+	<meta name="description" content="Memory Game" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+  <link rel="stylesheet" href="./public/memory.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li><a href="index.html">Chinese FC</a></li>
+      <li><a href="sa.html">SA</a></li>
+      <li><a href="logic.html">Logic</a></li>
+      <li><a href="ec.html">EC</a></li>
+      <li><a href="sudoku.html">Sudoku</a></li>
+	  <li><a href="spotdiff.html">SpotDiff</a></li>
+	  <li><a href="jigsaw.html">Jigsaw</a></li>
+	  <li><a class="active" href="memory.html">Memory</a></li>
+    </ul>
+    <h1>Memory Game</h1>  
+    <div class="container">
+      <div id="container1">	
+      </div>
+	  <div class="but">
+		<div><p id="startGame">Start!</p></div>
+	  </div>
+      <div class="but">	    
+        <div><p id="newGame">New Game</p></div>
+		<div class="dropdown">
+			<p id="diff">No. of Cards<i class="fa fa-caret-down"></i></p>
+			<div class="dropdown-content">
+			  <p id="kids" style="background-color:pink">12</p>
+			  <p id="easy">18</p>
+			  <p id="medium">24</p>
+			  <p id="hard">36</p>
+			</div>
+		</div>		
+      </div> 
+      <div class="statistics">
+        <div id="total">0</div>
+      </div>
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/memory.js"></script>
+</html>

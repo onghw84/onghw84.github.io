@@ -30,16 +30,16 @@ Mchars.push(['一','二','三','四','五']);
 Mchars.push(['六','七','八','九','十']);
 Mchars.push(['十一','十二','十三','十四','十五']);
 Mchars.push(['十六','十七','十八','十九','二十']);
-Mchars.push(['屋子','车子','风扇','电脑','手机']);
-/*Mchars.push(['三十','四十','五十','六十','七十']);
+/*Mchars.push(['屋子','车子','风扇','电脑','手机']);
+Mchars.push(['三十','四十','五十','六十','七十']);
 Mchars.push(['八十','九十','百','千','百万']);*/
 
 Echars.push(['One','Two','Three','Four','Five']);
 Echars.push(['Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
-Echars.push(['House','Car','Fan','Computer','Handphone']);
-/*Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
+/*Echars.push(['House','Car','Fan','Computer','Handphone']);
+Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
 Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);*/
 
 let reward = new Reward();
