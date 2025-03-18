@@ -1,23 +1,8 @@
 var total = 0;
-var Echars = [];
 var item = 12;
 
-const img_dir = './public/image/';
-Echars.push('Cat','Dog','Rabbit','Mouse','Elephant');
-Echars.push('Fish','Lion','Tiger','Snake','Dragon');
-Echars.push('Hen','Chick','Horse','Goat','Rooster');
-Echars.push('Monkey','Sheep','Duck','Bird','Cow');
-Echars.push('Cloud','Flower','Leaf','Stone','Water');
-Echars.push('Sand','Tree','Grass','Mountain','River');
-Echars.push('Red','Orange','Yellow','Green','Blue');
-Echars.push('Purple','Black','White','Brown','Pink');
-Echars.push('Crocodile','Turkey','Squirrel','Panda','Deer');
-Echars.push('Raccoon','Zebra','Giraffe','Fox','Leopard');
-Echars.push('One','Two','Three','Four','Five');
-Echars.push('Six','Seven','Eight','Nine','Ten');
-Echars.push('Eleven','Twelve','Thirteen','Fourteen','Fifteen');
-Echars.push('Sixteen','Seventeen','Eighteen','Nineteen','Twenty');
-/*Echars.push('House','Car','Fan','Computer','Handphone');*/
+const img_dir = './public/image/memory/';
+
 
 document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
 document.getElementById("total").innerHTML = total;
@@ -42,7 +27,8 @@ document.getElementById("hard").addEventListener("click", function(){
 	item = 36; genGame();
 })
 
-document.getElementById("startGame").addEventListener("click", function(){
+document.getElementById("startGame").addEventListener("click", async function(){
+	await new Promise(resolve => setTimeout(resolve, 500));
 	for (var i = 0; i < item; i++) {
 		document.getElementById(i).style.visibility = "hidden";
 		document.getElementById(i+'A').addEventListener("click", gridListener, false);
@@ -104,7 +90,8 @@ function genGame(){
 	
 	var array1 = new Array(item).fill(0);
 	var list = array1.map((el,index)=>{return index});
-	var tmpChars = [...Echars];
+	var array2 = new Array(148).fill(0);
+	var tmpChars = array2.map((el,index)=>{return index});
 	for (var i = 0; i < item/2; i++) {
 		var index1 = list[Math.floor(Math.random()*list.length)];
 		list = list.filter((el)=>el!=index1);
@@ -112,8 +99,8 @@ function genGame(){
 		list = list.filter((el)=>el!=index2);
 		var imgName = tmpChars[Math.floor(Math.random()*tmpChars.length)];
 		tmpChars = tmpChars.filter((el)=>el!=imgName);
-		document.getElementById(index1).src = img_dir+imgName+".jpg"
-		document.getElementById(index2).src = img_dir+imgName+".jpg"
+		document.getElementById(index1).src = img_dir+imgName+".png"
+		document.getElementById(index2).src = img_dir+imgName+".png"
 		document.getElementById(index1+'A').myParams = imgName;
 		document.getElementById(index2+'A').myParams = imgName;
 	}
