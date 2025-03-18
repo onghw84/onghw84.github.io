@@ -29,7 +29,7 @@ label {
   align-items: center;
 }
 
-#total{
+#total, #totalClick{
   width: 120px;
   height: 20px;
   margin: auto;
@@ -38,23 +38,26 @@ label {
   text-align: center;
 }
 
+#totalClick{
+  background-color: yellowgreen;
+}
+
 #container1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 370px;
-  padding: 5px;
-  height: auto;
+  padding: 3px;
   font-size: 35px;
   margin: auto;
   border: 2pt solid blue;
   justify-content: space-evenly;
+  row-gap: 3px;
+  column-gap: 3px;
 }
 
 .grid {  
   background-color: white;
-  width: 58px;
-  height: 58px;
   display: flex;
   justify-content: center;
   align-items: center;  
@@ -62,10 +65,22 @@ label {
   cursor: pointer;
 }
 
+.close{
+	background-image: linear-gradient(45deg, pink, yellow);
+}
+
 .grid img{
   visibility: visible;
-  width: 58px;
-  height: 58px;  
+}
+
+.size8 {
+  width: 88px;
+  height: 88px;  	
+}
+
+.size24 {
+  width: 57px;
+  height: 57px;  	
 }
 
 .but p {
