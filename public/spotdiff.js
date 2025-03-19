@@ -6,8 +6,7 @@ const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 const wordPair = [["找","我"],["水","永"],["刀","力"],["十","土"],["厂","广"],["九","几"],["月","明"],["笑","哭"],["是","足"],["品","晶"],["好","女"]];
 const ABCArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlklmnopqrstuvwxyz";
-const fontArray1 = ["Lucida Handwriting","Brush Script MT","Copperplate","Papyrus"];
-const fontArray2 = ["Courier New","Times New Roman","Georgia","Arial","Verdana","Helvetica"];
+const fontArray = ["Courier New","Georgia","Arial","Monospace"];
 	  
 const grid = ['A1','A2','A3','A4','A5','A6','A7','A8','A9',
 			  'B1','B2','B3','B4','B5','B6','B7','B8','B9',
@@ -79,8 +78,11 @@ function genGame(){
 	}
 	var color = colorArray[Math.floor(Math.random()*colorArray.length)];
 	var ABC = ABCArray[Math.floor(Math.random()*ABCArray.length)] + ABCArray[Math.floor(Math.random()*ABCArray.length)];
-	var font1 = fontArray1[Math.floor(Math.random()*fontArray1.length)];
-	var font2 = fontArray2[Math.floor(Math.random()*fontArray2.length)];
+	var fontA = [...fontArray];
+	var font1 = fontA[Math.floor(Math.random()*fontArray.length)];
+	fontA = fontA.filter((el)=>el!=font1);
+	var font2 = fontA[Math.floor(Math.random()*fontA.length)];
+	console.log(font1, font2);
 	answer = grid[index];
 
 	//fill in grid
@@ -94,7 +96,7 @@ function genGame(){
 				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][1]}</p>`;	//different word
 			}
 			else {
-				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font1}">${ABC}</p>`;	//different word
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font1}; font-style:${Math.random()<0.5? 'italic':'normal'}">${ABC}</p>`;	//different word
 			}
 		}
 		else {
@@ -105,7 +107,7 @@ function genGame(){
 				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][0]}</p>`;	//same word
 			}
 			else {
-				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font2}">${ABC}</p>`;	//different word
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font2}; font-style:${Math.random()<0.5? 'italic':'normal'}">${ABC}</p>`;	//different word
 			}
 		}
 	}

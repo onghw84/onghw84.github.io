@@ -7,21 +7,6 @@ body {
   align-items: center;
 }
 
-.radio {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-  width: 400px;
-  justify-content: center;
-}
-
-label {
-  margin-left: 10px;
-  height: 10px;
-  width: 50px; 
-}
-
 #cat {
   display: flex;
   flex-direction: row;
@@ -29,7 +14,7 @@ label {
   align-items: center;
 }
 
-#correct, #error{
+#total{
   width: 120px;
   height: 20px;
   margin: auto;
@@ -38,48 +23,45 @@ label {
   text-align: center;
 }
 
-#error{
-  background-color: red;
-  color: white;
-}
-
-#main{
-  visibility: visible;
-  width: 380px; 
-  height: 380px;
-  object-fit: cover;	/*none, -fill, cover, -contain, -scale-down*/
-  border-radius: 8px;
-  position: absolute;  /*static relative fixed absolute sticky*/
-  z-index = 0;
-}
-
 #container1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 380px;
-  height: 380px;
+  height: auto;
   font-size: 35px;
   margin: auto;
   border: 2pt solid blue;
-  justify-content: space-evenly;
+  gap: 0px;
+  column-gap: 0px;
 }
 
 .grid {  
   background-color: white;
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;  
-  z-index: 1;
   border: 1pt solid blue;
+  font-weight: bold;
 }
 
+#direction{
+	width: 200px;
+}
+
+#direction p{
+  color: blue;
+  
+}
+
+
 .but p {
-  width: 30px;
-  height: 30px;
-  background-color: #FFE5B4;
+  width: 40px;
+  height: 40px;
+  background-color: pink;
   margin: auto;
   margin-top: 20px;
   border: 1pt solid blue;
@@ -91,23 +73,15 @@ label {
   cursor: pointer;
 }
 
-#choice {
-  width: 390px;
-  flex-flow: wrap;
-}
-
-#newGame {
+#newGame, #diff{
 	width: 150px;
 	background-color: white;
 }
 
-#A, #B, #C, #D {
-  margin: auto;
-  margin-top: 20px;
-  border: 1pt solid blue;
-  border-radius: 3px;
+#kids, #easy, #medium, #hard {
+	background-color: white;
+	margin-top: 5px;
 }
-
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -121,8 +95,4 @@ label {
   background-color: white;
   min-width: 160px;
   z-index: 1;
-}
-
-.stop {
-  pointer-events: none;
 }
