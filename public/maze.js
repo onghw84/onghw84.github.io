@@ -1,80 +1,48 @@
-var total = 0; var correct = 0;
+var total = 0;
 var level = 0; 
-document.getElementById("container1").style.display = "none"; 
 var focus = '';
+var answer = '';
 
-const grid1 = ['A_1','A_2','A_3','A_4',
-			  'B_1','B_2','B_3','B_4',
-			  'C_1','C_2','C_3','C_4',
-			  'D_1','D_2','D_3','D_4'];
-			  
-const grid2 = ['A1','A2','A3','A4','A5','A6','A7','A8','A9',
-			  'B1','B2','B3','B4','B5','B6','B7','B8','B9',
-			  'C1','C2','C3','C4','C5','C6','C7','C8','C9',
-			  'D1','D2','D3','D4','D5','D6','D7','D8','D9',
-			  'E1','E2','E3','E4','E5','E6','E7','E8','E9',
-			  'F1','F2','F3','F4','F5','F6','F7','F8','F9',
-			  'G1','G2','G3','G4','G5','G6','G7','G8','G9',
-			  'H1','H2','H3','H4','H5','H6','H7','H8','H9',
-			  'I1','I2','I3','I4','I5','I6','I7','I8','I9'];
-			  
-var grid = grid2;
+var start = [99, 118];
+var stop = [101, 102, 103, 104, 105, 106, 107, 119];
+var iconDir = './public/image/memory/';
 
 document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
-document.getElementById("one").addEventListener("click", answerHandler);
-document.getElementById("two").addEventListener("click", answerHandler);
-document.getElementById("three").addEventListener("click", answerHandler);
-document.getElementById("four").addEventListener("click", answerHandler);
-document.getElementById("five").addEventListener("click", answerHandler);
-document.getElementById("six").addEventListener("click", answerHandler);
-document.getElementById("seven").addEventListener("click", answerHandler);
-document.getElementById("eight").addEventListener("click", answerHandler);
-document.getElementById("nine").addEventListener("click", answerHandler);
+document.getElementById("up").addEventListener("click", moveHandler);
+document.getElementById("down").addEventListener("click", moveHandler);
+document.getElementById("left").addEventListener("click", moveHandler);
+document.getElementById("right").addEventListener("click", moveHandler);
+//todo: add eventlistener for keyboard
+
 document.getElementById("kids").addEventListener("click", function(){
-	level = 0; reset(); this.style.backgroundColor = "pink";
-	document.getElementById("container0").style.display = "flex"; 
-	document.getElementById("container1").style.display = "none";
-	document.getElementById("five").style.display = "none";
-	document.getElementById("six").style.display = "none";
-	document.getElementById("seven").style.display = "none";
-	document.getElementById("eight").style.display = "none";
-	document.getElementById("nine").style.display = "none";
-	document.getElementById("digit").style.width = "200px";
+	level = 0; genGame(); this.style.backgroundColor = "pink";
 })
 document.getElementById("easy").addEventListener("click", function(){
-	level = 1; reset(); this.style.backgroundColor = "pink";
-	document.getElementById("container0").style.display = "none";
-	document.getElementById("container1").style.display = "flex";
+	level = 1; genGame(); this.style.backgroundColor = "pink";
 })
 document.getElementById("medium").addEventListener("click", function(){
-	level = 2; reset(); this.style.backgroundColor = "pink";
-	document.getElementById("container0").style.display = "none";
-	document.getElementById("container1").style.display = "flex";	
+	level = 2; genGame(); this.style.backgroundColor = "pink";
 })
 document.getElementById("hard").addEventListener("click", function(){
-	level = 3; reset(); this.style.backgroundColor = "pink";
-	document.getElementById("container0").style.display = "none";
-	document.getElementById("container1").style.display = "flex";	
+	level = 3; genGame(); this.style.backgroundColor = "pink";
 })
 
+var text = ""
+for (var i = 0; i < 100; i++) {
+	text += `<div class = "grid top bottom left right" id="${i}"></div>`
+}
+document.getElementById("container1").innerHTML = text;
+
 document.getElementById("total").innerHTML = total;
-var answer = new Array(grid.length).fill(0);
 let reward = new Reward();
-let sudokuSolver = new SudokuSolver(9);
-let sudokuSolver0 = new SudokuSolver(4);
 genGame();
 
-
-//var test = ['.', '.', '.', '.', '.', '.', 6, '.', '.', '.', '.', '.', '.', '.', 5, '.', '.', '.', 6, '.', '.', 7, '.', '.', 5, '.', '.', '.', '.', 2, '.', 3, '.', '.', '.', '.', '.', '.', '.', 1, '.', '.', '.', 7, 9, '.', 9, 6, '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 8, '.', '.', '.', '.', 5, 7, '.', '.', '.', 6, '.', '.', '.', '.', '.', '.', '.', 2, '.', '.', 4, '.'];
-//var puzzleAnswer = sudokuSolver.solve(test);
-//console.log(puzzleAnswer);
-
-function gridListener(event){
-	if (focus != ""){
-		document.getElementById(focus).style.backgroundColor = "white";
-	}
+function moveHandler(event){
 	focus = event.currentTarget.myParam;
-	event.currentTarget.style.backgroundColor = "yellowgreen";		
+	event.currentTarget.style.backgroundColor = "yellowgreen";
+	//check if border exist, move cat
+	
+	
 }
 
 function answerHandler(){    
@@ -90,101 +58,53 @@ function answerHandler(){
 		document.getElementById(focus).style.color = "blue";
 		correct += 1;
 		if (correct == emptyGrid.length){	//all correct
-			if (level == 0){
-				document.getElementById("container0").style.backgroundColor = "pink";
-			}
-			else {
-				document.getElementById("container1").style.backgroundColor = "pink";
-			}
-			document.getElementById(focus).style.backgroundColor = "white";
-			document.getElementById("digit").style.display = "none";
+			document.getElementById("container1").style.backgroundColor = "pink";
 			total += 1;
 			document.getElementById("total").innerHTML = total;
 			reward.showReward(total, 1);			
 		}
 	  }
-	  else {
-		  if (document.getElementById(focus).style.color == "blue"){
-			  correct -= 1;
-		  }
-		  document.getElementById(focus).style.color = "red";
-	  }
 	  return;
   }
 }
 
-function removeDuplicates(arr) {
-    return [...new Set(arr)];
-}
-
-function genBoard(){	
-	var index;
-	var value;
-	var puzzle = new Array(grid.length).fill('.');
-	var i = 0;	
+function genPath(){
 	
-	if (level == 0){
-		//TODO: generate 4x4 board		
-		while (i < 4){
-			index = Math.floor(Math.random()*grid.length);
-			value = Math.ceil(Math.random()*Math.sqrt(grid.length));
-			row = grid[index][0]; column = grid[index][2];
-			if (!sudokuSolver0.isInvalid(puzzle, row, column, value)){
-				puzzle[index] = value;
-				i += 1;			
-			}
-		}
-		var puzzleAnswer0 = sudokuSolver0.solve(puzzle);	//TODO: solve sometimes stuck
-		if (puzzleAnswer0.error){
-			console.log(puzzleAnswer0.error);
-			return [-1];
-		}
-		else {
-			return puzzleAnswer0.solution;
-		}		
-	}
-	else {
-		//generate 9*9 board
-		while (i < 20){
-			index = Math.floor(Math.random()*grid.length);
-			value = Math.ceil(Math.random()*Math.sqrt(grid.length));
-			row = grid[index][0]; column = grid[index][1];
-			if (!sudokuSolver.isInvalid(puzzle, row, column, value)){
-				puzzle[index] = value;
-				i += 1;			
-			}
-		}
-		var puzzleAnswer = sudokuSolver.solve(puzzle);	//TODO: solve sometimes stuck
-		if (puzzleAnswer.error){
-			console.log(puzzleAnswer.error);
-			return [-1];
-		}
-		else {
-			return puzzleAnswer.solution;
-		}
-	}
 }
 
 function genGame(){	
-	document.getElementById("container0").style.backgroundColor = "white";
-	document.getElementById("container1").style.backgroundColor = "white";
-	document.getElementById("digit").style.display = "flex";
-	if (focus != ""){
-		document.getElementById(focus).style.background = "white";
-	}
-	correct = 0;
+
+	var startIndex = 0;
+	var stopIndex = Math.ceil(Math.random()*100);
+	var startSrc = iconDir + start[Math.floor(Math.random()*start.length)]+ '.png';
+	var stopSrc = iconDir + stop[Math.floor(Math.random()*stop.length)]+ '.png';
+	var borderClass = ["right","left","top","bottom"];
+	var borderClass1 = ["left","right","bottom","top"];
 	
-	//generate empty grid;
-	if (level == 0){
-		grid = grid1;
+	document.getElementById(startIndex).innerHTML = `<img id="start" src=${startSrc}></img>`;
+	document.getElementById(stopIndex).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
+
+	//generate path from start to stop
+	console.log(stopIndex);
+	var path = [startIndex]; var step = 0; var count = 0;
+	while (path[step] != stopIndex){
+		count += 1;
+		var moveType = Math.floor(Math.random()*4);
+		var moveTmp = move(path[step],moveType);
+		if (path.indexOf(moveTmp) == -1){			
+			document.getElementById(path[step]).classList.remove(borderClass[moveType]);
+			path.push(moveTmp);
+			step += 1;
+			document.getElementById(path[step]).classList.remove(borderClass1[moveType]);
+		}
+		console.log(path);
+		if (count > 100){
+			path = [path[Math.floor(Math.random()*path.length)]];
+			count = 0; step = 0;
+		}
 	}
-	else {grid = grid2;}
-		
-	answer = genBoard();	//generate new game (answer)
-	while (answer.length == 1){
-		answer = genBoard();
-	}	
 	
+	//this.classList.remove("close");
 	emptyGrid = []; var emptyIndex = 0;
 	for (var i = 0; i < (level*2+1)*5; i++){
 		emptyIndex = (emptyIndex + Math.ceil(Math.random()*10))%grid.length;
@@ -197,12 +117,12 @@ function genGame(){
 		if (emptyGrid.includes(grid[i])){
 			document.getElementById(grid[i]).style.fontWeight = "normal";
 			document.getElementById(grid[i]).style.fontStyle = "italic";
-			document.getElementById(grid[i]).addEventListener("click", gridListener, false);
+			document.getElementById(grid[i]).addEventListener("click", moveHandler, false);
 			document.getElementById(grid[i]).myParam = grid[i];
 			document.getElementById(grid[i]).innerHTML = "";
 		}
 		else {
-			document.getElementById(grid[i]).removeEventListener("click", gridListener);
+			document.getElementById(grid[i]).removeEventListener("click", moveHandler);
 			document.getElementById(grid[i]).style.fontWeight = "bold";
 			document.getElementById(grid[i]).style.fontStyle = "normal";
 			document.getElementById(grid[i]).innerHTML = answer[i];
@@ -210,18 +130,42 @@ function genGame(){
 	}
 }
 
-function reset(){
-	genGame();
-	document.getElementById("digit").style.width = "400px";
-	document.getElementById("five").style.display = "flex";
-	document.getElementById("six").style.display = "flex";
-	document.getElementById("seven").style.display = "flex";
-	document.getElementById("eight").style.display = "flex";
-	document.getElementById("nine").style.display = "flex";	
-	document.getElementById("kids").style.backgroundColor = "white";
-	document.getElementById("easy").style.backgroundColor = "white";
-	document.getElementById("medium").style.backgroundColor = "white";
-	document.getElementById("hard").style.backgroundColor = "white";
+function move(index, direction){
+	if (direction == 0){	//Left
+		if (index%10 == 9){
+			return index;
+		}
+		else {
+			return index + 1;
+		}
+	}
+	else if (direction == 1){	//Right
+		if (index%10 == 0){
+			return index;
+		}
+		else {
+			return index - 1;
+		}
+	}
+	else if (direction == 2){	//Up
+		if (index <= 9){
+			return index;
+		}
+		else {
+			return index - 10;
+		}		
+	}
+	else if (direction == 3){	//Down
+		if (index >= 90){
+			return index;
+		}
+		else {
+			return index + 10;
+		}		
+	}
+	else {
+		return index;
+	}
 }
 
 document.getElementById("song").addEventListener("click", function (){

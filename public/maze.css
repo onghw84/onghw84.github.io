@@ -34,18 +34,42 @@ body {
   border: 2pt solid blue;
   gap: 0px;
   column-gap: 0px;
+  justify-content: center;
+  padding: 10px 0px;
 }
 
 .grid {  
-  background-color: white;
-  width: 36px;
-  height: 36px;
+  background-color: skyblue;
+  width: 35px;
+  height: 35px;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;  
-  border: 1pt solid blue;
   font-weight: bold;
+  border: 1pt solid skyblue;	
+}
+
+.top{
+	border-top: 1pt solid blue;	
+}
+
+.bottom{
+	border-bottom: 1pt solid blue;	
+}
+
+.left{
+	border-left: 1pt solid blue;	
+}
+
+.right{
+	border-right: 1pt solid blue;	
+}
+
+#start, #stop{
+  visibility: visible;
+  width: 35px;
+  height: 35px;
 }
 
 #direction{
@@ -56,7 +80,6 @@ body {
   color: blue;
   
 }
-
 
 .but p {
   width: 40px;

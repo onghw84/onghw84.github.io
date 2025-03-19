@@ -1,6 +1,6 @@
 var total = 0;
 
-const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-star","fa fa-tree","fa fa-subway","fa fa-train","fa fa-plane","fa fa-bell","fa fa-coffee","fa fa-heart","fa fa-gift","fa fa-umbrella","fa fa-circle"]
+const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-star","fa fa-tree","fa fa-subway","fa fa-train","fa fa-plane","fa fa-bell","fa fa-coffee","fa fa-heart","fa fa-gift","fa fa-umbrella"]
 const colorArray = ["orange","orangered","blue","black","green","red","peru","purple"]
 const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
@@ -82,32 +82,33 @@ function genGame(){
 	var font1 = fontA[Math.floor(Math.random()*fontArray.length)];
 	fontA = fontA.filter((el)=>el!=font1);
 	var font2 = fontA[Math.floor(Math.random()*fontA.length)];
-	console.log(font1, font2);
+	var fontstyle1 = Math.random()<0.5? 'italic':'normal';
+	var fontstyle2 = Math.random()<0.5? 'italic':'normal';
 	answer = grid[index];
 
 	//fill in grid
 	for (var i = 0; i < grid.length; i++) {
 		document.getElementById(grid[i]).style.backgroundColor = "white";
 		if (i == index){
-			if (total%3 == 2){
+			if (total%3 == 0){
 				document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[diff]}" style="color:${color};"></i>`;	//different image
 			}
 			else if (total%3 == 1){
 				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][1]}</p>`;	//different word
 			}
 			else {
-				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font1}; font-style:${Math.random()<0.5? 'italic':'normal'}">${ABC}</p>`;	//different word
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font1}; font-style:${fontstyle1}">${ABC}</p>`;	//different word
 			}
 		}
 		else {
-			if (total%3 == 2){
+			if (total%3 == 0){
 				document.getElementById(grid[i]).innerHTML = `<i class="${iconArray[same]}" style="color:${color};"></i>`;	//same image
 			}
 			else if (total%3 == 1){
 				document.getElementById(grid[i]).innerHTML = `<p style="color:${color};">${wordPair[wordIndex][0]}</p>`;	//same word
 			}
 			else {
-				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font2}; font-style:${Math.random()<0.5? 'italic':'normal'}">${ABC}</p>`;	//different word
+				document.getElementById(grid[i]).innerHTML = `<p style="color:${color}; font-family: ${font2}; font-style:${fontstyle2}">${ABC}</p>`;	//different word
 			}
 		}
 	}
