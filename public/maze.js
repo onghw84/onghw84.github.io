@@ -13,16 +13,18 @@ const r = document.querySelector(':root');
 const dirIndex = ["right","left","up","down"];
 var neighborArray1 = [];
 
-//document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
-document.getElementById("up").addEventListener("click", moveHandler);
-document.getElementById("down").addEventListener("click", moveHandler);
-document.getElementById("left").addEventListener("click", moveHandler);
-document.getElementById("right").addEventListener("click", moveHandler);
+//document.getElementById("up").addEventListener("click", moveHandler);
+//document.getElementById("down").addEventListener("click", moveHandler);
+//document.getElementById("left").addEventListener("click", moveHandler);
+//document.getElementById("right").addEventListener("click", moveHandler);
 //todo: add eventlistener for keyboard
-document.onkeypress = function (e) {
+document.onkeydown = function (e) {
     e = e || window.event;
-	console.log(e.keyCode);
-    // use e.keyCode
+	//console.log(e);
+	if (e.keyCode >= 37 && e.keyCode <= 40){
+		console.log(e.keyCode);
+		moveHandler(e);
+	}
 };
 
 document.getElementById("kids").addEventListener("click", function(){
@@ -42,15 +44,34 @@ document.getElementById("total").innerHTML = total;
 let reward = new Reward();
 genGame();
 
-function moveHandler(event){	
-	var id = event.currentTarget.id;
+function moveHandler(event){
 	var moveTmp = -1;
-	if (dirIndex.includes(id)){
-		moveTmp = move(focus,dirIndex.indexOf(id));
+	if (event instanceof KeyboardEvent){
+		var dir;
+		switch (event.keyCode){
+		case 37:	//left
+			dir = 1; break;
+		case 38:	//up
+			dir = 2; break;
+		case 39:	//right
+			dir = 0; break;
+		case 40:	//down
+			dir = 3; break;
+		default:
+			dir = -1; break;
+		}
+		moveTmp = move(focus,dir);
 	}
 	else {
-		moveTmp = move(focus,neighborArray1[focus].indexOf(parseInt(id)));
+		var id = event.currentTarget.id;	
+		if (dirIndex.includes(id)){
+			moveTmp = move(focus,dirIndex.indexOf(id));
+		}
+		else {
+			moveTmp = move(focus,neighborArray1[focus].indexOf(parseInt(id)));
+		}		
 	}
+
 	if (moveTmp != focus && moveTmp != -1){
 		document.getElementById(focus).innerHTML = '';
 		document.getElementById(moveTmp).innerHTML = `<img id="start" src=${startSrc}></img>`;
@@ -118,15 +139,16 @@ function genGame(){
 	var visited = [startIndex];
 	var path = [startIndex]; var step = 0; var placeEnd = false;
 	while (visited.length != level**2){
-		if (!placeEnd && step == level*level/2){
-		//if (!placeEnd && step == 2){
+		
+		//put the destination in maze
+		if (!placeEnd && step >= level*level/2){
+		//if (!placeEnd && step == 2){ //use during testing 
 			document.getElementById(path[step]).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
 			dest = path[step];
 			placeEnd = true;
 		}
 		
 		var neighbor = neighborArray[path[step]]; var moveArray = [];
-
 		for (var j = 0; j < 4; j++){
 			if (neighbor[j] != -1 && visited.indexOf(neighbor[j])==-1){
 				moveArray.push(j);				
@@ -144,6 +166,12 @@ function genGame(){
 		else {
 			path.pop(); step -= 1;
 		}
+	}
+	if (!placeEnd){
+		console.log("test");
+		var index = Math.floor(Math.random()*level**2);
+		document.getElementById(index).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
+		dest = index;
 	}
 }
 
