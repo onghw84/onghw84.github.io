@@ -1,3 +1,7 @@
+:root {
+  --size: 20px;
+}
+
 body {
   font-family: "Times New Roman", Helvetica, Arial, sans-serif;
   /*height: 100vh;*/
@@ -29,7 +33,6 @@ body {
   flex-wrap: wrap;
   width: 380px;
   height: auto;
-  font-size: 35px;
   margin: auto;
   border: 2pt solid blue;
   gap: 0px;
@@ -40,8 +43,8 @@ body {
 
 .grid {  
   background-color: skyblue;
-  width: 35px;
-  height: 35px;
+  width: var(--size);
+  height: var(--size);
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -68,8 +71,8 @@ body {
 
 #start, #stop{
   visibility: visible;
-  width: 35px;
-  height: 35px;
+  width: var(--size);
+  height: var(--size);
 }
 
 #direction{
