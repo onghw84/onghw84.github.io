@@ -1,7 +1,6 @@
 var total = 0;
 var level = 10; 
 var focus = '';
-var answer = '';
 
 var start = [99, 118];
 var stop = [101, 102, 103, 104, 105, 106, 107, 149, 150, 151, 152, 153, 154, 155, 119];
@@ -11,7 +10,6 @@ var endSrc = './public/reward/happybee.gif';
 var dest = -1;
 const r = document.querySelector(':root');
 const dirIndex = ["right","left","up","down"];
-var neighborArray1 = [];
 
 //document.getElementById("up").addEventListener("click", moveHandler);
 //document.getElementById("down").addEventListener("click", moveHandler);
@@ -20,9 +18,7 @@ var neighborArray1 = [];
 //todo: add eventlistener for keyboard
 document.onkeydown = function (e) {
     e = e || window.event;
-	//console.log(e);
 	if (e.keyCode >= 37 && e.keyCode <= 40){
-		console.log(e.keyCode);
 		moveHandler(e);
 	}
 };
@@ -68,7 +64,7 @@ function moveHandler(event){
 			moveTmp = move(focus,dirIndex.indexOf(id));
 		}
 		else {
-			moveTmp = move(focus,neighborArray1[focus].indexOf(parseInt(id)));
+			moveTmp = move(focus,findDirection(parseInt(id)));
 		}		
 	}
 
@@ -78,6 +74,26 @@ function moveHandler(event){
 		focus = moveTmp;
 		answerHandler();
 	}
+}
+
+function findDirection(gridIndex){
+	if (gridIndex == focus){
+		return -1;
+	}
+	if (Math.floor(gridIndex/level) == Math.floor(focus/level)){	//same row
+		if (gridIndex < focus){
+			return 1;	//gridIndex on left of focus
+		}
+		else {return 0;} //gridIndex on right of focus		
+	}
+	else if (gridIndex%level == focus%level){	//same column
+		if (gridIndex < focus){
+			return 2;	//gridIndex on top of focus
+		}
+		else {return 3;} //gridIndex on bottom of focus
+	} else {
+		return -1;
+	}	
 }
 
 async function answerHandler(){    
@@ -122,33 +138,25 @@ function genGame(){
 			neighborArray[i].push(i+level);
 		}else{neighborArray[i].push(-1);}
 	}
-	neighborArray1 = [...neighborArray];
 	document.getElementById("container1").innerHTML = text;
 	for (var i = 0; i < level**2; i++) {
 		document.getElementById(i).addEventListener("click", moveHandler);
 	}
 	
-	var startIndex = Math.floor(Math.random()*level**2);
+	
 	var borderClass = ["right","left","top","bottom"];
 	var borderClass1 = ["left","right","bottom","top"];
 	
-	document.getElementById(startIndex).innerHTML = `<img id="start" src=${startSrc}></img>`;
-	focus = startIndex;
-
-	//generate path
-	var visited = [startIndex];
-	var path = [startIndex]; var step = 0; var placeEnd = false;
-	while (visited.length != level**2){
+	//generate maze
+	var visited = [Math.floor(Math.random()*level**2)];
+	var active = [...visited]; var step;
+	//while (visited.length != level**2){	
+	while (active.length > 0){
 		
-		//put the destination in maze
-		if (!placeEnd && step >= level*level/2){
-		//if (!placeEnd && step == 2){ //use during testing 
-			document.getElementById(path[step]).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
-			dest = path[step];
-			placeEnd = true;
-		}
-		
-		var neighbor = neighborArray[path[step]]; var moveArray = [];
+		step = active.length-1;
+		//if (Math.random() < 0.75){step = active.length-1;}
+		//else {step = Math.floor(Math.random()*active.length);}
+		var neighbor = neighborArray[active[step]]; var moveArray = [];
 		for (var j = 0; j < 4; j++){
 			if (neighbor[j] != -1 && visited.indexOf(neighbor[j])==-1){
 				moveArray.push(j);				
@@ -158,21 +166,23 @@ function genGame(){
 		if (moveArray.length > 0){
 			var moveType = Math.floor(Math.random()*moveArray.length);
 			var moveTmp = neighbor[moveArray[moveType]];
-			document.getElementById(path[step]).classList.remove(borderClass[moveArray[moveType]]);
-			path.push(moveTmp);
-			step += 1; visited.push(moveTmp);
-			document.getElementById(path[step]).classList.remove(borderClass1[moveArray[moveType]]);
+			document.getElementById(active[step]).classList.remove(borderClass[moveArray[moveType]]);
+			active.push(moveTmp);
+			visited.push(moveTmp);
+			document.getElementById(moveTmp).classList.remove(borderClass1[moveArray[moveType]]);
 		}
 		else {
-			path.pop(); step -= 1;
+			active.splice(step,1);
 		}
 	}
-	if (!placeEnd){
-		console.log("test");
-		var index = Math.floor(Math.random()*level**2);
-		document.getElementById(index).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
-		dest = index;
-	}
+	
+	var startIndex = Math.floor(Math.random()*level**2/4);
+	document.getElementById(startIndex).innerHTML = `<img id="start" src=${startSrc}></img>`;
+	focus = startIndex;
+	//var index = Math.floor(Math.random()*level**2/2)+level**2/2;
+	var stopIndex = startIndex+level**2/2+Math.floor(Math.random()*level);
+	document.getElementById(stopIndex).innerHTML = `<img id="stop" src=${stopSrc}></img>`;
+	dest = stopIndex;
 }
 
 function move(index, direction){
