@@ -3,7 +3,7 @@
     margin: 0;
 }
   
-ul {
+#navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -16,11 +16,11 @@ ul {
     font-family: "Times New Roman"
 }
 
-li {
+#navbar li {
     float: left;
 }
 
-li a {
+#navbar li a {
     display: block;
     color: #666;
     text-align: center;
@@ -28,11 +28,11 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+#navbar li a:hover:not(.active) {
     background-color: #ddd;
 }
 
-li a.active {
+#navbar li a.active {
     color: blue;
     background-color: pink;
 }
