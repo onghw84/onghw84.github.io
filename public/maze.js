@@ -109,7 +109,7 @@ async function answerHandler(){
 		<div class="but" style="flex-wrap: wrap; width: 380px">${text}</div>`;
 	document.getElementById("total").innerHTML = total;
 	reward.showReward(total, 1);
-	await new Promise(resolve => setTimeout(resolve, 2000));
+	await new Promise(resolve => setTimeout(resolve, 3000));
 	genGame();
   }
 }
