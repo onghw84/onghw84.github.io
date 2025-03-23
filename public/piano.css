@@ -99,6 +99,7 @@ body {
 
 .key .note{
 	margin-bottom:11px;
+	user-select: none;
 }
 
 .piano--black-keys ul{
@@ -151,6 +152,7 @@ body {
 	font-size:14px;
 	margin-bottom:45px;
 	text-align:center;
+	
 }
 
 
