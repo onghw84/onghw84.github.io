@@ -1,20 +1,8 @@
-:root {
-  --size: 20px;
-}
-
 body {
   font-family: "Times New Roman", Helvetica, Arial, sans-serif;
-  /*height: 100vh;*/
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-#cat {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -35,13 +23,13 @@ body {
   border: 2pt solid blue;
   background: #FFE5B4;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 40px;
   margin-bottom: 10px;
   border-radius: 5px;
   font-size: 20px;
-  line-height: 25px;
+  text-align: center;
   display: content;  
-  overflow: wrap;
+  overflow: none;
   color: gray;
 }
 
@@ -184,9 +172,7 @@ body {
 }
 
 .but p {
-  width: 40px;
   height: 40px;
-  background-color: pink;
   margin: auto;
   margin-top: 20px;
   border: 1pt solid blue;
@@ -198,35 +184,28 @@ body {
   cursor: pointer;
 }
 
-#newGame, #diff{
+.but> .dropdown> .p{
 	width: 150px;
 	background-color: white;
 }
 
-#kids, #easy, #medium, #hard {
-	background-color: white;
+#selSong {
+	background-color: #FFE5B4;
+	padding: 5px;
+	width: 200px;
+	height: 30px;
 	margin-top: 5px;
+	border-radius: 5px;
+	border: 2pt solid blue;	
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: row;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  z-index: 1;
-}
-
-#bee {
-	width: 100%;
-	height: auto;
-	visibility: visible;
-	position: relative;
-	left: 5px;
-	top: -30px;
+#bee{
+	visibility: hidden;
+	height: 250px;
+	width: 250px;
+	background-color: white;
+	z-index: 3;
+	position: absolute;
+	top: 40%;
+	right: 40%;
 }

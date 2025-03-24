@@ -16,11 +16,8 @@
 <html>
   <body>
     <script src="./public/ul.js"></script>
-    <h1>Piano Game</h1>  
     <div class="container1">
-		<div id = "sheet">
-			A Bb C D# E F G C C D D A A E A Bb C D# E♭ F G C C D D A A E A Bb C D# E F G C C D D A A E A Bb C D# E F G C C D D A A E A Bb C D# E F G C C D D A A E
-		</div>
+		<div id = "sheet"></div>
 		<div id="piano">
 		  <div class="piano">
 			<div class="piano--black-keys">
@@ -144,18 +141,14 @@
 			</ul>
 		  </div>
 		</div>
+		<img id = "bee" src = "./public/reward/happybee.gif"></img>
 		<div class="but">
-		<div class="dropdown">
-			<p id="diff">Song<i class="fa fa-caret-down"></i></p>
-			<div class="dropdown-content">
-			  <p id="kids" style="background-color:pink">0</p>
-			  <p id="easy">1</p>
-			  <p id="medium">2</p>
-			  <p id="hard">3</p>
+			<select  name="song" id="selSong">
+				<option value=-1 selected="selected">Select Song</option>
 			</div>
-		</div>
-		</div>
+		</div>		
     </div>
+	
   </body>
   <script src="./public/piano.js"></script>
 </html>
