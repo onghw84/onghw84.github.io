@@ -8,8 +8,13 @@ var playing = Array(keys.length).fill(0);
 var count = 0;
 const sheetLen = 20;
 
-var selectedSheet = ["C2", "C2", "G2", "G2", "A2", "A2", "G2", "F2", "F2", "E2", "E2", "D2", "D2", "C2", "G2", "G2", "F2", "F2", "E2", "E2", "D2", "G2", "G2", "F2", "F2",
- "E2", "E2", "D2", "C2", "C2", "G2", "G2", "A2", "A2", "G2", "F2", "F2", "E2", "E2", "D2", "D2", "C2"];
+const sheets = [
+["C2", "C2", "G2", "G2", "A2", "A2", "G2", "F2", "F2", "E2", "E2", "D2", "D2", "C2", "G2", "G2", "F2", "F2", "E2", "E2", "D2", "G2", "G2", "F2", "F2",
+ "E2", "E2", "D2", "C2", "C2", "G2", "G2", "A2", "A2", "G2", "F2", "F2", "E2", "E2", "D2", "D2", "C2"],
+["G2","E2","E2","F2","D2","D2","C2","D2","E2","F2","G2","G2","G2","G2","E2","E2","F2","D2","D2","C2","E2","G2","G2","E2","D2","D2","D2","D2","D2","E2","F2",
+"E2","E2","E2","E2","E2","F2","G2","G2","E2","E2","F2","D2","D2","C2","E2","G2","G2","C2"]
+]
+var selectedSheet = sheets[1];
 document.querySelectorAll(`[data-note='${selectedSheet[0]}']`)[0].classList.add("highlight1");
 var currentKey = selectedSheet[0];
  
@@ -36,6 +41,8 @@ for (var i = 0; i < keys.length; i++){
 	});
 	keys[i].addEventListener("touchstart", function(e){		
 		playSound(e.currentTarget);
+		e.stopPropagation(); 
+        e.preventDefault(); 
 	});
 	keys[i].addEventListener("touchend", function(e){
 		stopSound(e.currentTarget);
