@@ -34,13 +34,27 @@ body {
 }
 
 .sheet-note{
-  padding: 5px;  
+  padding: 0px; 
+  margin: 0px;
+  background: linear-gradient(to right, pink 50%, #FFE5B4 50%);
+  background-position: right bottom;
+}
+
+@keyframes sheetSlide {
+  from {background-position: right bottom;}
+  to {background-position: left top;}
 }
 
 .highlight {
   font-size: 25px;
   color: blue;
   font-weight: bold;
+/*  animation-name: sheetSlide;  */
+}
+
+.highlightSlide{
+	animation-name: sheetSlide;
+	animation-timing-function: linear;
 }
 
 .highlight1 {
