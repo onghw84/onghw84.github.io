@@ -7,46 +7,54 @@ const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg
 Mchars.push(['猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙']);
 Mchars.push(['红','橙','黄','绿','蓝','紫','黑','白','褐','粉色']);
 Mchars.push(['母鸡','小鸡','马','山羊','公鸡']);
-Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['云','花','叶子','石头','水']);
 Mchars.push(['沙子','树','草','山','河']);
 Mchars.push(['雪','彩虹','天使','太阳','月亮',]);
 Mchars.push(['彩带','爱心','蝴蝶','妖怪','蜻蜓']);
 Mchars.push(['椰子','苹果','橙子','糖','雪糕']);
-//
-//
+Mchars.push(['一','二','三','四','五']);
+Mchars.push(['六','七','八','九','十']);
+Mchars.push(['十一','十二','十三','十四','十五']);
+Mchars.push(['十六','十七','十八','十九','二十']);
+Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
 
 Echars.push(['Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon']);
 Echars.push(['Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster']);
-Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Cloud','Flower','Leaf','Stone','Water']);
 Echars.push(['Sand','Tree','Grass','Mountain','River']);
 Echars.push(['Snow','Rainbow','Angel','Sun','Moon']);
 Echars.push(['Ribbon','Love','Butterfly','Demon','Dragonfly']);
 Echars.push(['Coconut','Apple','Orange','Candy','Ice cream']);
-//
-//
-Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
-Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
-
-Mchars.push(['一','二','三','四','五']);
-Mchars.push(['六','七','八','九','十']);
-Mchars.push(['十一','十二','十三','十四','十五']);
-Mchars.push(['十六','十七','十八','十九','二十']);
-/*Mchars.push(['屋子','车子','风扇','电脑','手机']);
-Mchars.push(['三十','四十','五十','六十','七十']);
-Mchars.push(['八十','九十','百','千','百万']);*/
-
 Echars.push(['One','Two','Three','Four','Five']);
 Echars.push(['Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
-/*Echars.push(['House','Car','Fan','Computer','Handphone']);
+Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
+Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
+Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
+
+
+/*Mchars.push(['屋子','船','风扇','电脑','手机']);
+Mchars.push(['三十','四十','五十','六十','七十']);
+Mchars.push(['八十','九十','百','千','百万']);
+Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
+Mchars.push(['手','腋下','手指','肚子','胸膛']);
+Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
+Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
+*/
+
+
+/*Echars.push(['House','Boat','Fan','Computer','Handphone']);
 Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
-Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);*/
+Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
+Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
+Echars.push(['Hand','Armpit','Finger','Stomach','Chest']);
+Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
+Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
+*/
 
 let reward = new Reward();
 
@@ -54,14 +62,28 @@ var Mchars_array = [...Mchars[0]];
 var Echars_array = [...Echars[0]];
 var tested = Array(Mchars_array.length).fill(0);
 var correct = 0; var error = 0; var answer = 0;
+var check = document.getElementById("check");
+//generate Checkbox
+var text = ""
+for (var i = 0; i < Echars.length; i++){
+	text += `<input type="checkbox" id="check${i+1}" name="check_set" value="${i+1}">`
+	text += `<label for="check${i+1}">SET ${i+1}</label>`
+}
+check.innerHTML = text;
+
 genQues(); genLearn();
 
-document.getElementById("check").style.display = "none";
+check.style.display = "none";
 document.getElementById("A").addEventListener("click", answerHandler)
 document.getElementById("B").addEventListener("click", answerHandler)
 document.getElementById("C").addEventListener("click", answerHandler)
 document.getElementById("D").addEventListener("click", answerHandler)
 var selSet = document.getElementById("selSet");
+//generate select
+for (var i = 0; i < Echars.length; i++){
+	selSet.options[selSet.options.length] = new Option(`SET ${i+1}`,i+1);
+}
+selSet.options[selSet.options.length] = new Option('MIX','MIX');
 
 function answerHandler(){
 
@@ -117,10 +139,10 @@ function answerHandler(){
 const setSelect = document.querySelectorAll('input[name="char_set"]');
 for (let i = 0; i < setSelect.length; i++) {
   setSelect[i].addEventListener("change", function() {
-	document.getElementById("check").style.display = "none";
+	check.style.display = "none";
 	document.getElementById("learnSel").disabled = false;
     if (this.value == "MIX"){
-		document.getElementById("check").style.display = "flex";
+		check.style.display = "flex";
 		document.getElementById("playSel").checked = true;	
 		document.getElementById("learnSel").disabled = true;
 		document.getElementById("learn").style.display = "none";
@@ -136,10 +158,10 @@ for (let i = 0; i < setSelect.length; i++) {
 }*/
 
 selSet.onchange = function() {
-	document.getElementById("check").style.display = "none";
+	check.style.display = "none";
 	document.getElementById("learnSel").disabled = false;
     if (this.value == "MIX"){
-		document.getElementById("check").style.display = "flex";
+		check.style.display = "flex";
 		document.getElementById("playSel").checked = true;	
 		document.getElementById("learnSel").disabled = true;
 		document.getElementById("learn").style.display = "none";
