@@ -1,0 +1,128 @@
+:root {
+  --size: 20px;
+}
+
+body {
+  font-family: "Times New Roman", Helvetica, Arial, sans-serif;
+  /*height: 100vh;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#total{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+}
+
+#container1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 380px;
+  height: auto;
+  margin: auto;
+  border: 2pt solid blue;
+  gap: 0px;
+  column-gap: 0px;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.grid {  
+  background-color: skyblue;
+  width: var(--size);
+  height: var(--size);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-weight: bold;
+  border: 1pt solid skyblue;	
+}
+
+.top{
+	border-top: 1pt solid blue;	
+}
+
+.bottom{
+	border-bottom: 1pt solid blue;	
+}
+
+.left{
+	border-left: 1pt solid blue;	
+}
+
+.right{
+	border-right: 1pt solid blue;	
+}
+
+#start, #stop{
+  visibility: visible;
+  width: var(--size);
+  height: var(--size);
+}
+
+#direction{
+	width: 200px;
+}
+
+#direction p{
+  color: blue;
+  
+}
+
+.but p {
+  width: 40px;
+  height: 40px;
+  background-color: pink;
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#newGame, #diff{
+	width: 150px;
+	background-color: white;
+}
+
+#kids, #easy, #medium, #hard {
+	background-color: white;
+	margin-top: 5px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+}
+
+img{
+	visibility: visible;
+}

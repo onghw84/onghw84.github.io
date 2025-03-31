@@ -52,7 +52,7 @@ function answerHandler(){
   }
   else {
 	  if (document.getElementById(focus).style.zIndex == 1){
-		error += 1;
+		error += 3;
 		document.getElementById("error").innerHTML = error;	
 		reward.showReward(correct - error, 4);
 	  }

@@ -16,6 +16,8 @@ Mchars.push(['一','二','三','四','五']);
 Mchars.push(['六','七','八','九','十']);
 Mchars.push(['十一','十二','十三','十四','十五']);
 Mchars.push(['十六','十七','十八','十九','二十']);
+Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉']);
+Mchars.push(['葡萄','木瓜','西瓜','草莓','波罗蜜']);
 Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
@@ -32,6 +34,8 @@ Echars.push(['One','Two','Three','Four','Five']);
 Echars.push(['Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
+Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);
+Echars.push(['Grape','Papaya','Watermelon','Strawberry','Jackfruit']);
 Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
@@ -44,6 +48,9 @@ Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
 Mchars.push(['手','腋下','手指','肚子','胸膛']);
 Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
 Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
+Mchars.push(['自行车','车子','罗里','火车','巴士']);
+Mchars.push(['衣服','鞋子','睡衣','裙子','衬衫']);
+
 */
 
 
@@ -54,6 +61,9 @@ Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
 Echars.push(['Hand','Armpit','Finger','Stomach','Chest']);
 Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
 Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
+Echars.push(['Bicycle','Car','Lorry','Train','Bus']);
+Echars.push(['Clothes','Shoes','Pyjama','Skirt','Shirt']);
+
 */
 
 let reward = new Reward();

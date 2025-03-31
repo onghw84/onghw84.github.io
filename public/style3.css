@@ -32,8 +32,9 @@ input[type=radio], input[type=checkbox]  {
 
 label {
   margin-left: 10px;
+  margin-right: 10px;
   height: 10px;
-  width: 50px; 
+  width: auto;
   display: inline;
 }
 

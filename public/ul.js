@@ -21,6 +21,8 @@ switch (title){
 		page = 9; break;
 	case "Piano":
 		page = 10; break;
+	case "Draw":
+		page = 11; break;
 	default:
 		page = 1; break;
 }
@@ -37,6 +39,7 @@ document.write(`
 	  <li><a ${page == 8? 'class="active"':''} href="memory.html">Memory</a></li>
 	  <li><a ${page == 9? 'class="active"':''} href="maze.html">Maze</a></li>
 	  <li><a ${page == 10? 'class="active"':''} href="piano.html">Piano</a></li>
+	  <li><a ${page == 11? 'class="active"':''} href="draw.html">Draw</a></li>
     </ul>
 `
 );
