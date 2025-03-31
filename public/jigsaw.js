@@ -4,7 +4,7 @@ var count = 0;
 const reward_dir = './public/reward/';
 const image_dir = './public/image/bigger/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
-const imgCount = 50;
+const imgCount = 73;
 const grid = ['A1','A2','A3','A4','A5','A6',
 			  'B1','B2','B3','B4','B5','B6',
 			  'C1','C2','C3','C4','C5','C6',
@@ -13,6 +13,7 @@ const grid = ['A1','A2','A3','A4','A5','A6',
 			  'F1','F2','F3','F4','F5','F6'];
 const MCQ = ['A','B','C','D'];
 const img = document.getElementById("main");
+var tested = Array(imgCount).fill(0);
 
 document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
 document.getElementById("correct").innerHTML = correct;
@@ -82,7 +83,14 @@ async function genGame(){
 		document.getElementById(focus).style.border = "1pt solid blue";
 	}
 	focus = "";
-	var imgSrc = image_dir + Math.ceil(Math.random()*imgCount) + '.jpg';
+	
+	const minTest = Math.min(...tested);
+	var minIndex = [];
+	tested.forEach((el,index) => {if (el == minTest){minIndex.push(index)}})
+	const newIndex = minIndex[Math.floor(Math.random()*minIndex.length)]+1;
+	tested[newIndex-1]+= 1;
+
+	var imgSrc = image_dir + newIndex + '.jpg';
 	img.src = imgSrc;
 	
 	await waitForImage(img);

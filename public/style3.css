@@ -20,6 +20,16 @@ input[type=radio], input[type=checkbox]  {
   height: 20px;
 }
 
+#selSet{
+	background-color: #FFE5B4;
+	padding: 5px;
+	width: 200px;
+	height: 30px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 2pt solid blue;	
+}
+
 label {
   margin-left: 10px;
   height: 10px;
@@ -81,6 +91,7 @@ label {
 	width: 50px;
 	visibility: visible;
 	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 #pimage img{
