@@ -8,8 +8,11 @@ ctx.beginPath();
 ctx.lineWidth = 4;
 ctx.strokeStyle = "black";
 
+
+
 canvas.addEventListener('pointerdown', function (event) {
 	clicked = true;
+	//console.log(event.offsetX, event.offsetY);
 	ctx.beginPath();
 });
 
@@ -19,6 +22,7 @@ canvas.addEventListener('pointerup', function (event) {
 
 canvas.addEventListener('pointermove', function (event) {
    if (clicked){
+	   //console.log(event.offsetX, event.offsetY, event.movementX, event.movementY);
 		// Set a start-point
 		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
 		// Set an end-point

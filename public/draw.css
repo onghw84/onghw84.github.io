@@ -84,6 +84,14 @@ body {
   
 }
 
+#myCanvas {
+	touch-action: "none";
+	pointer-events: "none";
+	border:2px solid blue; 
+	border-radius: 10px;
+	background-color: yellow;
+}
+
 #thickness, #colorPicker, #clearCanvas, #save{
 	width: 80px;
 	background-color: white;
