@@ -8,16 +8,16 @@ ctx.beginPath();
 ctx.lineWidth = 4;
 ctx.strokeStyle = "black";
 
-canvas.addEventListener('mousedown', function (event) {
+canvas.addEventListener('pointerdown', function (event) {
 	clicked = true;
 	ctx.beginPath();
 });
 
-canvas.addEventListener('mouseup', function (event) {
+canvas.addEventListener('pointerup', function (event) {
 	clicked = false;
 });
 
-canvas.addEventListener('mousemove', function (event) {
+canvas.addEventListener('pointermove', function (event) {
    if (clicked){
 		// Set a start-point
 		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
@@ -28,7 +28,7 @@ canvas.addEventListener('mousemove', function (event) {
    }
 });
 
-canvas.addEventListener("touchstart", function(e){
+/*canvas.addEventListener("touchstart", function(e){
 	clicked = true;
 	document.getElementById("save").style.backgroundColor = "yellowgreen";
 	ctx.beginPath();
@@ -49,7 +49,7 @@ canvas.addEventListener('touchmove', function (event) {
 		// Draw it
 		ctx.stroke();
    }
-});
+});*/
 
 function clickColor(color){
 	ctx.strokeStyle = color;
