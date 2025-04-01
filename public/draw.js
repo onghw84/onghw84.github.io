@@ -16,8 +16,28 @@ canvas.addEventListener('mousedown', function (event) {
 canvas.addEventListener('mouseup', function (event) {
 	clicked = false;
 });
-   
+
 canvas.addEventListener('mousemove', function (event) {
+   if (clicked){
+		// Set a start-point
+		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
+		// Set an end-point
+		ctx.lineTo(event.offsetX,event.offsetY);
+		// Draw it
+		ctx.stroke();
+   }
+});
+
+canvas.addEventListener("touchstart", function(e){
+	clicked = true;
+	ctx.beginPath();
+});
+
+canvas.addEventListener("touchend", function(e){
+	clicked = false;
+});   
+
+canvas.addEventListener('touchmove', function (event) {
    if (clicked){
 		// Set a start-point
 		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
