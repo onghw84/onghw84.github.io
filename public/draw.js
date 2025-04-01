@@ -1,40 +1,43 @@
 const canvas = document.getElementById("myCanvas");
+var clicked = false;
 const ctx = canvas.getContext("2d");
 
 // Define a new path
 ctx.beginPath();
+//set line width and color
+ctx.lineWidth = 4;
+ctx.strokeStyle = "black";
 
-// Set a start-point
-ctx.moveTo(0,0);
+canvas.addEventListener('mousedown', function (event) {
+	clicked = true;
+	ctx.beginPath();
+});
 
-// Set an end-point
-ctx.lineTo(200,100);
+canvas.addEventListener('mouseup', function (event) {
+	clicked = false;
+});
+   
+canvas.addEventListener('mousemove', function (event) {
+   if (clicked){
+		// Set a start-point
+		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
+		// Set an end-point
+		ctx.lineTo(event.offsetX,event.offsetY);
+		// Draw it
+		ctx.stroke();
+   }
+});
 
-// Draw it
-ctx.stroke();
-
-// Define a new path
-ctx.beginPath();
-
-// Set a start-point
-ctx.moveTo(30,0);
-
-// Set an end-point
-ctx.lineTo(100,20);
-ctx.lineWidth = 10;
-ctx.strokeStyle = "red";
-// Draw it
-ctx.stroke();
-
-function clickColor(color, x, y){
-	console.log("clicked!");
-	console.log(color);	
+function clickColor(color){
+	ctx.strokeStyle = color;
+	document.getElementById("colorPicker").style.backgroundColor = color;
 }
 
-function mouseOverColor(color){
-	console.log(color);
+function clickLine(thickness){
+	ctx.lineWidth = thickness;
+	document.getElementById("thickness").innerHTML = `<circle r="${thickness/2}" cx="40" cy="20" fill="blue" />`
 }
 
-function mouseOutMap(){
-	console.log('Mouse out!');
-}
+document.getElementById("clearCanvas").addEventListener('click', function (event) {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+})

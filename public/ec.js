@@ -175,6 +175,7 @@ selSet.onchange = function() {
 		document.getElementById("playSel").checked = true;	
 		document.getElementById("learnSel").disabled = true;
 		document.getElementById("learn").style.display = "none";
+		document.getElementById("check1").checked = true;
 		document.getElementById("play").style.display = "flex";				
 	}
 	else{			
@@ -196,6 +197,7 @@ for (let i = 0; i < checkSelect.length; i++) {
 		var index = Mchars_array.indexOf(Mchars[this.value-1][0]);
 		Mchars_array.splice(index, Mchars[this.value-1].length);
 		Echars_array.splice(index, Mchars[this.value-1].length);
+		genQues();
 	}
 	tested = Array(Mchars_array.length).fill(0);	
   });
