@@ -85,17 +85,12 @@ body {
 }
 
 #myCanvas {
-	touch-action: none;
-	pointer-events: none;
+	touch-action: none;	
 	border:2px solid blue; 
 	border-radius: 10px;
-	background-color: yellow;
+	background-color: white;
 }
 
-#canvasDiv{
-	touch-action: none;
-	pointer-events: none;
-}
 
 #thickness, #colorPicker, #clearCanvas, #save{
 	width: 80px;

@@ -68,3 +68,17 @@ function clickLine(thickness){
 document.getElementById("clearCanvas").addEventListener('click', function (event) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 })
+
+
+document.getElementById('save').addEventListener('click', function(e) {
+
+	canvas.toBlob((blob) => {
+	  const newImg = document.createElement("img");
+	  const url = URL.createObjectURL(blob);
+	  const createEl = document.createElement('a');
+	  createEl.href = url;
+	  createEl.download = "drawing";
+	  createEl.click();
+	  createEl.remove();
+	});
+});
