@@ -30,14 +30,17 @@ canvas.addEventListener('mousemove', function (event) {
 
 canvas.addEventListener("touchstart", function(e){
 	clicked = true;
+	document.getElementById("save").style.backgroundColor = "yellowgreen";
 	ctx.beginPath();
 });
 
 canvas.addEventListener("touchend", function(e){
+	document.getElementById("save").style.backgroundColor = "pink";
 	clicked = false;
 });   
 
 canvas.addEventListener('touchmove', function (event) {
+   document.getElementById("save").style.backgroundColor = "yellow";
    if (clicked){
 		// Set a start-point
 		ctx.moveTo(event.offsetX-event.movementX,event.offsetY-event.movementY);
