@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Clock</title>
+	<meta name="description" content="Clock" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./public/common.css" type="text/css" />
+  <link rel="stylesheet" href="./public/clock.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="./public/ul.js"></script>
+    <h1>Clock Game</h1>  
+    <div class="container">
+		<div class="but" style="margin-top: 10px;">
+			<canvas width=400 height=400 id="myCanvas" style="background-color:skyblue"></canvas>
+		</div>	
+      <div class="but" id="choice">
+        <input type="button" id="A" value=''>
+        <input type="button" id="B" value=''>
+        <input type="button" id="C" value=''>
+        <input type="button" id="D" value=''>
+      </div>	  
+      <div id="cat">
+        <img id="happy" alt="happy" style="visibility: visible; width:120px; height:120px"></img>
+      </div>	 	  
+      <div class="but">
+        <div><p id="newGame">New Game</p></div> <div></div>
+      </div>	  	  
+      <div class="statistics">
+        <div id="correct">0</div>
+		<div id="error">0</div>
+      </div>
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/clock.js"></script>
+</html>
