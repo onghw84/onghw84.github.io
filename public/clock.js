@@ -7,7 +7,6 @@ const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg
 const MCQ = ['A','B','C','D'];
 var answer = '';
 
-document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
 document.getElementById("correct").innerHTML = correct;
 document.getElementById("error").innerHTML = error;
 document.getElementById("A").addEventListener("click", answerHandler);
@@ -89,21 +88,54 @@ function drawHand(ctx, pos, length, width, color) {
 
 function answerHandler(){    
   const value = this.myParam;
-  if (answer == value){
-	document.getElementById("happy").style.display = "block";	
-	correct += 1;
-	document.getElementById("correct").innerHTML = correct;	
-	reward.showReward(correct - error, 5);
+  if (this.value == "Next"){
+	genGame();
   }
-  else {
-	error += 1;
-	document.getElementById("error").innerHTML = error;	
-	reward.showReward(correct - error, 5);
+  else {  
+	  if (answer == value){
+		document.getElementById("happy").style.display = "block";
+		document.getElementById("happy").style.visibility = "visible";
+		document.getElementById("sad").style.visibility = "hidden";
+		document.getElementById("sad").style.display = "none";  	
+		correct += 1;
+		document.getElementById("A").value = "Next";
+		document.getElementById("B").value = "Next";
+		document.getElementById("C").value = "Next";
+		document.getElementById("D").value = "Next";	
+		document.getElementById("correct").innerHTML = correct;	
+		reward.showReward(correct - error, 5);
+	  }
+	  else {
+		this.style.backgroundColor = "orange";
+		this.disabled = "true";
+		document.getElementById("sad").style.display = "block";
+		document.getElementById("sad").style.visibility = "visible";
+		document.getElementById("happy").style.visibility = "hidden";
+		document.getElementById("happy").style.display = "none";  
+		error += 1;
+		document.getElementById("error").innerHTML = error;	
+		reward.showReward(correct - error, 5);
+	  }
   }
   return;
 }
 
 async function genGame(){	
+	//reset
+	document.getElementById("A").style.backgroundColor = "greenyellow";
+	document.getElementById("B").style.backgroundColor = "greenyellow";
+	document.getElementById("C").style.backgroundColor = "greenyellow";
+	document.getElementById("D").style.backgroundColor = "greenyellow";
+	document.getElementById("A").disabled = false;
+	document.getElementById("B").disabled = false;
+	document.getElementById("C").disabled = false;
+	document.getElementById("D").disabled = false;	
+	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];
+	document.getElementById("happy").style.display = "none";
+	document.getElementById("happy").style.visibility = "hidden";
+	document.getElementById("sad").style.visibility = "hidden";
+	document.getElementById("sad").style.display = "none";  
+
 	//generate new game	
 	drawFace(ctx, radius);
 	drawNumbers(ctx, radius);
@@ -111,11 +143,8 @@ async function genGame(){
     var minute = Math.floor(Math.random()*12)*5;
     var second = 1; //Math.floor(Math.random()*60);
 	answer = `${hour}:${addZero(minute)}`;
-	console.log(answer);
 	drawTime(ctx, radius, hour, minute, second);
-	document.getElementById("happy").style.display = "none";
-	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];
-
+	
 	//generate answer 
 	answerArray = Array(4);
 	answerArray[Math.floor(Math.random()*4)] = answer;	
