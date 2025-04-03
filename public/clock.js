@@ -5,6 +5,7 @@ const reward_dir = './public/reward/';
 const image_dir = './public/image/bigger/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 const MCQ = ['A','B','C','D'];
+var showNum = 1;
 var answer = '';
 
 document.getElementById("correct").innerHTML = correct;
@@ -19,10 +20,22 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
 ctx.translate(radius, radius);
-radius = radius * 0.90;
+radius = radius * 0.8;
 genGame();
 
 //setInterval(drawClock, 1000);
+document.getElementById("showNum").addEventListener("click", function (){
+  if (this.checked){
+	showNum = 1;
+	radius = canvas.height / 2 * 0.8;	
+  }
+  else {
+	showNum = 0;
+	radius = canvas.height / 2 * 0.9;
+  }
+  ctx.clearRect(-canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
+  genGame();
+});
 
 function drawFace(ctx, radius) {
   const grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
@@ -57,6 +70,27 @@ function drawNumbers(ctx, radius) {
     ctx.rotate(-ang);
   }
 }
+
+function drawNumbers1(ctx, radius) {
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  ctx.fillStyle ="purple";
+  for(let num = 1; num < 13; num++){
+    let ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*1.15);
+    ctx.rotate(-ang);
+	if (num == 12){
+		ctx.fillText("0", 0, 0);
+	}
+	else {ctx.fillText((num*5).toString(), 0, 0);}
+    ctx.rotate(ang);
+    ctx.translate(0, radius*1.15);
+    ctx.rotate(-ang);
+  }
+}
+
 
 function drawTime(ctx, radius, hour, minute, second){
     //hour
@@ -139,6 +173,7 @@ async function genGame(){
 	//generate new game	
 	drawFace(ctx, radius);
 	drawNumbers(ctx, radius);
+	if (showNum == 1){drawNumbers1(ctx, radius);}
     var hour = Math.ceil(Math.random()*11);
     var minute = Math.floor(Math.random()*12)*5;
     var second = 1; //Math.floor(Math.random()*60);

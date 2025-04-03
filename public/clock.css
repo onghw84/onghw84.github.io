@@ -38,6 +38,11 @@ label {
   text-align: center;
 }
 
+#error{
+  background-color: red;
+  color: white;
+}
+
 #container1 {
   display: flex;
   flex-direction: row;
@@ -110,7 +115,7 @@ label {
   pointer-events: none;
 }
 
-input {
+input[type="button"]{
   width: 70px;
   height: 50px;
   background-color: greenyellow;
