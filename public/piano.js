@@ -68,20 +68,15 @@ for (var i = 0; i < keys.length; i++){
 	keyArray[i] = keys[i].getAttribute("data-note");
 	music[i] = new Audio(audio_dir+keyArray[i]+'.mp3');
 	music[i].volume = 0.5;
-	keys[i].addEventListener("mousedown", function(e){		
+	keys[i].addEventListener("pointerdown", function(e){		//pointerdown
 		playSound(e.currentTarget);
 	});
-	keys[i].addEventListener("mouseup", function(e){
-		stopSound(e.currentTarget);
-	});
-	keys[i].addEventListener("touchstart", function(e){		
-		playSound(e.currentTarget);
-		e.stopPropagation(); 
-        e.preventDefault(); 
-	});
-	keys[i].addEventListener("touchend", function(e){
+	keys[i].addEventListener("pointermove", function(e){		//pointermove
 		stopSound(e.currentTarget);
 	});	
+	keys[i].addEventListener("pointerup", function(e){		//pointerup
+		stopSound(e.currentTarget);
+	});
 }
 
 function playSound(item){
@@ -107,30 +102,33 @@ async function celebrate(){
 
 async function stopSound(item){	
   const note = item.getAttribute("data-note");
-  if (currentKey == note){
-	  count +=1;
-	  document.querySelectorAll(`[data-sheetNote='${count-1}']`)[0].classList.remove("highlight");
-	  document.querySelectorAll(`[data-note='${selectedSheet[count-1]}']`)[0].classList.remove("highlight1");
-	  if (count < selectedSheet.length){
-		document.querySelectorAll(`[data-note='${selectedSheet[count]}']`)[0].classList.add("highlight1");
-	  }
-	  currentKey = selectedSheet[count];
-	  if (count%sheetLen == 0){
-		  genSheet(count);
-	  }
-	  else {
+  if (playing[keyArray.indexOf(note)] == 1){
+	  if (currentKey == note){
+		  count +=1;
+		  document.querySelectorAll(`[data-sheetNote='${count-1}']`)[0].classList.remove("highlight");
+		  document.querySelectorAll(`[data-note='${selectedSheet[count-1]}']`)[0].classList.remove("highlight1");
 		  if (count < selectedSheet.length){
-			document.querySelectorAll(`[data-sheetNote='${count}']`)[0].classList.add("highlight");
+			document.querySelectorAll(`[data-note='${selectedSheet[count]}']`)[0].classList.add("highlight1");
+		  }
+		  currentKey = selectedSheet[count];
+		  if (count%sheetLen == 0){
+			  genSheet(count);
+		  }
+		  else {
+			  if (count < selectedSheet.length){
+				document.querySelectorAll(`[data-sheetNote='${count}']`)[0].classList.add("highlight");
+			  }
+		  }
+		  if (count == selectedSheet.length){
+			  celebrate();
 		  }
 	  }
-	  if (count == selectedSheet.length){
-		  celebrate();
+	  playing[keyArray.indexOf(note)] = 0;
+	  await new Promise(resolve => setTimeout(resolve, 300));
+	  console.log(playing)
+	  if (playing[keyArray.indexOf(note)] == 0){// && music[keyArray.indexOf(note)].currentTime > 0.1){
+		music[keyArray.indexOf(note)].pause();
 	  }
-  }  
-  playing[keyArray.indexOf(note)] = 0;
-  await new Promise(resolve => setTimeout(resolve, 300));
-  if (playing[keyArray.indexOf(note)] == 0 && music[keyArray.indexOf(note)].currentTime > 0.2){
-	music[keyArray.indexOf(note)].pause();
   }
 }
 

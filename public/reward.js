@@ -13,7 +13,12 @@ song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
     "https://www.youtube.com/watch?v=DVsGVkZXaMs",
     "https://www.youtube.com/watch?v=lTK79WBzgUA",
     "https://www.youtube.com/shorts/8ENpdX4QGTo",
-    "https://www.youtube.com/watch?v=bWUgZm_AE64"
+    "https://www.youtube.com/watch?v=bWUgZm_AE64",
+	"https://www.youtube.com/watch?v=x9rAaK0lC7s",
+	"https://www.youtube.com/shorts/092rsFvciJY",
+	"https://www.youtube.com/watch?v=bWUgZm_AE64",
+	"https://www.youtube.com/watch?v=V5Bs9xydba0",
+	"https://www.youtube.com/watch?v=e81A9pw59tM",
 ];
 
 rewardDiv.innerHTML =  `

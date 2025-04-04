@@ -7,12 +7,11 @@ const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg
 Mchars.push(['猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙']);
 Mchars.push(['红','橙','黄','绿','蓝','紫','黑','白','褐','粉色']);
 Mchars.push(['母鸡','小鸡','马','山羊','公鸡']);
-Mchars.push(['云','花','叶子','石头','水']);
-Mchars.push(['沙子','树','草','山','河']);
-Mchars.push(['雪','彩虹','天使','太阳','月亮',]);
+Mchars.push(['云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮']);
 Mchars.push(['彩带','爱心','蝴蝶','妖怪','蜻蜓']);
-Mchars.push(['椰子','苹果','橙子','糖','雪糕']);
+Mchars.push(['沙子','树','草','山','河']);
 Mchars.push(['一','二','三','四','五']);
+Mchars.push(['椰子','苹果','橙子','糖','雪糕']);
 Mchars.push(['六','七','八','九','十']);
 Mchars.push(['十一','十二','十三','十四','十五']);
 Mchars.push(['十六','十七','十八','十九','二十']);
@@ -25,12 +24,11 @@ Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
 Echars.push(['Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon']);
 Echars.push(['Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster']);
-Echars.push(['Cloud','Flower','Leaf','Stone','Water']);
-Echars.push(['Sand','Tree','Grass','Mountain','River']);
-Echars.push(['Snow','Rainbow','Angel','Sun','Moon']);
+Echars.push(['Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon']);
 Echars.push(['Ribbon','Love','Butterfly','Demon','Dragonfly']);
-Echars.push(['Coconut','Apple','Orange','Candy','Ice cream']);
+Echars.push(['Sand','Tree','Grass','Mountain','River']);
 Echars.push(['One','Two','Three','Four','Five']);
+Echars.push(['Coconut','Apple','Orange','Candy','Ice cream']);
 Echars.push(['Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
@@ -102,6 +100,7 @@ function answerHandler(){
   }
   else {
 		var index = Echars_array.indexOf(this.value);
+		var index1 = Echars_array.indexOf(answer);
 		playSound(index);		
 	  if (answer != this.value){
 		this.style.backgroundColor = "orange";
@@ -112,7 +111,8 @@ function answerHandler(){
 		document.getElementById("happy").style.display = "none";
 		//update correct/error value
 		error += 1;
-		document.getElementById("error").innerHTML = error;      
+		document.getElementById("error").innerHTML = error;   
+		tested[index1] -= 1; tested[index] -= 1;
 	  }
 	  else {			 
 		document.getElementById("happy").style.display = "block";
@@ -136,7 +136,8 @@ function answerHandler(){
 			document.getElementById("happy").style.visibility = "hidden";
 		}
 		else {
-			correct += 1;      
+			correct += 1;   
+			if (errCount == 0){tested[index] += 1;}
 			document.getElementById("correct").innerHTML = correct;
 		}
 	  }
@@ -233,6 +234,7 @@ function genLearn(){
 
 function genQues(){
   //reset view
+  console.log(tested);
 	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
 	document.getElementById("A").style.backgroundColor = "greenyellow";
 	document.getElementById("B").style.backgroundColor = "greenyellow";
@@ -247,13 +249,17 @@ function genQues(){
 	document.getElementById("sad").style.visibility = "hidden";
 	document.getElementById("sad").style.display = "none";    
   
-  var max = Math.max(...tested);
+/*  var max = Math.max(...tested);
   if (Math.min(...tested) == max){max += 1;}  
   var index = Math.floor(Math.random()*Echars_array.length); 
   while (tested[index] >= max){
     index = Math.floor(Math.random()*Echars_array.length);  
-  }
-  tested[index] += 1;
+  }*/
+  var minArray = []; var minNum = Math.min(...tested);
+  tested.forEach((el,index)=> {if (el == minNum){minArray.push(index)}});
+  var index = minArray[Math.floor(Math.random()*minArray.length)];
+    
+  //tested[index] += 1;
   answer = Echars_array[index];
   document.getElementById("character").innerHTML = Mchars_array[index];
   document.getElementById("pimage").innerHTML = `<img src="./public/image/${answer.toLowerCase()}.jpg"></img>`
