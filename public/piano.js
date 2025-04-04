@@ -125,7 +125,7 @@ async function stopSound(item){
 	  }
 	  playing[keyArray.indexOf(note)] = 0;
 	  await new Promise(resolve => setTimeout(resolve, 300));
-	  console.log(playing)
+	  
 	  if (playing[keyArray.indexOf(note)] == 0){// && music[keyArray.indexOf(note)].currentTime > 0.1){
 		music[keyArray.indexOf(note)].pause();
 	  }
