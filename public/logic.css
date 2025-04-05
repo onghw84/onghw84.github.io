@@ -1,31 +1,32 @@
 body {
   font-family: "Times New Roman", Helvetica, Arial, sans-serif;
-  /*height: 100vh;*/
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-
-.slider {
-  width: 100%;
+.radio {
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
-  height: 40px;
+  margin-bottom: 10px;
+  width: 400px;
+  justify-content: center;
 }
 
-#num1Range, #num2Range{
-  width: 40%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 0px;
+label {
+  margin-left: 10px;
+  height: 10px;
+  width: 50px; 
 }
 
-#showIllus{
-  width: 20px;
-  height: 20px;
+#cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #correct{
@@ -53,12 +54,12 @@ body {
   justify-content: space-between;
 }
 
-.card, .card_s {
+.card {
   margin: auto;
   background-color: #FFE5B4;
-  width: 100px;
+  width: 380px;
   height: 100px;
-  font-size: 50px;
+  font-size: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,42 +70,11 @@ body {
   flex-wrap: wrap;
 }
 
-.card_s{
-  width: 50px;
-  height: 50px;
-  border: none;
-  background-color: white;
-  font-weight: bold;
-  line-height: 50px;
-}
-
-#illus1, #illus2{
-  height: auto;
-  margin-top: 10px;
-  width: 120px;
-  font-size: 25px;
-  background-color: white;
-  border: 2pt solid pink;
-  color: indigo;
-  justify-content: center;
-  /*margin: 10px 20px;*/
-  padding: 10px;
-}
-
 i{
   margin: 2px;
 }
 
-#count {
-  margin-top: -35px;
-  margin-left: 20px;
-  height: 20px;
-  font-family: Cambria;
-  font-size: 20px;
-  text-align: left;
-}
-
-input {
+.but p {
   width: 70px;
   height: 50px;
   background-color: greenyellow;
@@ -112,7 +82,10 @@ input {
   margin-top: 20px;
   border: 1pt solid blue;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 40px;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
 }
 
 #happy, #sad{
@@ -123,6 +96,3 @@ input {
 #sad{
   display: none;
 }
-
-
-

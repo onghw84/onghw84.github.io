@@ -1,38 +1,35 @@
 var title = document.title;
-var page = 1; var disp = ""
+var page = 1;
 switch (title){
 	case "Chinese Flash Card":
-		page = 1; disp = "Chinese FC"; break;
+		page = 1; break;
 	case "Simple Arithmetic":
-		page = 2; disp = "SA"; break;
+		page = 2; break;
 	case "Logic Game":
-		page = 3; disp = "Logic"; break;
+		page = 3; break;
 	case "English/Chinese":
-		page = 4; disp = "EC"; break;
+		page = 4; break;
 	case "Sudoku":
-		page = 5; disp = "Sudoku"; break;
+		page = 5; break;
 	case "Spot The Difference":
-		page = 6; disp = "SpotDiff"; break;
+		page = 6; break;
 	case "Jigsaw":
-		page = 7; disp = "Jigsaw"; break;
+		page = 7; break;
 	case "Memory Game":
-		page = 8; disp = "Memory"; break;
+		page = 8; break;
 	case "Maze":
-		page = 9; disp = "Maze"; break;
+		page = 9; break;
 	case "Piano":
-		page = 10; disp = "Piano"; break;
+		page = 10; break;
 	case "Draw":
-		page = 11; disp = "Draw"; break;
+		page = 11; break;
 	case "Clock":
-		page = 12; disp = "Clock"; break;		
-	case "Read":
-		page = 13; disp = "Read"; break;				
+		page = 12; break;		
 	default:
-		page = 1; disp = "Chinese FC"; break;
+		page = 1; break;
 }
 
 document.write(`
-	<button type="button" class="collapsible"><span>${disp}</span><span>+</span></button>
     <ul id="navbar">	  
       <li><a ${page == 1? 'class="active"':''} href="index.html">Chinese FC</a></li>
       <li><a ${page == 2? 'class="active"':''} href="sa.html">SA</a></li>
@@ -45,21 +42,7 @@ document.write(`
 	  <li><a ${page == 9? 'class="active"':''} href="maze.html">Maze</a></li>
 	  <li><a ${page == 10? 'class="active"':''} href="piano.html">Piano</a></li>
 	  <li><a ${page == 11? 'class="active"':''} href="draw.html">Draw</a></li>
-	  <li><a ${page == 12? 'class="active"':''} href="clock.html">Clock</a></li>
-	  <li><a ${page == 13? 'class="active"':''} href="read.html">Read</a></li>
+	  <li><a ${page == 11? 'class="active"':''} href="clock.html">Clock</a></li>
     </ul>
 `
 );
-
-var coll = document.getElementsByClassName("collapsible");
-for (var i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-	this.classList.toggle("active");
-	var content = this.nextElementSibling;
-	if (content.style.display === "block") {
-	  content.style.display = "none";
-	} else {
-	  content.style.display = "block";
-	}
-  });
-}	
