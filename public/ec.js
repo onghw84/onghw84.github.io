@@ -64,6 +64,9 @@ Echars.push(['Clothes','Shoes','Pyjama','Skirt','Shirt']);
 
 */
 
+//turn everything to lowercase
+Echars = Echars.map((ela)=>ela.map((el)=>el.toLowerCase()));
+
 let reward = new Reward();
 
 var Mchars_array = [...Mchars[0]];
@@ -177,7 +180,14 @@ selSet.onchange = function() {
 		document.getElementById("learnSel").disabled = true;
 		document.getElementById("learn").style.display = "none";
 		document.getElementById("check1").checked = true;
-		document.getElementById("play").style.display = "flex";				
+		document.getElementById("play").style.display = "flex";
+		Mchars_array = []; Echars_array = [];
+		for (let i = 0; i < checkSelect.length; i++) {
+			if (checkSelect[i].checked){
+				Mchars_array = [...Mchars_array, ...Mchars[checkSelect[i].value-1]];
+				Echars_array = [...Echars_array, ...Echars[checkSelect[i].value-1]];				
+			}
+		}
 	}
 	else{			
       Mchars_array = [...Mchars[this.value-1]];
@@ -197,10 +207,10 @@ for (let i = 0; i < checkSelect.length; i++) {
 	else {
 		var index = Mchars_array.indexOf(Mchars[this.value-1][0]);
 		Mchars_array.splice(index, Mchars[this.value-1].length);
-		Echars_array.splice(index, Mchars[this.value-1].length);
-		genQues();
+		Echars_array.splice(index, Mchars[this.value-1].length);		
 	}
-	tested = Array(Mchars_array.length).fill(0);	
+	tested = Array(Mchars_array.length).fill(0);
+	genQues();
   });
 }
 
@@ -234,7 +244,6 @@ function genLearn(){
 
 function genQues(){
   //reset view
-  console.log(tested);
 	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
 	document.getElementById("A").style.backgroundColor = "greenyellow";
 	document.getElementById("B").style.backgroundColor = "greenyellow";
