@@ -19,7 +19,7 @@ body {
 .butvertical {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  
   align-items: center;
 }
 
@@ -42,7 +42,7 @@ body {
 	width: 100px;
 }
 
-#learnE p{
+#learnE p, #learnE1 p{
     background-color: yellow;
     border: 2pt solid blue;
 	cursor: pointer;
