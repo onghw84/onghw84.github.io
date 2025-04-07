@@ -26,7 +26,9 @@ switch (title){
 	case "Clock":
 		page = 12; disp = "Clock"; break;		
 	case "Read":
-		page = 13; disp = "Read"; break;				
+		page = 13; disp = "Read"; break;
+	case "Slider Game":
+		page = 13; disp = "Slider"; break;						
 	default:
 		page = 1; disp = "Chinese FC"; break;
 }
@@ -47,9 +49,12 @@ document.write(`
 	  <li><a ${page == 11? 'class="active"':''} href="draw.html">Draw</a></li>
 	  <li><a ${page == 12? 'class="active"':''} href="clock.html">Clock</a></li>
 	  <li><a ${page == 13? 'class="active"':''} href="read.html">Read</a></li>
+
     </ul>
 `
 );
+
+//	  <li><a ${page == 14? 'class="active"':''} href="slider.html">Slider</a></li>	  
 
 var coll = document.getElementsByClassName("collapsible");
 for (var i = 0; i < coll.length; i++) {

@@ -38,6 +38,7 @@
     background-color: #f3f3f3;
     font-family: "Times New Roman";
 	display: none;
+	z-index: 4;
 }
 
 #navbar li {
