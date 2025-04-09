@@ -1,6 +1,6 @@
 var total = 0;
 const mySvg = document.getElementById("mySvg");
-const endSrc = './public/reward/happybee.gif';
+const endSrc = './public/reward/queenbee.gif';
 const beeMap = new Map();
 beeMap.set("skyb", 0);
 beeMap.set("pink", 1);
@@ -13,6 +13,9 @@ const svgsize = 370;
 const gridNo = 9;
 const beeSize = 50;
 const targetSize = 100;
+document.querySelector(':root').style.setProperty('--tsize', targetSize+'px');
+document.querySelector(':root').style.setProperty('--beesize', beeSize+'px');
+
 const sidePad = 5;
 const interval = (svgsize - sidePad*2)/Math.sqrt(gridNo);
 const bee1 = sidePad + interval/2 - beeSize/2;
@@ -21,6 +24,7 @@ const pos = [bee1, bee1+interval, bee1+interval*2];
 const post = [target1, target1+interval, target1+interval*2];
 var beeloc;
 var targetloc;
+var accumX = 0; var accumY = 0;
 
 document.getElementById("newGame").addEventListener("click", ()=>{genGame()});
 document.getElementById("total").innerHTML = total;
@@ -51,7 +55,7 @@ document.getElementById("hard").addEventListener("click", function(){
 function selectHandler(event){
 	focus = event.target.id;
 	if (beeMap.has(focus)){
-		move = 1;
+		move = 1; accumX = 0; accumY = 0;
 	}
 	else {move = 0;}
 }
@@ -60,13 +64,17 @@ function moveHandler(event){
 	
 	if (move == 1){		
 		loc = getXY(beeloc[beeMap.get(focus)]);
-		focusItem = document.getElementById(focus);
+		focusItem = document.getElementById(focus);		
+		
 		//can only move in x direction or y direction
 		if (dir == 0){
-			if (Math.abs(event.movementX) > Math.abs(event.movementY)){
-				dir = 1;	//x direction
+			accumX += event.movementX; accumY += event.movementY;
+			if (Math.abs(accumX)> 20 || Math.abs(accumY)> 20){
+				if (Math.abs(accumX) > Math.abs(accumY)){
+					dir = 1;	//x direction
+				}
+				else {dir = 2; }	//y direction
 			}
-			else {dir = 2; }	//y direction
 		}
 				
 		if (dir == 1){

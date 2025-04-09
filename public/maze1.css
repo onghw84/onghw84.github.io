@@ -69,30 +69,11 @@ body {
 	border-right: 1pt solid blue;	
 }
 
-#mySvg{
-  touch-action: none;	
-  position: absolute;	
-  background-color: none;
-  z-index: 1;
-}
-
-#mySvg img{
+#start, #stop{
   visibility: visible;
-}
-
-#start{
   width: var(--size);
   height: var(--size);
-  cursor: pointer;  
-  touch-action: none;	
 }
-
-#stop{
-  width: var(--size);
-  height: var(--size); 
-  touch-action: none;  
-}
-
 
 #direction{
 	width: 200px;
