@@ -1,55 +1,55 @@
 var Mchars = [];
 var Echars = [];
+var answer_index = -1;
 const audio_dir = './public/audio/';
 const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 
-Mchars.push(['猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','红','橙','黄','绿','蓝','紫','黑','白','褐','粉色','云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮','彩带','爱心','蝴蝶','妖怪','蜻蜓']);
-Mchars.push(['母鸡','小鸡','马','山羊','公鸡','沙子','树','草','山','河','椰子','苹果','橙子','糖','雪糕']);
-Mchars.push(['一','二','三','四','五','六','七','八','九','十']);
+Mchars.push(['蜜蜂','猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','红','橙','黄','绿','蓝','紫','黑','白','褐','粉色','云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮','彩带','爱心','蝴蝶','妖怪','蜻蜓']);
+Mchars.push(['母鸡','小鸡','马','山羊','公鸡','沙子','树','草','山','河','椰子','苹果','橙子','糖','雪糕','一','二','三','四','五','六','七','八','九','十']);
 Mchars.push(['十一','十二','十三','十四','十五']);
 Mchars.push(['十六','十七','十八','十九','二十']);
+Mchars.push(['三十','四十','五十','六十','七十']);
+Mchars.push(['八十','九十','百','千','百万']);
 Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉']);
 Mchars.push(['葡萄','木瓜','西瓜','草莓','波罗蜜']);
 Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
+Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
+Mchars.push(['手','腋下','手指','肚子','胸膛']);
 
-Echars.push(['Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink','Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon','Ribbon','Love','Butterfly','Demon','Dragonfly']);
-Echars.push(['Hen','Chick','Horse','Goat','Rooster','Sand','Tree','Grass','Mountain','River','Coconut','Apple','Orange','Candy','Ice cream']);
-Echars.push(['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten']);
+Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink','Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon','Ribbon','Love','Butterfly','Demon','Dragonfly']);
+Echars.push(['Hen','Chick','Horse','Goat','Rooster','Sand','Tree','Grass','Mountain','River','Coconut','Apple','Orange','Candy','Ice cream','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten']);
 Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
 Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
+Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
+Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);
 Echars.push(['Grape','Papaya','Watermelon','Strawberry','Jackfruit']);
 Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
+Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
+Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
 
-
-/*Mchars.push(['屋子','船','风扇','电脑','手机']);
-Mchars.push(['三十','四十','五十','六十','七十']);
-Mchars.push(['八十','九十','百','千','百万']);
-Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
-Mchars.push(['手','腋下','手指','肚子','胸膛']);
+/*
 Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
 Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
+Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
+Mchars.push(['屋子','船','风扇','电脑','手机']);
 Mchars.push(['自行车','车子','罗里','火车','巴士']);
 Mchars.push(['衣服','鞋子','睡衣','裙子','衬衫']);
-
 */
 
 
-/*Echars.push(['House','Boat','Fan','Computer','Handphone']);
-Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
-Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
-Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
-Echars.push(['Hand','Armpit','Finger','Stomach','Chest']);
+/*
 Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
 Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
+Echars.push(['Tongue','Teeth','Palm','Breast','Nail']);
+Echars.push(['House','Boat','Fan','Computer','Handphone']);
 Echars.push(['Bicycle','Car','Lorry','Train','Bus']);
 Echars.push(['Clothes','Shoes','Pyjama','Skirt','Shirt']);
-
 */
 
 //turn everything to lowercase
@@ -91,7 +91,6 @@ function answerHandler(){
   }
   else {
 		var index = Echars_array.indexOf(this.value);
-		var index1 = Echars_array.indexOf(answer);
 		playSound(index);		
 	  if (answer != this.value){
 		this.style.backgroundColor = "orange";
@@ -103,7 +102,7 @@ function answerHandler(){
 		//update correct/error value
 		error += 1;
 		document.getElementById("error").innerHTML = error;   
-		tested[index1] -= 1; tested[index] -= 1;
+		tested[answer_index] -= 1; tested[index] -= 1;
 	  }
 	  else {			 
 		document.getElementById("happy").style.display = "block";
@@ -128,7 +127,7 @@ function answerHandler(){
 		}
 		else {
 			correct += 1;   
-			if (errCount == 0){tested[index] += 1;}
+			if (errCount == 0){tested[answer_index] += 1;}
 			document.getElementById("correct").innerHTML = correct;
 		}
 	  }
@@ -252,10 +251,11 @@ function genQues(){
   while (tested[index] >= max){
     index = Math.floor(Math.random()*Echars_array.length);  
   }*/
-  var minArray = []; var minNum = Math.min(...tested);
+  var minArray = []; var minNum = Math.min(...tested);  
   tested.forEach((el,index)=> {if (el == minNum){minArray.push(index)}});
+
   var index = minArray[Math.floor(Math.random()*minArray.length)];
-    
+  answer_index = index;
   //tested[index] += 1;
   answer = Echars_array[index];
   document.getElementById("character").innerHTML = Mchars_array[index];

@@ -31,7 +31,7 @@ document.getElementById("total").innerHTML = total;
 var answer = '';
 let reward = new Reward();
 var focus = "";
-var move = 0; var dir = 0; var beeNo = 4;
+var move = 0; var dir = 0; var beeNo = 5;
 genGame();
 
 mySvg.addEventListener("pointerdown",selectHandler);
@@ -40,16 +40,16 @@ mySvg.addEventListener("pointerup",checkHandler);
 mySvg.addEventListener("pointerleave",checkHandler);
 
 document.getElementById("kids").addEventListener("click", function(){
-	beeNo = 4; reset(); this.style.backgroundColor = "pink";
+	beeNo = 4; reset(); this.style.backgroundColor = "pink"; document.getElementById("diff").innerHTML = "Beginner +";
 })
 document.getElementById("easy").addEventListener("click", function(){
-	beeNo = 5; reset(); this.style.backgroundColor = "pink";
+	beeNo = 5; reset(); this.style.backgroundColor = "pink"; document.getElementById("diff").innerHTML = "Easy +";
 })
 document.getElementById("medium").addEventListener("click", function(){
-	beeNo = 6; reset(); this.style.backgroundColor = "pink";	
+	beeNo = 6; reset(); this.style.backgroundColor = "pink"; document.getElementById("diff").innerHTML = "Medium +";
 })
 document.getElementById("hard").addEventListener("click", function(){
-	beeNo = 7; reset(); this.style.backgroundColor = "pink";
+	beeNo = 7; reset(); this.style.backgroundColor = "pink"; document.getElementById("diff").innerHTML = "Hard +";
 })
 
 function selectHandler(event){

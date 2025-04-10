@@ -17,18 +17,18 @@ var size = Math.floor((380-10)/level)-2;		//2:border
 r.style.setProperty('--size', size+'px');
 var interval = (svgsize - sidePad*2)/level;
 var bee1 = sidePad + interval/2 - size/2;
-var pos = []; var dir = 0;
+var pos = []; var dir = 0; var move = 0;
 for (var i = 0; i < level; i++){
 	pos[i] = bee1 + interval*i;
 }
 
-/*
+
 document.onkeydown = function (e) {
     e = e || window.event;
 	if (e.keyCode >= 37 && e.keyCode <= 40){
-		moveHandler(e);
+		keyboardHandler(e);
 	}
-};*/
+};
 
 document.getElementById("kids").addEventListener("click", function(){
 	level = 10; reset(); this.style.backgroundColor = "pink"; 
@@ -47,62 +47,28 @@ document.getElementById("total").innerHTML = total;
 let reward = new Reward();
 genGame();
 
-/*
-function moveHandler(event){
-	var moveTmp = -1;
-	if (event instanceof KeyboardEvent){
-		var dir;
-		switch (event.keyCode){
-		case 37:	//left
-			dir = 1; break;
-		case 38:	//up
-			dir = 2; break;
-		case 39:	//right
-			dir = 0; break;
-		case 40:	//down
-			dir = 3; break;
-		default:
-			dir = -1; break;
-		}
-		moveTmp = move(focus,dir);
-	}
-	else {
-		var id = event.currentTarget.id;	
-		if (dirIndex.includes(id)){
-			moveTmp = move(focus,dirIndex.indexOf(id));
-		}
-		else {
-			moveTmp = move(focus,findDirection(parseInt(id)));
-		}		
-	}
 
-	if (moveTmp != focus && moveTmp != -1){
-		document.getElementById(focus).innerHTML = '';
-		document.getElementById(moveTmp).innerHTML = `<img id="start" src=${startSrc}></img>`;
-		focus = moveTmp;
-		answerHandler();
+function keyboardHandler(event){
+	loc = getXY(beeloc);
+	loc[0] = loc[0] + size/2; loc[1] = loc[1]+size/2;
+	switch (event.keyCode){
+	case 37:	//left		
+		loc[0] = loc[0] - size; break;
+	case 38:	//up
+		loc[1] = loc[1] - size; break;
+	case 39:	//right
+		loc[0] = loc[0] + size; break;
+	case 40:	//down
+		loc[1] = loc[1] + size; break;
+	default:
+		break;
 	}
+	gotoGrid = checkGrid(loc[0], loc[1]); 
+	if (!checkBlock(beeloc,gotoGrid)){
+		beeloc = gotoGrid;			
+	}
+	move = 1; checkHandler();
 }
-
-function findDirection(gridIndex){
-	if (gridIndex == focus){
-		return -1;
-	}
-	if (Math.floor(gridIndex/level) == Math.floor(focus/level)){	//same row
-		if (gridIndex < focus){
-			return 1;	//gridIndex on left of focus
-		}
-		else {return 0;} //gridIndex on right of focus		
-	}
-	else if (gridIndex%level == focus%level){	//same column
-		if (gridIndex < focus){
-			return 2;	//gridIndex on top of focus
-		}
-		else {return 3;} //gridIndex on bottom of focus
-	} else {
-		return -1;
-	}	
-}*/
 
 function selectHandler(event){
 	if (event.target.id == "start"){
@@ -134,7 +100,7 @@ function moveHandler(event){
 			else {
 				offX = 0;
 			}
-			//check movement if got other bee blocking	
+			//check movement if got other wall blocking	
 			gotoGrid = checkGrid(event.offsetX + offX, loc[1]);
 			if (!checkBlock(beeloc,gotoGrid)){
 				if (event.offsetX < svgsize - sidePad - size){
@@ -201,6 +167,29 @@ function checkBlock(startGrid, gotoGrid){
 		}
 	}
 	
+}
+
+function checkGrid(x, y){
+	if (x >= (svgsize - sidePad)){
+		x = svgsize - sidePad - 1;
+	}
+	else if (x < sidePad){x = sidePad;}
+	if (y >= (svgsize - sidePad)){
+		y = svgsize - sidePad - 1;
+	}	
+	else if (y < sidePad){y = sidePad;}
+	return Math.floor((y-sidePad)/interval)*(level) + Math.floor((x-sidePad)/interval);
+}
+
+function getXY(grid){
+	return [pos[grid%level],pos[Math.floor(grid/level)]];
+}
+
+function setXY(el, grid){	
+	[x,y] = getXY(grid);
+	document.getElementById(el).setAttribute('x', x); 
+	document.getElementById(el).setAttribute('y', y);
+	return 
 }
 
 async function answerHandler(){    
@@ -296,67 +285,6 @@ function genGame(){
 	document.getElementById("mySvg").innerHTML += `<image id="start" href="${startSrc}"/>`;
 	setXY("stop",stopIndex); setXY("start",startIndex);
 	dest = stopIndex; beeloc = startIndex;
-}
-
-function checkGrid(x, y){
-	if (x >= (svgsize - sidePad)){
-		x = svgsize - sidePad - 1;
-	}
-	else if (x < sidePad){x = sidePad;}
-	if (y >= (svgsize - sidePad)){
-		y = svgsize - sidePad - 1;
-	}	
-	else if (y < sidePad){y = sidePad;}
-	return Math.floor((y-sidePad)/interval)*(level) + Math.floor((x-sidePad)/interval);
-}
-
-function getXY(grid){
-	return [pos[grid%level],pos[Math.floor(grid/level)]];
-}
-
-function setXY(el, grid){	
-	[x,y] = getXY(grid);
-	document.getElementById(el).setAttribute('x', x); 
-	document.getElementById(el).setAttribute('y', y);
-	return 
-}
-
-function move(index, direction){
-	if (direction == 0){	//move right
-		if (index%level == level-1 || document.getElementById(index).classList.value.includes('right')){
-			return index;
-		}
-		else {
-			return index + 1;
-		}
-	}
-	else if (direction == 1){	//move left
-		if (index%level == 0 || document.getElementById(index).classList.value.includes('left')){
-			return index;
-		}
-		else {
-			return index - 1;
-		}
-	}
-	else if (direction == 2){	//move up
-		if (index <= level-1 || document.getElementById(index).classList.value.includes('top')){
-			return index;
-		}
-		else {
-			return index - level;
-		}		
-	}
-	else if (direction == 3){	//move down
-		if (index >= level*(level-1) || document.getElementById(index).classList.value.includes('bottom')){
-			return index;
-		}
-		else {
-			return index + level;
-		}		
-	}
-	else {
-		return index;
-	}
 }
 
 function reset(){

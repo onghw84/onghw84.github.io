@@ -40,21 +40,25 @@ document.getElementById("kids").addEventListener("click", function(){
 	document.getElementById("eight").style.display = "none";
 	document.getElementById("nine").style.display = "none";
 	document.getElementById("digit").style.width = "200px";
+	document.getElementById("diff").innerHTML = "Beginner +";
 })
 document.getElementById("easy").addEventListener("click", function(){
 	level = 1; reset(); this.style.backgroundColor = "pink";
 	document.getElementById("container0").style.display = "none";
 	document.getElementById("container1").style.display = "flex";
+	document.getElementById("diff").innerHTML = "Easy +";
 })
 document.getElementById("medium").addEventListener("click", function(){
 	level = 2; reset(); this.style.backgroundColor = "pink";
 	document.getElementById("container0").style.display = "none";
 	document.getElementById("container1").style.display = "flex";	
+	document.getElementById("diff").innerHTML = "Medium +";
 })
 document.getElementById("hard").addEventListener("click", function(){
 	level = 3; reset(); this.style.backgroundColor = "pink";
 	document.getElementById("container0").style.display = "none";
 	document.getElementById("container1").style.display = "flex";	
+	document.getElementById("diff").innerHTML = "Hard +";
 })
 
 document.getElementById("total").innerHTML = total;
@@ -87,7 +91,10 @@ function answerHandler(){
 	  
 	  const index = grid.indexOf(focus);
 	  if (answer[index] == value){
-		document.getElementById(focus).style.color = "blue";
+		document.getElementById(focus).style.color = "blue";		
+		document.getElementById(focus).style.backgroundColor = "white";	
+		document.getElementById(focus).removeEventListener("click", gridListener);
+		focus = "";
 		correct += 1;
 		if (correct == emptyGrid.length){	//all correct
 			if (level == 0){
@@ -96,7 +103,6 @@ function answerHandler(){
 			else {
 				document.getElementById("container1").style.backgroundColor = "pink";
 			}
-			document.getElementById(focus).style.backgroundColor = "white";
 			document.getElementById("digit").style.display = "none";
 			total += 1;
 			document.getElementById("total").innerHTML = total;
@@ -128,12 +134,14 @@ function genBoard(){
 		while (i < 4){
 			index = Math.floor(Math.random()*grid.length);
 			value = Math.ceil(Math.random()*Math.sqrt(grid.length));
-			row = grid[index][0]; column = grid[index][2];
+			//row = grid[index][0]; column = grid[index][2];
+			row = Math.floor(index/Math.sqrt(grid.length)); column = index%Math.sqrt(grid.length);
 			if (!sudokuSolver0.isInvalid(puzzle, row, column, value)){
 				puzzle[index] = value;
 				i += 1;			
 			}
 		}
+		//puzzle = ['.', '.', '.', '.', '.', '.', '.', 3, 1, '.', '.', '.', '.', '.', 1, '.'];
 		var puzzleAnswer0 = sudokuSolver0.solve(puzzle);	//TODO: solve sometimes stuck
 		if (puzzleAnswer0.error){
 			console.log(puzzleAnswer0.error);
@@ -148,7 +156,8 @@ function genBoard(){
 		while (i < 20){
 			index = Math.floor(Math.random()*grid.length);
 			value = Math.ceil(Math.random()*Math.sqrt(grid.length));
-			row = grid[index][0]; column = grid[index][1];
+			//row = grid[index][0]; column = grid[index][1];
+			row = Math.floor(index/Math.sqrt(grid.length)); column = index%Math.sqrt(grid.length);
 			if (!sudokuSolver.isInvalid(puzzle, row, column, value)){
 				puzzle[index] = value;
 				i += 1;			
@@ -205,6 +214,7 @@ function genGame(){
 			document.getElementById(grid[i]).removeEventListener("click", gridListener);
 			document.getElementById(grid[i]).style.fontWeight = "bold";
 			document.getElementById(grid[i]).style.fontStyle = "normal";
+			document.getElementById(grid[i]).style.color = "black";
 			document.getElementById(grid[i]).innerHTML = answer[i];
 		}
 	}
