@@ -68,7 +68,12 @@ let sudokuSolver = new SudokuSolver(9);
 let sudokuSolver0 = new SudokuSolver(4);
 genGame();
 
-
+document.onkeydown = function (e) {
+    e = e || window.event;	
+	if (e.keyCode >= 49 && e.keyCode <= 57){
+		answerHandler(event,event.keyCode-48);
+	}
+};
 //var test = ['.', '.', '.', '.', '.', '.', 6, '.', '.', '.', '.', '.', '.', '.', 5, '.', '.', '.', 6, '.', '.', 7, '.', '.', 5, '.', '.', '.', '.', 2, '.', 3, '.', '.', '.', '.', '.', '.', '.', 1, '.', '.', '.', 7, 9, '.', 9, 6, '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 8, '.', '.', '.', '.', 5, 7, '.', '.', '.', 6, '.', '.', '.', '.', '.', '.', '.', 2, '.', '.', 4, '.'];
 //var puzzleAnswer = sudokuSolver.solve(test);
 //console.log(puzzleAnswer);
@@ -81,8 +86,14 @@ function gridListener(event){
 	event.currentTarget.style.backgroundColor = "yellowgreen";		
 }
 
-function answerHandler(){    
-  const value = this.innerHTML;
+function answerHandler(event, input){
+  var value = 0;
+  if (input){
+	  value = input;
+  }
+  else {
+	value = this.innerHTML;
+  }
   if (focus == ""){
 	return;
   }

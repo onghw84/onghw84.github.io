@@ -132,7 +132,7 @@ function answerHandler(){
 		}
 	  }
   }
-  reward.showReward(correct-error, 5);
+  reward.showReward(correct-error, 8);
   return;
 }
 
@@ -253,7 +253,7 @@ function genQues(){
   }*/
   var minArray = []; var minNum = Math.min(...tested);  
   tested.forEach((el,index)=> {if (el == minNum){minArray.push(index)}});
-
+console.log(Echars_array.length);
   var index = minArray[Math.floor(Math.random()*minArray.length)];
   answer_index = index;
   //tested[index] += 1;
@@ -301,6 +301,6 @@ document.getElementById("song").addEventListener("click", function (){
   correct = 0;  error = 0;
   document.getElementById("correct").innerHTML = correct;
   document.getElementById("error").innerHTML = error;
-  reward.showReward(correct-error, 5);
+  reward.showReward(correct-error, 8);
 });
 //document.getElementById('input[name="char_set"]').addEventListener("change", console.log("charset1"));
