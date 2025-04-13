@@ -28,7 +28,7 @@ switch (title){
 	case "Read":
 		page = 13; disp = "Read"; break;
 	case "Slider Game":
-		page = 13; disp = "Slider"; break;						
+		page = 14; disp = "Slider"; break;						
 	default:
 		page = 1; disp = "Chinese FC"; break;
 }

@@ -118,33 +118,24 @@ body {
 	background-color: black;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: row;
-}
-
-.dropdown-content {
+#content {
   display: none;
   position: absolute;
   background-color: white;
   z-index: 1;
+  flex-direction: row;
 }
 
-.dropdown:hover .dropdown-content1 {
-  display: flex;
-  flex-direction: column;
-}
-
-.dropdown-content1 {
+#content1 {
   display: none;
   position: absolute;
   background-color: white;
   margin: -10px 10px;
   z-index: 1;  
+  flex-direction: column;
 }
 
-.dropdown-content1 svg{
+#content1 svg{
   width: 100px;
   height: 40px;
   cursor: pointer;
