@@ -30,7 +30,7 @@ switch (title){
 	case "Slider Game":
 		page = 14; disp = "Slider"; break;
 	case "Payment Game":
-		page = 14; disp = "Payment"; break;		
+		page = 15; disp = "Payment"; break;		
 	default:
 		page = 1; disp = "Chinese FC"; break;
 }
