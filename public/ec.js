@@ -26,7 +26,7 @@ Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
 Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
 Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);
-Echars.push(['Grape','Papaya','Watermelon','Strawberry','Jackfruit']);
+Echars.push(['Grapes','Papaya','Watermelon','Strawberry','Jackfruit']);
 Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);

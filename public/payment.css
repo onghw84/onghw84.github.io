@@ -1,0 +1,177 @@
+body {
+  font-family: "Times New Roman", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  width: 370px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+input[type=radio], input[type=checkbox]  {
+  height: 20px;
+}
+
+#selSet{
+	background-color: #FFE5B4;
+	padding: 5px;
+	width: 200px;
+	height: 30px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 2pt solid blue;	
+}
+
+label {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 10px;
+  width: auto;
+  display: inline;
+}
+
+#card {
+  margin: auto;
+  background-color: #FFE5B4;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5pt solid pink;
+  /*font-weight: bold;*/
+  flex-direction: column;
+}
+
+#A, #B, #C, #D {
+    width: 150px;
+}
+
+.butvertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.hor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hor p{
+	border: 1pt solid black;
+	padding: 10px;
+	font-size: 15px;
+	margin: 5px;
+	width: 15px; height: 15px;
+}
+
+#total{
+	font-size: 25px;
+	margin: 5px;
+	margin-top: 20px;
+	color: red;
+}
+
+#price, #return{
+    border: none;
+	padding: 0;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-top: 5px;
+}
+
+#price{
+	font-size: 30px;
+}
+
+#return{
+	width: 200px;
+    font-size: 20px;
+	color: blue;
+}
+
+#pimage img{
+	height: 100px;
+	width: auto;
+	visibility: visible;
+	margin-top: 10px;
+}
+
+#gameNo, #newGame{
+  width: 120px;
+  height: auto;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#newGame{
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
+#play{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+i{
+  margin: 2px;
+}
+
+#pay_amt{
+	display: none;
+	visibility: visible;
+	width: 250px;
+	height: auto;	
+}
+
+.RM{
+	visibility: visible;
+	width: 150px;
+	height: auto;	
+}
+
+.coin{
+	visibility: visible;
+	width: 50px;
+	height: auto;	
+}
+
+input[type=button] {
+  width: 30px;
+  height: 30px;
+  background-color: greenyellow;
+  margin: auto;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#happy{
+  width: 120px;
+  height: 120px;
+}
+

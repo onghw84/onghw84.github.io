@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Payment Game</title>
+	<meta name="description" content="English/Chinese" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/common.css" type="text/css" />
+	<link rel="stylesheet" href="./public/payment.css" type="text/css" />
+</head>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="./public/ul.js"></script>
+    <div class="radio" style="margin-top: 50px; width: auto;">
+      <input type="radio" id="learnPay" name="pay_change" value="1" checked>
+      <label for="learnPay">Pay</label>
+      <input type="radio" id="playChange" name="pay_change" value="2" >
+      <label for="playChange">Change</label>
+    </div>	
+    <div class="container">
+		<div class="hor">
+			<img id="pay_amt" src="./public/image/RM20.png"></img>
+		</div>
+		<div class="hor">
+			  <div id="card">
+				<div id="pimage"></div>
+				<p id="price"></p>
+				<p id="return"></p>
+			  </div>
+			<img id="happy" alt="happy"></img>		  
+		</div>
+		<div id="play">		  
+		  <div class="butvertical">
+		<!--	<div class="hor"><img src="./public/image/RM20.png" class="RM"></img><p id="20t">10</p><input type="button" id="20" value="+"><input type="button" id="20" value="-"></div> --!>
+			<div class="hor"><img src="./public/image/RM10.png" class="RM"></img><p id="10t">0</p><input type="button" id="10" value="+"><input type="button" id="10" value="-"></div>
+			<div class="hor"><img src="./public/image/RM5.png" class="RM"></img><p id="5t">0</p><input type="button" id="5" value="+"><input type="button" id="5" value="-"></div>
+			<div class="hor"><img src="./public/image/RM1.png" class="RM"></img><p id="1t">0</p><input type="button" id="1" value="+"><input type="button" id="1" value="-"></div>
+		  </div>
+		  <div class="butvertical">
+			<div class="hor"><img src="./public/image/coin_50.png" class="coin"></img><p id="50ct">0</p><input type="button" id="50c" value="+"><input type="button" id="50c" value="-"></div>
+			<div class="hor"><img src="./public/image/coin_20.png" class="coin"></img><p id="20ct">0</p><input type="button" id="20c" value="+"><input type="button" id="20c" value="-"></div>
+			<div class="hor"><img src="./public/image/coin_10.png" class="coin"></img><p id="10ct">0</p><input type="button" id="10c" value="+"><input type="button" id="10c" value="-"></div>
+			<div class="hor"><img src="./public/image/coin_5.png" class="coin"></img><p id="5ct">0</p><input type="button" id="5c" value="+"><input type="button" id="5c" value="-"></div>
+			<p id="total">Total: RM0.00</p>
+		  </div>
+		</div>
+		<div class="statistics">
+			<p id="gameNo">0</p>
+			<p id="newGame">New Game</p>
+		</div>		
+    </div>
+    <div id="reward">
+    </div>
+  </body>
+  <script src="./public/reward.js"></script>
+  <script src="./public/payment.js"></script>
+</html>
