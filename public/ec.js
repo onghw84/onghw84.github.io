@@ -38,6 +38,9 @@ Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
 Mchars.push(['屋子','船','风扇','电脑','手机']);
 Mchars.push(['自行车','车子','罗里','火车','巴士']);
 Mchars.push(['衣服','鞋子','睡衣','裙子','衬衫']);
+Mchars.push(['枕头','床','被子','抱枕','毛线']);
+Mchars.push(['圆形','长方形','正方形','三角形','椭圆形']);
+Mchars.push(['星形','六边形','菱形','梯形','五边形']);
 */
 
 
@@ -48,6 +51,9 @@ Echars.push(['Tongue','Teeth','Palm','Breast','Nail']);
 Echars.push(['House','Boat','Fan','Computer','Handphone']);
 Echars.push(['Bicycle','Car','Lorry','Train','Bus']);
 Echars.push(['Clothes','Shoes','Pyjama','Skirt','Shirt']);
+Echars.push(['Pillow','Bed','Blanket','Bolster','Wool']);
+Echars.push(['Circle','Rectangle','Square','Triangle','Oval']);
+Echars.push(['Star','Hexagon','Rhombus','Trapezoid','Pentagon']);
 */
 
 //turn everything to lowercase
