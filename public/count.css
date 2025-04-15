@@ -1,0 +1,85 @@
+body {
+  font-family: "Times New Roman", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio {
+  width: 370px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+input[type=radio], input[type=checkbox]  {
+  height: 20px;
+}
+
+#ques {
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  width: 380px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5pt solid pink;
+  /*font-weight: bold;*/
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#A, #B, #C, #D {
+  width: 80px;
+  height: 50px;
+  background-color: greenyellow;
+  margin: auto;
+  margin-top: 20px;
+  border: 1pt solid blue;
+  border-radius: 10px;
+  font-size: 18px;	
+}
+
+#correct{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: #FFE5B4;
+  text-align: center;
+}
+
+#error{
+  width: 120px;
+  height: 20px;
+  margin: auto;
+  border: 1pt solid black;
+  background-color: red;
+  text-align: center;
+  color: white;
+}
+
+.RM{
+	visibility: visible;
+	width: 150px;
+	height: auto;
+}
+
+.coin{
+	visibility: visible;
+	width: 50px;
+	height: auto;	
+}
+
+#happy{
+  width: 120px;
+  height: 120px;
+}
+

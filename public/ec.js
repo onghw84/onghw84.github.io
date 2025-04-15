@@ -7,8 +7,7 @@ const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg
 
 Mchars.push(['蜜蜂','猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','红','橙','黄','绿','蓝','紫','黑','白','褐','粉色','云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮','彩带','爱心','蝴蝶','妖怪','蜻蜓']);
 Mchars.push(['母鸡','小鸡','马','山羊','公鸡','沙子','树','草','山','河','椰子','苹果','橙子','糖','雪糕','一','二','三','四','五','六','七','八','九','十']);
-Mchars.push(['十一','十二','十三','十四','十五']);
-Mchars.push(['十六','十七','十八','十九','二十']);
+Mchars.push(['十一','十二','十三','十四','十五','十六','十七','十八','十九','二十']);
 Mchars.push(['三十','四十','五十','六十','七十']);
 Mchars.push(['八十','九十','百','千','百万']);
 Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉']);
@@ -21,8 +20,7 @@ Mchars.push(['手','腋下','手指','肚子','胸膛']);
 
 Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink','Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon','Ribbon','Love','Butterfly','Demon','Dragonfly']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster','Sand','Tree','Grass','Mountain','River','Coconut','Apple','Orange','Candy','Ice cream','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten']);
-Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen']);
-Echars.push(['Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
+Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
 Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
 Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);

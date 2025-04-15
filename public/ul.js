@@ -30,7 +30,9 @@ switch (title){
 	case "Slider Game":
 		page = 14; disp = "Slider"; break;
 	case "Payment Game":
-		page = 15; disp = "Payment"; break;		
+		page = 15; disp = "Payment"; break;
+	case "Count":
+		page = 16; disp = "Count"; break;			
 	default:
 		page = 1; disp = "Chinese FC"; break;
 }
@@ -53,6 +55,7 @@ document.write(`
 	  <li><a ${page == 13? 'class="active"':''} href="read.html">Read</a></li>
 	  <li><a ${page == 14? 'class="active"':''} href="slider.html">Slider</a></li>
 	  <li><a ${page == 15? 'class="active"':''} href="payment.html">Payment</a></li>
+	  <li><a ${page == 16? 'class="active"':''} href="count.html">Count</a></li>
     </ul>
 `
 );
