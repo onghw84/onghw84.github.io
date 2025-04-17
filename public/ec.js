@@ -32,6 +32,7 @@ Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
 Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
 
 /*
+Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？'])
 Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
 Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
@@ -41,10 +42,14 @@ Mchars.push(['衣服','鞋子','睡衣','裙子','衬衫']);
 Mchars.push(['枕头','床','被子','抱枕','毛线']);
 Mchars.push(['圆形','长方形','正方形','三角形','椭圆形']);
 Mchars.push(['星形','六边形','菱形','梯形','五边形']);
+Mchars.push(['爸爸','妈妈','姐姐/妹妹','哥哥/弟弟','叔叔','阿姨']);
+Mchars.push(['爷爷','奶奶','堂/表','侄儿/外甥','侄女/外甥女']);
+Mchars.push(['家','酒店','餐馆','图书馆','超市']);
+Mchars.push(['游乐场','书店','学校','大学','幼儿园']);
 */
 
-
 /*
+Echars.push(['Who','What','Why','Where','How']);
 Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
 Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
 Echars.push(['Tongue','Teeth','Palm','Breast','Nail']);
@@ -54,6 +59,10 @@ Echars.push(['Clothes','Shoes','Pyjama','Skirt','Shirt']);
 Echars.push(['Pillow','Bed','Blanket','Bolster','Wool']);
 Echars.push(['Circle','Rectangle','Square','Triangle','Oval']);
 Echars.push(['Star','Hexagon','Rhombus','Trapezoid','Pentagon']);
+Echars.push(['Father','Mother','Sister','Brother','Uncle','Auntie']);
+Echars.push(['Grandfather','Grandmother','Cousin','Niece','Nephew','Grandchildren']);
+Echars.push(['Home','Hotel','Restaurant','Library','Supermarket']);
+Echars.push(['Playground','Bookstore','School','University','Kintergarden']);
 */
 
 //turn everything to lowercase
@@ -226,7 +235,7 @@ function genLearn(){
 	for (var i=0; i<Mchars_array.length; i++){
 		tmpStrM += `<p>${Mchars_array[i]}</p>`;
 		tmpStrE += `<p  onclick="playSound(${i})">${Echars_array[i]}<i class="fa fa-play-circle"></i></p>`;
-		imgStr +=  `<img src="./public/image/${Echars_array[i].toLowerCase()}.jpg"></img>`
+		imgStr +=  `<img alt="${Echars_array[i].toLowerCase()}" src="./public/image/${Echars_array[i].toLowerCase()}.jpg"></img>`
 	}
 	document.getElementById("learnC").innerHTML = tmpStrM;
 	document.getElementById("learnE").innerHTML = tmpStrE;
