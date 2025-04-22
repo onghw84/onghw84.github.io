@@ -7,34 +7,33 @@ const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg
 
 Mchars.push(['蜜蜂','猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','红','橙','黄','绿','蓝','紫','黑','白','褐','粉色','云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮','彩带','爱心','蝴蝶','妖怪','蜻蜓']);
 Mchars.push(['母鸡','小鸡','马','山羊','公鸡','沙子','树','草','山','河','椰子','苹果','橙子','糖','雪糕','一','二','三','四','五','六','七','八','九','十']);
-Mchars.push(['十一','十二','十三','十四','十五','十六','十七','十八','十九','二十']);
-Mchars.push(['三十','四十','五十','六十','七十']);
-Mchars.push(['八十','九十','百','千','百万']);
+Mchars.push(['十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','三十','四十','五十','六十','七十','八十','九十','百','千','百万']);
 Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉']);
 Mchars.push(['葡萄','木瓜','西瓜','草莓','波罗蜜']);
+Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
+Mchars.push(['手','腋下','手指','肚子','胸膛']);
+Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
+Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
 Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
-Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
-Mchars.push(['手','腋下','手指','肚子','胸膛']);
 
 Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink','Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon','Ribbon','Love','Butterfly','Demon','Dragonfly']);
 Echars.push(['Hen','Chick','Horse','Goat','Rooster','Sand','Tree','Grass','Mountain','River','Coconut','Apple','Orange','Candy','Ice cream','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten']);
-Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty']);
-Echars.push(['Thirty','Fourty','Fifty','Sixty','Seventy']);
-Echars.push(['Eighty','Ninety','Hundred','Thousand','Million']);
+Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Thirty','Fourty','Fifty','Sixty','Seventy','Eighty','Ninety','Hundred','Thousand','Million']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);
 Echars.push(['Grapes','Papaya','Watermelon','Strawberry','Jackfruit']);
+Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
+Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
+Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
+Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
 Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
-Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
-Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
+
 
 /*
 Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？'])
-Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
-Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
 Mchars.push(['屋子','船','风扇','电脑','手机']);
 Mchars.push(['自行车','车子','罗里','火车','巴士']);
@@ -50,8 +49,6 @@ Mchars.push(['游乐场','书店','学校','大学','幼儿园']);
 
 /*
 Echars.push(['Who','What','Why','Where','How']);
-Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
-Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
 Echars.push(['Tongue','Teeth','Palm','Breast','Nail']);
 Echars.push(['House','Boat','Fan','Computer','Handphone']);
 Echars.push(['Bicycle','Car','Lorry','Train','Bus']);
@@ -177,7 +174,7 @@ selSet.onchange = function() {
     if (this.value == "MIX"){
 		check.style.display = "flex";
 		document.getElementById("playSel").checked = true;	
-		document.getElementById("learnSel").disabled = true;
+		//document.getElementById("learnSel").disabled = true;
 		document.getElementById("learn").style.display = "none";
 		document.getElementById("check1").checked = true;
 		document.getElementById("play").style.display = "flex";
@@ -210,7 +207,7 @@ for (let i = 0; i < checkSelect.length; i++) {
 		Echars_array.splice(index, Mchars[this.value-1].length);		
 	}
 	tested = Array(Mchars_array.length).fill(0);
-	genQues();
+	genQues(); genLearn();
   });
 }
 
@@ -244,6 +241,7 @@ function genLearn(){
 
 function genQues(){
   //reset view
+  console.log(Echars_array.length)
 	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
 	document.getElementById("A").style.backgroundColor = "greenyellow";
 	document.getElementById("B").style.backgroundColor = "greenyellow";

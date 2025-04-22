@@ -34,7 +34,9 @@ switch (title){
 	case "Count":
 		page = 16; disp = "Count"; break;
 	case "SightWords":
-		page = 17; disp = "SightWords"; break;					
+		page = 17; disp = "SightWords"; break;
+	case "Rewards":
+		page = 18; disp = "Rewards"; break;
 	default:
 		page = 1; disp = "Chinese FC"; break;
 }
@@ -59,6 +61,7 @@ document.write(`
 	  <li><a ${page == 15? 'class="active"':''} href="payment.html">Payment</a></li>
 	  <li><a ${page == 16? 'class="active"':''} href="count.html">Count</a></li>
 	  <li><a ${page == 17? 'class="active"':''} href="sight_words.html">SightWords</a></li>
+	  <li><a ${page == 18? 'class="active"':''} href="reward.html">Rewards</a></li>
     </ul>
 `
 );
