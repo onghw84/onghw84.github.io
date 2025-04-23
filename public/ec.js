@@ -1,14 +1,19 @@
 var Mchars = [];
 var Echars = [];
+var category = [];
 var answer_index = -1;
 const audio_dir = './public/audio/';
 const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 
-Mchars.push(['蜜蜂','猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','红','橙','黄','绿','蓝','紫','黑','白','褐','粉色','云','花','叶子','石头','水','雪','彩虹','天使','太阳','月亮','彩带','爱心','蝴蝶','妖怪','蜻蜓']);
-Mchars.push(['母鸡','小鸡','马','山羊','公鸡','沙子','树','草','山','河','椰子','苹果','橙子','糖','雪糕','一','二','三','四','五','六','七','八','九','十']);
-Mchars.push(['十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','三十','四十','五十','六十','七十','八十','九十','百','千','百万']);
-Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉']);
+
+
+Mchars.push(['蜜蜂','猫','狗','兔子','老鼠','大象','鱼','狮子','老虎','蛇','龙','蝴蝶','蜻蜓','母鸡','小鸡','马','山羊','公鸡']);
+Mchars.push(['红','橙','黄','绿','蓝','紫','黑','白','褐','粉色']);
+Mchars.push(['一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','三十','四十','五十','六十','七十','八十','九十','百','千','百万']);
+Mchars.push(['云','花','叶子','石头','水','雪','彩虹','太阳','月亮','沙子','树','草','山','河']);
+Mchars.push(['彩带','爱心','妖怪','天使','糖','雪糕'])
+Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉','椰子','苹果','橙子']);
 Mchars.push(['葡萄','木瓜','西瓜','草莓','波罗蜜']);
 Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
 Mchars.push(['手','腋下','手指','肚子','胸膛']);
@@ -18,10 +23,13 @@ Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
 
-Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink','Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Angel','Sun','Moon','Ribbon','Love','Butterfly','Demon','Dragonfly']);
-Echars.push(['Hen','Chick','Horse','Goat','Rooster','Sand','Tree','Grass','Mountain','River','Coconut','Apple','Orange','Candy','Ice cream','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten']);
-Echars.push(['Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Thirty','Fourty','Fifty','Sixty','Seventy','Eighty','Ninety','Hundred','Thousand','Million']);
-Echars.push(['Cherry','Blueberry','Longan','Peach','Banana']);
+
+Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Butterfly','Dragonfly','Hen','Chick','Horse','Goat','Rooster']);
+Echars.push(['Red','Orange','Yellow','Green','Blue','Purple','Black','White','Brown','Pink']);
+Echars.push(['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Thirty','Fourty','Fifty','Sixty','Seventy','Eighty','Ninety','Hundred','Thousand','Million']);
+Echars.push(['Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Sun','Moon','Sand','Tree','Grass','Mountain','River']);
+Echars.push(['Ribbon','Love','Demon','Angel','Candy','Ice cream']);
+Echars.push(['Cherry','Blueberry','Longan','Peach','Banana','Coconut','Apple','Orange']);
 Echars.push(['Grapes','Papaya','Watermelon','Strawberry','Jackfruit']);
 Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
 Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
@@ -31,7 +39,7 @@ Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 
-
+category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Fruits','Body','Body','Body','Body','Animals','Animals','Animals')
 /*
 Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？'])
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
@@ -90,7 +98,7 @@ document.getElementById("D").addEventListener("click", answerHandler)
 var selSet = document.getElementById("selSet");
 //generate select
 for (var i = 0; i < Echars.length; i++){
-	selSet.options[selSet.options.length] = new Option(`SET ${i+1}`,i+1);
+	selSet.options[selSet.options.length] = new Option(`SET ${i+1} - ${category[i]}`,i+1);
 }
 selSet.options[selSet.options.length] = new Option('MIX','MIX');
 
@@ -241,7 +249,6 @@ function genLearn(){
 
 function genQues(){
   //reset view
-  console.log(Echars_array.length)
 	document.getElementById("happy").src = reward_dir + happyImg[Math.floor(Math.random()*happyImg.length)];	
 	document.getElementById("A").style.backgroundColor = "greenyellow";
 	document.getElementById("B").style.backgroundColor = "greenyellow";
