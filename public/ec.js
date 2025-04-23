@@ -19,6 +19,9 @@ Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛']);
 Mchars.push(['手','腋下','手指','肚子','胸膛']);
 Mchars.push(['膝盖','脚','大腿','脚趾','脚板']);
 Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
+Mchars.push(['薯条','汉堡包','奶酪','牛扒','三文治']);
+Mchars.push(['米饭','面','鸡蛋','猪肉','蔬菜']);
+Mchars.push(['甜品','饮料','面包','蛋糕','饼干']);
 Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
 Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
@@ -30,16 +33,19 @@ Echars.push(['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten
 Echars.push(['Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Sun','Moon','Sand','Tree','Grass','Mountain','River']);
 Echars.push(['Ribbon','Love','Demon','Angel','Candy','Ice cream']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana','Coconut','Apple','Orange']);
-Echars.push(['Grapes','Papaya','Watermelon','Strawberry','Jackfruit']);
+Echars.push(['Grape','Papaya','Watermelon','Strawberry','Jackfruit']);
 Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow']);
 Echars.push(['Hand','Armpit','Finger','Belly','Chest']);
 Echars.push(['Knee','Leg','Thigh','Toe','Foot']);
 Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
+Echars.push(['French Fries','Hamburger','Cheese','Steak','Sandwich']);
+Echars.push(['Rice','Noodle','Egg','Pork','Vegetable']);
+Echars.push(['Dessert','Drink','Bread','Cake','Cookie']);
 Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
 Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 
-category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Fruits','Body','Body','Body','Body','Animals','Animals','Animals')
+category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Fruits','Body','Body','Body','Body','Food','Food','Food','Animals','Animals','Animals')
 /*
 Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？'])
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
