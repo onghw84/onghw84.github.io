@@ -1,8 +1,8 @@
 const rewardDiv = document.getElementById("reward");
 
 song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
-    "https://www.youtube.com/watch?v=EGHQecqF4V0&list=PLr-zkbNcUmXaJ30A2bHwTPd7_0ohwRBL7&index=7",
-    "https://www.youtube.com/watch?v=Ql8kUKyuHXc&list=PLr-zkbNcUmXaJ30A2bHwTPd7_0ohwRBL7&index=4",
+    "https://www.youtube.com/watch?v=EGHQecqF4V0",
+    "https://www.youtube.com/watch?v=Ql8kUKyuHXc",
     "https://www.youtube.com/shorts/SCV_cizxtf8",
     "https://www.youtube.com/shorts/l1StGzLX7LY",
     "https://www.youtube.com/shorts/rYaokGRva_w",
@@ -19,6 +19,29 @@ song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
 	"https://www.youtube.com/watch?v=bWUgZm_AE64",
 	"https://www.youtube.com/watch?v=V5Bs9xydba0",
 	"https://www.youtube.com/watch?v=e81A9pw59tM",
+	"https://www.youtube.com/shorts/onadBK5OgXE",
+	"https://www.youtube.com/shorts/WrThhFosciA",
+	"https://www.youtube.com/watch?v=Lcp2lrZhC6E",
+	"https://www.youtube.com/watch?v=n4OFVR3V6G8",
+	"https://www.youtube.com/watch?v=lTK79WBzgUA",
+	"https://www.youtube.com/watch?v=Gkysb_8N9os",
+	"https://www.youtube.com/shorts/SeXDsT1whyQ",
+	"https://www.youtube.com/watch?v=EgiQ6GliTrI",
+	"https://www.youtube.com/watch?v=_RIRdEXZAFQ",
+	"https://www.youtube.com/watch?v=XTwg-Ki1X70",
+	"https://www.youtube.com/watch?v=5aJKBNKDPw8",
+	"https://www.youtube.com/watch?v=uw4MnVm01Fg",
+	"https://www.youtube.com/watch?v=Ix1bH7ExYtg",
+	"https://www.youtube.com/watch?v=E1_ceyOpRZ0",
+	"https://www.youtube.com/watch?v=y1vcz_qZjNk&t=34s",
+	"https://www.youtube.com/watch?v=qAna4oPVPnc&t=32s",
+	"https://www.youtube.com/watch?v=Z1oUicAW_lc&t=34s",
+	"https://www.youtube.com/watch?v=ugv0IpltKBM&t=39s",
+	"https://www.youtube.com/watch?v=zSKs_LJ3-K8&t=44s",
+	"https://www.youtube.com/watch?v=eTyisKTA9mo&t=32s",
+	"https://www.youtube.com/watch?v=ThudFFly5qQ&t=44s",
+	"https://www.youtube.com/watch?v=oY89rbSIX_Q&t=37s"
+	
 ];
 
 rewardDiv.innerHTML =  `
