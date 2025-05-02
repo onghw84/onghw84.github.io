@@ -14,13 +14,12 @@ Mchars.push(['一','二','三','四','五','六','七','八','九','十','十一
 Mchars.push(['云','花','叶子','石头','水','雪','彩虹','太阳','月亮','沙子','树','草','山','河']);
 Mchars.push(['彩带','爱心','妖怪','天使','糖','雪糕'])
 Mchars.push(['樱桃','蓝莓','龙眼','桃子','香蕉','椰子','苹果','橙子','葡萄','木瓜','西瓜','草莓','波罗蜜']);
-Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛','手','腋下','手指','肚子','胸膛','膝盖','脚','大腿','脚趾','脚板']);
-Mchars.push(['头发','眼睫毛','屁股','脚跟','小腿']);
+Mchars.push(['鼻子','眼睛','嘴巴','耳朵','眉毛','手','腋下','手指','肚子','胸膛','膝盖','脚','大腿','脚趾','脚板','头发','眼睫毛','屁股','脚跟','小腿']);
 Mchars.push(['薯条','汉堡包','奶酪','牛扒','三文治']);
 Mchars.push(['米饭','面','鸡蛋','猪肉','蔬菜']);
 Mchars.push(['甜品','饮料','面包','蛋糕','饼干']);
-Mchars.push(['猴子','绵羊','鸭子','鸟','牛']);
-Mchars.push(['鳄鱼','火鸡','松鼠','熊猫','鹿']);
+Mchars.push(['火鸡','绵羊','鸭子','鸟','牛','驴子']);
+Mchars.push(['鳄鱼','猴子','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
 Mchars.push(['南瓜','玉米','番茄','马铃薯','包菜','豌豆','菠菜','西兰花','花椰菜','洋葱','大蒜','生菜','芹菜','黄瓜','茄子','蘑菇']);
 
@@ -30,17 +29,16 @@ Echars.push(['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten
 Echars.push(['Cloud','Flower','Leaf','Stone','Water','Snow','Rainbow','Sun','Moon','Sand','Tree','Grass','Mountain','River']);
 Echars.push(['Ribbon','Love','Demon','Angel','Candy','Ice cream']);
 Echars.push(['Cherry','Blueberry','Longan','Peach','Banana','Coconut','Apple','Orange','Grape','Papaya','Watermelon','Strawberry','Jackfruit']);
-Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow','Hand','Armpit','Finger','Belly','Chest','Knee','Leg','Thigh','Toe','Foot']);
-Echars.push(['Hair','Eyelash','Buttock','Heel','Calf']);
+Echars.push(['Nose','Eye','Mouth','Ear','Eyebrow','Hand','Armpit','Finger','Belly','Chest','Knee','Leg','Thigh','Toe','Foot','Hair','Eyelash','Buttock','Heel','Calf']);
 Echars.push(['French Fries','Hamburger','Cheese','Steak','Sandwich']);
 Echars.push(['Rice','Noodle','Egg','Pork','Vegetable']);
 Echars.push(['Dessert','Drink','Bread','Cake','Cookie']);
-Echars.push(['Monkey','Sheep','Duck','Bird','Cow']);
-Echars.push(['Crocodile','Turkey','Squirrel','Panda','Deer']);
+Echars.push(['Turkey','Sheep','Duck','Bird','Cow','Donkey']);
+Echars.push(['Crocodile','Monkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 Echars.push(['Pumpkin','Corn','Tomato','Potato','Cabbage','Pea','Spinach','Broccoli','Cauliflower','Onion','Garlic','Lettuce','Celery','Cucumber','Eggplant','Mushroom']);
 
-category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Body','Body','Food','Food','Food','Animals','Animals','Animals','Food')
+category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Body','Food','Food','Food','Animals','Animals','Animals','Food')
 /*
 Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？'])
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);

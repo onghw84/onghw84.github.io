@@ -6,6 +6,7 @@ const image_dir = './public/image/bigger/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
 const MCQ = ['A','B','C','D'];
 var showNum = 1;
+var showLine = 1;
 var answer = '';
 
 document.getElementById("correct").innerHTML = correct;
@@ -26,11 +27,11 @@ genGame();
 //setInterval(drawClock, 1000);
 document.getElementById("showNum").addEventListener("click", function (){
   if (this.checked){
-	showNum = 1;
+	showNum = 1; showLine = 1;
 	radius = canvas.height / 2 * 0.8;	
   }
   else {
-	showNum = 0;
+	showNum = 0; showLine = 0;
 	radius = canvas.height / 2 * 0.9;
   }
   ctx.clearRect(-canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
@@ -53,6 +54,22 @@ function drawFace(ctx, radius) {
   ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
   ctx.fillStyle = '#333';
   ctx.fill();
+}
+
+function drawLines(ctx, radius) {
+
+  for(let num = 1; num < 13; num++){
+	pos = num*Math.PI/6
+    ctx.beginPath();
+    ctx.lineWidth = radius*0.01;
+	ctx.strokeStyle = "white";
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -radius);
+    ctx.stroke();
+    ctx.rotate(-pos);
+  }
 }
 
 function drawNumbers(ctx, radius) {
@@ -174,6 +191,7 @@ async function genGame(){
 	drawFace(ctx, radius);
 	drawNumbers(ctx, radius);
 	if (showNum == 1){drawNumbers1(ctx, radius);}
+	if (showLine == 1){drawLines(ctx, radius);}
     var hour = Math.ceil(Math.random()*11);
     var minute = Math.floor(Math.random()*12)*5;
     var second = 1; //Math.floor(Math.random()*60);
