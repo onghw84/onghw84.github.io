@@ -8,6 +8,8 @@ const MCQ = ['A','B','C','D'];
 var showNum = 1;
 var showLine = 1;
 var answer = '';
+var hh = 12;
+var mm = 0;
 
 document.getElementById("correct").innerHTML = correct;
 document.getElementById("error").innerHTML = error;
@@ -16,13 +18,36 @@ document.getElementById("B").addEventListener("click", answerHandler);
 document.getElementById("C").addEventListener("click", answerHandler);
 document.getElementById("D").addEventListener("click", answerHandler);
 
+document.getElementById("hplus").addEventListener("click", clkHandler);
+document.getElementById("hminus").addEventListener("click", clkHandler);
+document.getElementById("mplus").addEventListener("click", clkHandler);
+document.getElementById("mminus").addEventListener("click", clkHandler);
+
+document.getElementById("play").style.display = "none";
+
 let reward = new Reward();
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
 ctx.translate(radius, radius);
 radius = radius * 0.8;
-genGame();
+reset_clk(hh,mm);
+
+const learnSelect = document.querySelectorAll('input[name="learn_play"]');
+for (let i = 0; i < learnSelect.length; i++) {
+  learnSelect[i].addEventListener("change", function() {
+    if (this.value == 1){
+      document.getElementById("learn").style.display = "flex";
+	  document.getElementById("play").style.display = "none";
+	  reset_clk(hh,mm);
+    }
+	else {
+      document.getElementById("learn").style.display = "none";
+	  document.getElementById("play").style.display = "block";
+	  genGame();
+	}
+  })
+}
 
 //setInterval(drawClock, 1000);
 document.getElementById("showNum").addEventListener("click", function (){
@@ -34,9 +59,24 @@ document.getElementById("showNum").addEventListener("click", function (){
 	showNum = 0; showLine = 0;
 	radius = canvas.height / 2 * 0.9;
   }
-  ctx.clearRect(-canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
-  genGame();
+  
+  if (document.getElementById("learn").style.display == "flex"){
+	  reset_clk(hh,mm);
+  }
+  else {
+	  reset_clk(parseInt(answer.substring(0,2)), parseInt(answer.substring(3)))
+  }
 });
+
+function reset_clk(h,m){
+	ctx.clearRect(-canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
+	drawFace(ctx, radius);
+	drawNumbers(ctx, radius);
+	if (showNum == 1){drawNumbers1(ctx, radius);}
+	if (showLine == 1){drawLines(ctx, radius);}
+	
+	drawTime(ctx, radius, h, m, 1);
+}
 
 function drawFace(ctx, radius) {
   const grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
@@ -57,7 +97,6 @@ function drawFace(ctx, radius) {
 }
 
 function drawLines(ctx, radius) {
-
   for(let num = 1; num < 13; num++){
 	pos = num*Math.PI/6
     ctx.beginPath();
@@ -115,7 +154,7 @@ function drawTime(ctx, radius, hour, minute, second){
     hour=(hour*Math.PI/6)+
     (minute*Math.PI/(6*60))+
     (second*Math.PI/(360*60));
-    drawHand(ctx, hour, radius*0.5, radius*0.07, 'blue');
+    drawHand(ctx, hour, radius*0.5, radius*0.07, 'purple');
     //minute
     minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
     drawHand(ctx, minute, radius*0.75, radius*0.07, 'blue');
@@ -136,6 +175,38 @@ function drawHand(ctx, pos, length, width, color) {
     ctx.rotate(-pos);
 }
 
+function clkHandler(){
+  id = event.target.id;
+  if (id == "mplus"){
+	  mm += 5;
+	  if (mm >= 60){
+		  mm = 0; hh += 1;
+	  }
+  }
+  else if (id == "mminus"){
+	  mm -= 5;
+	  if (mm < 0){
+		  mm = 55; hh -= 1;
+	  }	  
+  }
+  else if (id == "hplus"){
+	  hh += 1;
+  }
+  else {
+	  hh -= 1;
+  }
+  if (hh > 12){
+	  hh = 1;
+  }
+  if (hh <= 0){
+	  hh = 12
+  }
+  document.getElementById("hh").innerHTML = addZero(hh);
+  document.getElementById("mm").innerHTML = addZero(mm);
+  
+  reset_clk(hh,mm);
+  return;
+}
 
 function answerHandler(){    
   const value = this.myParam;
@@ -188,15 +259,16 @@ async function genGame(){
 	document.getElementById("sad").style.display = "none";  
 
 	//generate new game	
-	drawFace(ctx, radius);
-	drawNumbers(ctx, radius);
-	if (showNum == 1){drawNumbers1(ctx, radius);}
-	if (showLine == 1){drawLines(ctx, radius);}
     var hour = Math.ceil(Math.random()*11);
     var minute = Math.floor(Math.random()*12)*5;
     var second = 1; //Math.floor(Math.random()*60);
-	answer = `${hour}:${addZero(minute)}`;
-	drawTime(ctx, radius, hour, minute, second);
+	answer = `${addZero(hour)}:${addZero(minute)}`;
+	//drawFace(ctx, radius);
+	//drawNumbers(ctx, radius);
+	//if (showNum == 1){drawNumbers1(ctx, radius);}
+	//if (showLine == 1){drawLines(ctx, radius);}	
+	//drawTime(ctx, radius, hour, minute, second);
+	reset_clk(hour,minute);	
 	
 	//generate answer 
 	answerArray = Array(4);
@@ -204,11 +276,11 @@ async function genGame(){
 	for (var i = 0; i < 4; i++){
 		if (answerArray[i] != answer){
 			var hh = hour; var mm = minute;
-			while (answerArray.indexOf(`${hh}:${addZero(mm)}`) != -1){
+			while (answerArray.indexOf(`${addZero(hh)}:${addZero(mm)}`) != -1){
 				hh = hour + Math.floor(Math.random()*2);
 				mm = Math.floor(Math.random()*12)*5;
 			}			
-			answerArray[i] = `${hh}:${addZero(mm)}`;			
+			answerArray[i] = `${addZero(hh)}:${addZero(mm)}`;			
 		}
 	}
 	for (var i = 0; i < 4; i++){
