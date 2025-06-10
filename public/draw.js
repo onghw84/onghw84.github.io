@@ -58,6 +58,7 @@ canvas.addEventListener('pointermove', function (event) {
 
 function clickColor(color){
 	ctx.strokeStyle = color;
+	console.log(color);
 	document.getElementById("colorPicker").style.backgroundColor = color;
 	document.getElementById("content").style.display = "none";
 }
@@ -86,4 +87,72 @@ document.getElementById('save').addEventListener('click', function(e) {
 	  createEl.click();
 	  createEl.remove();
 	});
+});
+
+document.getElementById("showGrid").addEventListener("click", function (){
+  if (this.checked){
+	//document.getElementById("colorPicker").style.backgroundColor = color;
+	//background color
+	ctx.beginPath();
+	ctx.rect(0, 0, 100, 600);
+	ctx.fillStyle = "#99FFCC";
+	ctx.fill();
+	ctx.beginPath();	
+	ctx.rect(100, 0, 200, 600);
+	ctx.fillStyle = "#FFCCFF";
+	ctx.fill();
+	ctx.beginPath();	
+	ctx.rect(200, 0, 300, 600);
+	ctx.fillStyle = "#CCFFFF";
+	ctx.fill();	
+	ctx.beginPath();	
+	ctx.rect(300, 0, 400, 600);
+	ctx.fillStyle = "#FFFFCC";
+	ctx.fill();		
+	
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	
+	//vertical line
+	ctx.beginPath();
+	ctx.moveTo(100,0);
+	ctx.lineTo(100,600);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(200,0);
+	ctx.lineTo(200,600);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(300,0);
+	ctx.lineTo(300,600);
+	ctx.stroke();
+	
+	//horizontal line
+	ctx.beginPath();
+	ctx.moveTo(0,100);
+	ctx.lineTo(400,100);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(0,200);
+	ctx.lineTo(400,200);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(0,204);
+	ctx.lineTo(400,204);	
+	ctx.stroke();		
+	ctx.beginPath();
+	ctx.moveTo(0,300);
+	ctx.lineTo(400,300);
+	ctx.stroke();		
+	ctx.beginPath();
+	ctx.moveTo(0,304);
+	ctx.lineTo(400,304);	
+	ctx.stroke();		
+  }
+  else {
+	ctx.beginPath();
+	ctx.rect(000, 0, 400, 600);
+	ctx.fillStyle = "white";
+	ctx.fill();
+  }
 });
