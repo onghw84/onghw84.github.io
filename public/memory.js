@@ -1,5 +1,5 @@
 var total = 0;
-var item = 8;
+var item = 12;
 
 const img_dir = './public/image/memory/';
 
@@ -16,7 +16,7 @@ var count = 0;
 genGame();
 
 document.getElementById("kids").addEventListener("click", function(){
-	item = 8; document.getElementById("container1").style.height = "185px"; 
+	item = 12; document.getElementById("container1").style.height = "275px"; 
 	reset(); this.style.backgroundColor = "pink";
 })
 document.getElementById("easy").addEventListener("click", function(){
@@ -42,54 +42,57 @@ document.getElementById("startGame").addEventListener("click", async function(){
 	document.getElementById("startGame").style.display = "none";
 })
 
-function gridListener(event){
-	totalClick += 1;
-	document.getElementById("totalClick").innerHTML = totalClick;	
+function gridListener(event){	
 	if (clickCount == 0){		
 		focus1 = event.currentTarget.id;
 		this.classList.remove("close");
 		clickCount = 1;
 		document.getElementById(focus1.replace('A','')).style.visibility = "visible";
+		totalClick += 1;
+		document.getElementById("totalClick").innerHTML = totalClick;
+		if (totalClick > item*1.5){
+			document.getElementById("totalClick").style.backgroundColor = "red";
+		}
 	}
-	else if (clickCount == 1){
+	else if (clickCount == 1){		
 		focus2 = event.currentTarget.id;
-		this.classList.remove("close");
-		clickCount = 0;
-		document.getElementById(focus2.replace('A','')).style.visibility = "visible";		
-		answerHandler();
+		if (focus1 != focus2){
+			this.classList.remove("close");
+			clickCount = 0;
+			document.getElementById(focus2.replace('A','')).style.visibility = "visible";
+			totalClick += 1;			
+			document.getElementById("totalClick").innerHTML = totalClick;
+			if (totalClick > item*1.5){
+				document.getElementById("totalClick").style.backgroundColor = "red";
+			}			
+			answerHandler();
+		}
 	}	
 }
 
 async function answerHandler(){    
   const value1 = document.getElementById(focus1).myParams;  
   const value2 = document.getElementById(focus2).myParams;  
-  if (focus1 == focus2){
-	  document.getElementById(focus1).classList.add("close");
-	  return;
+  if (value1 == value2){
+	  document.getElementById(focus1).classList.remove("close");
+	  document.getElementById(focus2).classList.remove("close");
+	  document.getElementById(focus1).classList.add("stop");
+	  document.getElementById(focus2).classList.add("stop");
+	  count += 1;
   }
   else {
-	  if (value1 == value2){
-		  document.getElementById(focus1).classList.remove("close");
-		  document.getElementById(focus2).classList.remove("close");
-		  document.getElementById(focus1).classList.add("stop");
-		  document.getElementById(focus2).classList.add("stop");
-		  count += 1;
-	  }
-	  else {
-		  await new Promise(resolve => setTimeout(resolve, 300));
-		  document.getElementById(focus1.replace('A','')).style.visibility = "hidden";
-		  document.getElementById(focus2.replace('A','')).style.visibility = "hidden";
-		  document.getElementById(focus1).classList.add("close");
-		  document.getElementById(focus2).classList.add("close");		  
-	  }
+	  await new Promise(resolve => setTimeout(resolve, 300));
+	  document.getElementById(focus1.replace('A','')).style.visibility = "hidden";
+	  document.getElementById(focus2.replace('A','')).style.visibility = "hidden";
+	  document.getElementById(focus1).classList.add("close");
+	  document.getElementById(focus2).classList.add("close");		  
   }
   
   if (count == item/2){
 	document.getElementById("container1").style.backgroundColor = "pink";
-	if (totalClick < item*1.5){
+	if (totalClick <= item*1.5){
 	   total += 1; 
-	}
-	count = 0; totalClick = 0;
+	}	
 	document.getElementById("total").innerHTML = total;
 	reward.showReward(total, 1);
   }
@@ -107,7 +110,9 @@ function genGame(){
 			text += `<div class = "grid size24" id="${i+'A'}"><img id="${i}" class="size24"></img></div>`;
 		}
 	}
-	document.getElementById("totalClick").innerHTML = totalClick;
+	count = 0; totalClick = 0;
+	document.getElementById("totalClick").innerHTML = 0;
+	document.getElementById("totalClick").style.backgroundColor = "#FFE5B4";
 	document.getElementById("container1").innerHTML = text;
 	document.getElementById("startGame").style.display = "flex";
 	

@@ -1,6 +1,11 @@
 const rewardDiv = document.getElementById("reward");
 
-song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
+song_list = [
+	"https://www.youtube.com/watch?v=bWUgZm_AE64",
+	"https://www.youtube.com/watch?v=V5Bs9xydba0",
+];
+/*
+	"https://www.youtube.com/watch?v=Ywgpv1pYvb4",
     "https://www.youtube.com/watch?v=EGHQecqF4V0",
     "https://www.youtube.com/watch?v=Ql8kUKyuHXc",
     "https://www.youtube.com/shorts/SCV_cizxtf8",
@@ -15,9 +20,7 @@ song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
     "https://www.youtube.com/shorts/8ENpdX4QGTo",
     "https://www.youtube.com/watch?v=bWUgZm_AE64",
 	"https://www.youtube.com/watch?v=x9rAaK0lC7s",
-	"https://www.youtube.com/shorts/092rsFvciJY",
-	"https://www.youtube.com/watch?v=bWUgZm_AE64",
-	"https://www.youtube.com/watch?v=V5Bs9xydba0",
+	"https://www.youtube.com/shorts/092rsFvciJY",		
 	"https://www.youtube.com/watch?v=e81A9pw59tM",
 	"https://www.youtube.com/shorts/onadBK5OgXE",
 	"https://www.youtube.com/shorts/WrThhFosciA",
@@ -42,7 +45,7 @@ song_list = ["https://www.youtube.com/watch?v=Ywgpv1pYvb4",
 	"https://www.youtube.com/watch?v=ThudFFly5qQ&t=44s",
 	"https://www.youtube.com/watch?v=oY89rbSIX_Q&t=37s"
 	
-];
+];*/
 
 rewardDiv.innerHTML =  `
       <img id="cat1" src="./public/reward/kitty1.gif" alt="cat1" >
