@@ -4,7 +4,12 @@ const iconArray = ["fa fa-cloud","fa fa-circle","fa fa-leaf","fa fa-paw","fa fa-
 const colorArray = ["orange","orangered","blue","black","green","red","peru","purple"]
 const reward_dir = './public/reward/';
 const happyImg = ["happybee1.jpg","happybee2.jpg","happybee3.jpg","happybee4.jpg","happybee5.jpg","happybee6.jpg","happycat1.jpg","happycat2.jpg","happycat3.jpg","happycat4.jpg","happycat5.jpg","happycat6.jpg"];
-const wordPair = [["找","我"],["水","永"],["刀","力"],["十","土"],["厂","广"],["九","几"],["月","明"],["笑","哭"],["是","足"],["品","晶"],["好","女"]];
+const wordPair = [["CR","GP"],["80","BO"],["F5","ES"],["85","BS"],["EO","FQ"],["CM","GM"],["pq","bd"]];
+//["午","牛"],["九","丸"],["人","入"],["生","牛"],["井","并"],["女","文"],["洋","详"],["挨","埃"],["仑","仓"],["于","丁"],["正","止"],["晴","睛"]];
+
+//["找","我"],["水","永"],["刀","力"],["十","土"],["厂","广"],["九","几"],["月","明"],["笑","哭"],["是","足"],["品","晶"],["好","女"],
+//["三","二"],["大","太"],["十","干"],["乙","九"],["大","天"],["必","心"],["子","了"],["日","目"],
+//,
 const ABCArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlklmnopqrstuvwxyz";
 const fontArray = ["Courier New","Georgia","Arial","Monospace"];
 	  
