@@ -1,6 +1,14 @@
 const canvas = document.getElementById("myCanvas");
 var clicked = false; var move = false;
 const ctx = canvas.getContext("2d");
+const ge_image = new Image();
+ge_image.src = './public/image/ge.png';
+const bai_image = new Image();
+bai_image.src = './public/image/bai.png';
+const qian_image = new Image();
+qian_image.src = './public/image/qian.png';
+const shi_image = new Image();
+shi_image.src = './public/image/shi.png';
 
 //set line width and color
 ctx.lineWidth = 4;
@@ -94,60 +102,48 @@ document.getElementById("showGrid").addEventListener("click", function (){
 	//document.getElementById("colorPicker").style.backgroundColor = color;
 	//background color
 	ctx.beginPath();
-	ctx.rect(0, 0, 100, 600);
-	ctx.fillStyle = "#99FFCC";
+	ctx.rect(0, 0, 80, 600);
+	ctx.fillStyle = "#FFFFFF";
 	ctx.fill();
 	ctx.beginPath();	
-	ctx.rect(100, 0, 200, 600);
+	ctx.rect(80, 0, 160, 600);
 	ctx.fillStyle = "#FFCCFF";
 	ctx.fill();
 	ctx.beginPath();	
-	ctx.rect(200, 0, 300, 600);
+	ctx.rect(160, 0, 240, 600);
 	ctx.fillStyle = "#CCFFFF";
 	ctx.fill();	
 	ctx.beginPath();	
-	ctx.rect(300, 0, 400, 600);
+	ctx.rect(240, 0, 320, 600);
 	ctx.fillStyle = "#FFFFCC";
-	ctx.fill();		
+	ctx.fill();
+	ctx.beginPath();	
+	ctx.rect(320, 0, 400, 600);
+	ctx.fillStyle = "#99FFCC";
+	ctx.fill();			
 	
 	ctx.lineWidth = 2;
 	ctx.strokeStyle = "black";
 	
 	//vertical line
-	ctx.beginPath();
-	ctx.moveTo(100,0);
-	ctx.lineTo(100,600);
-	ctx.stroke();
-	ctx.beginPath();
-	ctx.moveTo(200,0);
-	ctx.lineTo(200,600);
-	ctx.stroke();
-	ctx.beginPath();
-	ctx.moveTo(300,0);
-	ctx.lineTo(300,600);
-	ctx.stroke();
+	for (var i = 80; i <= 400; i += 80){
+		ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,600); ctx.stroke();
+	}
 	
 	//horizontal line
-	ctx.beginPath();
-	ctx.moveTo(0,100);
-	ctx.lineTo(400,100);
-	ctx.stroke();
-	ctx.beginPath();
-	ctx.moveTo(0,200);
-	ctx.lineTo(400,200);
-	ctx.stroke();
-	ctx.beginPath();
-	ctx.moveTo(0,204);
-	ctx.lineTo(400,204);	
-	ctx.stroke();		
-	ctx.beginPath();
-	ctx.moveTo(0,300);
-	ctx.lineTo(400,300);
-	ctx.stroke();		
-	ctx.beginPath();
-	ctx.moveTo(0,304);
-	ctx.lineTo(400,304);	
-	ctx.stroke();		
+	for (var i = 80; i <= 600; i += 80){
+		ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(400,i); ctx.stroke();
+	}
+	
+	//indicator
+	ctx.drawImage(ge_image, 330, 10, 60, 60);
+	ctx.drawImage(shi_image, 250, 10, 60, 60);
+	ctx.drawImage(bai_image, 170, 10, 60, 60);
+	ctx.drawImage(qian_image, 90, 10, 60, 60);
+	
+	ctx.lineWidth = 4;
+	ctx.strokeStyle = "#CC00FF";
+	document.getElementById("colorPicker").style.backgroundColor = "#CC00FF";
   }
   else {
 	ctx.beginPath();
