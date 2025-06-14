@@ -3,14 +3,14 @@ const chars2 = "小爬子娃虫森胖旁参开拿众我月不妹法每闪彩力�
 const chars3 = "亲秋书足么牙山当雪坐衣旗夏车青吗下吧真歌把再鸦远两莲写回向上妈哥河风大可火鸟乐气在木船鱼条女心贝包给耳日兔土几叶对孩听正活己亮鼻作牛弟年它狗目鸡黄奶前高桥影金成也了短得水西飞只少要猫步分起桌个好伞草午为出从地空云走人右村故千后生爸美着那林明里春又片吐打自全采白公见乌没和看有立声北米老东南爷桃天头到石尾手";
 const newChar = "神仙使蜜蜂馨蝴蝶巢";
 
-const pinyin1 = ['cháng','hòu','xìng','dōu','jí','shuí','zhuàng','yáng','fēi','zěn','nuǎn','qián','xiē','wáng','rú','ròu','miàn','xiào','chǔ','gāng','sòng','sǐ','zhí','suǒ','yuán','suì','guāng','yǔ','zhè','xià','shēng','chí','qún','tài','jiǎng','xiàng','wài','xīn','yè','fāng','yáng','jǔ','yuán','jiè','qǐng','yǒng','dào','jiān','pái','luàn','shì','dòu','bǎo','shēn','yàng','kè','pà','xìn','chá','diū','tǐ','rè','chuī','yùn','ān','yīn','bìng','rán','qiú','wēn','máng','gāi','zhǒng','bīng','chī','chuáng','chuāng','jiào','tiào','shǎ','jī','duǒ','bǎi','jiǎo','qì','dòng','qíng','liú','mián','píng','dōng','mìng','yóu','bié','chí','hóng','wén','zhǔ','dù','gēn','jiào','liáng','tī','léi','jiù','diàn','pǎo','wàng','qún','hài','hóu','zhuō','bǎo','cháng','mèn','zuò','gào','jǐng','huǒ','yàn','hū','guǐ','yě','xǐ','jìng','cháng','xiǎng','jìn','liǎn','ài','jīng','yán','gēng','yǔ','xiào','zuó','yǔ','ér','jìn','shuō','bàn','fú'];
-const pinyin2 = ['xiǎo','pá','zǐ','wá','chóng','sēn','pàng','páng','cān','kāi','ná','zhòng','wǒ','yuè','bù','mèi','fǎ','měi','shǎn','cǎi','lì','chǐ','guān','bǐ','shì','tián','yǎn','xué','mén','huā','bā','hēi','tóng','lù','qù','gōng','zhàn','chuān','nín','pí','xǔ','wā','tā','nǐ','dāo','kuài','xiāng','kǒu','cháng','zuì','cái','hěn','yè','wén','lán','diǎn','bàn','běn','yǐ','mén','guǒ','píng','yá','fàng','zì','hóng','sè','yī','jiān','wèn','zǎo','chǎo','wǎn','dēng','tā','yā','huà','de','guó','tái','shén','xǐ','huán','shù','hǎi','fā','wú','fǎn','jiě','zhōng','jué','jiǔ','chén','shuāng','guò','tián','yuàn','duō','dòng','lái','lǜ','huì','guà','lì','máo','shū','chuàn','zuǒ','jīn','shī','péng','biān','shí','zhù','yǒu','wán','yīn','nán','wān','jiā','shù','jiā','zhǐ','yòng','shuì','yā','bǐ','biàn','zhǎo','xīng','mǎ','dōng','yī','èr','sān','sì','wǔ','liù','qī','bā','jiǔ','shí','jīng','wù','ràng','yāo','chàng','wǎng','tuǐ','jié','hé','tíng','shé','shí','zhuàn'];
+const pinyin1 = ['cháng','hòu','xìng','dōu','jí','shuí','zhuàng','yáng','fēi','zěn','nuǎn','qián','xiē','wáng','rú','ròu','miàn','xiào','chù','gāng','sòng','sǐ','zhí','suǒ','yuán','suì','guāng','yǔ','zhè','xià','shēng','chí','qún','tài','jiǎng','xiàng','wài','xīn','yè','fāng','yáng','jǔ','yuán','jiè','qǐng','yǒng','dào','jiān','pái','luàn','shì','dòu','bǎo','shēn','yàng','kè','pà','xìn','chá','diū','tǐ','rè','chuī','yùn','ān','yīn','bìng','rán','qiú','wēn','máng','gāi','zhòng','bīng','chī','chuáng','chuāng','jiào','tiào','shǎ','jī','duǒ','bǎi','jiǎo','qì','dòng','qíng','liú','mián','píng','dōng','mìng','yóu','bié','chí','hóng','wén','zhǔ','dù','gēn','jiào','liáng','tī','léi','jiù','diàn','pǎo','wàng','qún','hài','hóu','zhuō','bǎo','cháng','mèn','zuò','gào','jǐng','huǒ','yàn','hū','guǐ','yě','xǐ','jìng','cháng','xiǎng','jìn','liǎn','ài','jīng','yán','gèng','yǔ','xiào','zuó','yǔ','ér','jìn','shuō','bàn','fú'];
+const pinyin2 = ['xiǎo','pá','zǐ','wá','chóng','sēn','pàng','páng','cān','kāi','ná','zhòng','wǒ','yuè','bù','mèi','fǎ','měi','shǎn','cǎi','lì','chǐ','guān','bǐ','shì','tián','yǎn','xué','mén','huā','bā','hēi','tóng','lù','qù','gōng','zhàn','chuān','nín','pí','xǔ','wā','tā','nǐ','dāo','kuài','xiāng','kǒu','cháng','zuì','cái','hěn','yè','wén','lán','diǎn','bàn','běn','yǐ','mén','guǒ','píng','yá','fàng','zì','hóng','sè','yī','jiān','wèn','zǎo','chǎo','wǎn','dēng','tā','yā','huà','de','guó','tái','shén','xǐ','huán','shù','hǎi','fǎ','wú','fǎn','jiě','zhōng','jué','jiǔ','chén','shuāng','guò','tián','yuàn','duō','dòng','lái','lǜ','huì','guà','lì','máo','shū','chuàn','zuǒ','jīn','shī','péng','biān','shí','zhù','yǒu','wán','yīn','nán','wān','jiā','shù','jiā','zhǐ','yòng','shuì','yā','bǐ','biàn','zhǎo','xīng','mǎ','dōng','yī','èr','sān','sì','wǔ','liù','qī','bā','jiǔ','shí','jīng','wù','ràng','yāo','chàng','wǎng','tuǐ','jié','hé','tíng','shé','shí','zhuǎn'];
 const pinyin3 = ['qīn','qiū','shū','zú','me','yá','shān','dāng','xuě','zuò','yī','qí','xià','chē','qīng','má','xià','bā','zhēn','gē','bǎ','zài','yā','yuǎn','liǎng','lián','xiě','huí','xiàng','shàng','mā','gē','hé','fēng','dà','kě','huǒ','niǎo','lè','qì','zài','mù','chuán','yú','tiáo','nǚ','xīn','bèi','bāo','gěi','ěr','rì','tù','tǔ','jī','yè','duì','hái','tīng','zhèng','huó','jǐ','liàng','bí','zuò','niú','dì','nián','tā','gǒu','mù','jī','huáng','nǎi','qián','gāo','qiáo','yǐng','jīn','chéng','yě','liǎo','duǎn','dé','shuǐ','xī','fēi','zhī','shǎo','yào','māo','bù','fēn','qǐ','zhuō','gè','hǎo','sǎn','cǎo','wǔ','wéi','chū','cóng','dì','kōng','yún','zǒu','rén','yòu','cūn','gù','qiān','hòu','shēng','bà','měi','zhuó','nà','lín','míng','lǐ','chūn','yòu','piàn','tǔ','dǎ','zì','quán','cǎi','bái','gōng','jiàn','wū','méi','hé','kàn','yǒu','lì','shēng','běi','mǐ','lǎo','dōng','nán','yé','táo','tiān','tóu','dào','shí','wěi','shǒu'];
 const pinyin_new = ['shén','xiān','shǐ','mì','fēng','xīn','hú','dié','cháo']
 
 //const sound1 = new Array(chars1.length).fill(0).map((e,i) => {return i});
 let reward = new Reward();
-const audio_dir = './public/audio/';
+const audio_dir = './public/audio/pinyin/';
 
 var chars_array = chars1.split("");
 var pinyin_array = [...pinyin1];
@@ -89,17 +89,17 @@ document.getElementById("song").addEventListener("click", function (){
 });
 
 function convertsound(input) {
-	var accent = 1;
+	var accent = 0;
 	if (input.match(/[āēīōū]/g)){
 		accent = 1;
 	}
-	else if (input.match(/[áéíóú]/g)){
+	else if (input.match(/[áéíóúǘ]/g)){
 		accent = 2;
 	}
-	else if (input.match(/[ǎěǐǒǔ]/g)){
+	else if (input.match(/[ǎěǐǒǔǚ]/g)){
 		accent = 3;
 	}
-	else if (input.match(/[àèìòù]/g)){
+	else if (input.match(/[àèìòùǜ]/g)){
 		accent = 4;
 	}
 	
@@ -108,8 +108,11 @@ function convertsound(input) {
 	input = input.replace(/[īíǐì]/g, "i");
 	input = input.replace(/[ōóǒò]/g, "o");
 	input = input.replace(/[ūúǔù]/g, "u");
-		
-	return input+accent;
+	input = input.replace(/[ǜǚǘ]/g, "v");
+	if (accent == 0){
+		return input;
+	}
+	else {return input+accent;}
 }
 
 function playaudio(name){
@@ -117,3 +120,4 @@ function playaudio(name){
 	var music = new Audio(path);
 	music.play();
 }
+

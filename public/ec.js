@@ -21,8 +21,9 @@ Mchars.push(['生菜','芹菜','黄瓜','茄子','蘑菇']);
 Mchars.push(['豌豆','菠菜','西兰花','花椰菜','洋葱','大蒜']);
 Mchars.push(['鳄鱼','猴子','松鼠','熊猫','鹿']);
 Mchars.push(['浣熊','斑马','长颈鹿','狐狸','豹']);
-Mchars.push(['星期一','星期二','星期三','星期四','星期五','星期六','星期天'])
-Mchars.push(['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'])
+Mchars.push(['星期一','星期二','星期三','星期四','星期五','星期六','星期天']);
+Mchars.push(['一月','二月','三月','四月','五月','六月']);
+Mchars.push(['七月','八月','九月','十月','十一月','十二月']);
 Mchars.push(['谁？','什么？','为什么？','哪里？','怎么？']);
 
 Echars.push(['Bee','Cat','Dog','Rabbit','Mouse','Elephant','Fish','Lion','Tiger','Snake','Dragon','Butterfly','Dragonfly','Hen','Chick','Horse','Goat','Rooster','Turkey','Sheep','Duck','Bird','Cow','Donkey']);
@@ -39,10 +40,11 @@ Echars.push(['Pea','Spinach','Broccoli','Cauliflower','Onion','Garlic']);
 Echars.push(['Crocodile','Monkey','Squirrel','Panda','Deer']);
 Echars.push(['Raccoon','Zebra','Giraffe','Fox','Leopard']);
 Echars.push(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']);
-Echars.push(['January','February','March','April','May','June','July','August','September','October','November','December']);
+Echars.push(['January','February','March','April','May','June']);
+Echars.push(['July','August','September','October','November','December']);
 Echars.push(['Who','What','Why','Where','How']);
 
-category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Body','Food','Vege','Vege','Vege','Animals','Animals','Day of Week','Month','Ques')
+category.push('Animals','Colours','Numbers','Nature','Misc.','Fruits','Body','Food','Vege','Vege','Vege','Animals','Animals','Day of Week','Month1','Month2','Ques')
 /*
 Mchars.push(['舌头','牙齿','手掌','乳房','指甲']);
 Mchars.push(['屋子','船','风扇','电脑','手机']);
