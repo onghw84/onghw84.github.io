@@ -89,7 +89,7 @@ async function genGame(){
 	tested.forEach((el,index) => {if (el == minTest){minIndex.push(index)}})
 	var newIndex = minIndex[Math.floor(Math.random()*minIndex.length)]+1;
 	tested[newIndex-1]+= 1;
-	newIndex = 99;
+
 	var imgSrc = image_dir + newIndex + '.jpg';
 
 	img.src = imgSrc;
